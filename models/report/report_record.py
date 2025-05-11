@@ -1,4 +1,5 @@
 from models import db
+from enums.enum_record_status import RecordStatus
 
 class ReportRecord(db.Model):
     __tablename__ = 'report_record'
@@ -6,4 +7,4 @@ class ReportRecord(db.Model):
     report_type = db.Column(db.String, nullable=False)
     title = db.Column(db.String, nullable=False)
     description = db.Column(db.String, nullable=False)
-    status = db.Column(db.Enum('OPEN', 'IN_PROGRESS', 'RESOLVED', 'REJECTED', name='report_status_enum'), nullable=False)
+    status = db.Column(db.Enum(RecordStatus), nullable=False)

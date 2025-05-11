@@ -1,4 +1,5 @@
 from models import db
+from enums.enum_width_unit import WidthUnit
 
 class PlayerSettings(db.Model):
     __tablename__ = 'player_settings'
@@ -8,7 +9,7 @@ class PlayerSettings(db.Model):
     show_email_on_profile = db.Column(db.Boolean)
     show_inventory_on_profile = db.Column(db.Boolean)
     receive_emails = db.Column(db.Boolean)
-    width_unit = db.Column(db.Enum('px', 'em', 'rem', name='width_unit_enum'))
+    width_unit = db.Column(db.Enum(WidthUnit))
     time_zone_last_update = db.Column(db.DateTime)
 
     player_id = db.Column(db.Integer, db.ForeignKey('player.id'), unique=True)

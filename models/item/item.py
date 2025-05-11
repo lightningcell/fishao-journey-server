@@ -1,10 +1,11 @@
 from models import db
+from enums.enum_inventory_type import InventoryType
 
 class Item(db.Model):
     __tablename__ = 'item'
     id = db.Column(db.Integer, primary_key=True)
     amount = db.Column(db.Integer, nullable=False)
-    item_type = db.Column(db.Enum('Bait', 'Rod', 'Look', 'Fruit', name='item_type_enum'), nullable=False)
+    item_type = db.Column(db.Enum(InventoryType), nullable=False)
     type = db.Column(db.String(50))
 
     bait_id = db.Column(db.Integer, db.ForeignKey('bait.id'))
