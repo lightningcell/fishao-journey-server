@@ -9,4 +9,4 @@ class Bait(db.Model):
     category_id = db.Column(db.Integer, db.ForeignKey('bait_category.id'))
     category = db.relationship('BaitCategory', back_populates='baits')
 
-    item = db.relationship('Item', back_populates='bait', uselist=False)
+    items = db.relationship('Item', back_populates='bait')

@@ -5,7 +5,6 @@ class Fish(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, nullable=False)
     star_rate = db.Column(db.Integer)
-    fish_id = db.Column(db.Integer, unique=True, nullable=False)
     rarity_factor = db.Column(db.Float)
     min_length = db.Column(db.Integer)
     average_length = db.Column(db.Integer)

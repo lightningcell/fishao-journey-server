@@ -5,5 +5,5 @@ class SpecialLocation(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, nullable=False)
     title = db.Column(db.String, nullable=False)
-
-    areas = db.relationship('Area', back_populates='special_location', lazy='dynamic')
+    area_id = db.Column(db.Integer, db.ForeignKey('area.id'), nullable=False)
+    area = db.relationship('Area', back_populates='special_locations')

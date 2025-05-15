@@ -9,9 +9,7 @@ class Area(db.Model):
     area_id = db.Column(db.Integer, unique=True)  # Unique AreaID
     level_requirement = db.Column(db.Integer)
 
-    # Foreign key to SpecialLocation
-    special_location_id = db.Column(db.Integer, db.ForeignKey('special_location.id'))
-    special_location = db.relationship('SpecialLocation', back_populates='areas')
+    special_locations = db.relationship('SpecialLocation', back_populates='area', lazy='dynamic')
 
     # Self-referential one-to-many for subareas
     parent_area_id = db.Column(db.Integer, db.ForeignKey('area.id'))

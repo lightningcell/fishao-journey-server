@@ -8,4 +8,4 @@ class Rod(db.Model):
     size = db.Column(db.Enum(RodSizes), nullable=False)
     length_quality = db.Column(db.Integer, nullable=False)
     
-    item = db.relationship('Item', back_populates='rod', uselist=False)
+    items = db.relationship('Item', back_populates='rod')

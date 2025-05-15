@@ -1,8 +1,6 @@
 from models import db
 
-class Look(db.Model):
-    __tablename__ = 'look'
+class NPC(db.Model):
+    __tablename__ = 'npc'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, nullable=False)
-
-    items = db.relationship('Item', back_populates='look')

@@ -5,4 +5,4 @@ class Fruit(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, nullable=False)
 
-    item = db.relationship('Item', back_populates='fruit', uselist=False)
+    items = db.relationship('Item', back_populates='fruit')
