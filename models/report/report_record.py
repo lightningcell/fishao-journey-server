@@ -8,6 +8,7 @@ class ReportRecord(db.Model):
     title = db.Column(db.String, nullable=False)
     description = db.Column(db.String, nullable=False)
     status = db.Column(db.Enum(RecordStatus), nullable=False)
+    created_date = db.Column(db.DateTime)
 
     reported_player_id = db.Column(db.Integer, db.ForeignKey('player.id'))
     reported_player = db.relationship('Player', back_populates='reported_reports', foreign_keys=[reported_player_id])

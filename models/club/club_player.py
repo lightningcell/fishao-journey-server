@@ -8,3 +8,4 @@ class ClubPlayer(db.Model):
     club = db.relationship('Club', back_populates='club_players')
     player_id = db.Column(db.Integer, db.ForeignKey('player.id'))
     player = db.relationship('Player', back_populates='club_players')
+    created_date = db.Column(db.DateTime)

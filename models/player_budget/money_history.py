@@ -8,3 +8,4 @@ class MoneyHistory(db.Model):
     description = db.Column(db.String, nullable=False)
     player_id = db.Column(db.Integer, db.ForeignKey('player.id'))
     player = db.relationship('Player', back_populates='money_histories')
+    created_date = db.Column(db.DateTime)

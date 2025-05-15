@@ -11,6 +11,9 @@ class Account(db.Model):
     last_login = db.Column(db.DateTime)
     is_active = db.Column(db.Boolean, default=True)
     is_banned = db.Column(db.Boolean, default=False)
+    changed_date = db.Column(db.DateTime)
+    owner = db.Column(db.String)
+    changed_by = db.Column(db.String)
     # Add more fields as needed
 
     type = db.Column(db.String(50))

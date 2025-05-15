@@ -14,3 +14,4 @@ class Trade(db.Model):
     given_by = db.relationship('Player', back_populates='trades_given', foreign_keys=[given_by_id])
     taken_by_id = db.Column(db.Integer, db.ForeignKey('player.id'))
     taken_by = db.relationship('Player', back_populates='trades_taken', foreign_keys=[taken_by_id])
+    created_date = db.Column(db.DateTime)

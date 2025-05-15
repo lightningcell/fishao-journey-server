@@ -6,6 +6,7 @@ class PM(db.Model):
     subject = db.Column(db.String, nullable=False)
     content = db.Column(db.String, nullable=False)
     seen = db.Column(db.Boolean, nullable=False, default=False)
+    created_date = db.Column(db.DateTime)
 
     # One-to-Many: PM -> Player (Receiver)
     receiver_id = db.Column(db.Integer, db.ForeignKey('player.id'))
