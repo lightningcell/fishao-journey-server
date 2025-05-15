@@ -6,3 +6,5 @@ class MoneyHistory(db.Model):
     is_fish_bucks = db.Column(db.Boolean, nullable=False)
     amount = db.Column(db.Integer, nullable=False)
     description = db.Column(db.String, nullable=False)
+    player_id = db.Column(db.Integer, db.ForeignKey('player.id'))
+    player = db.relationship('Player', back_populates='money_histories')

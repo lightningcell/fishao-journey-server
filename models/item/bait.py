@@ -10,3 +10,6 @@ class Bait(db.Model):
     category = db.relationship('BaitCategory', back_populates='baits')
 
     items = db.relationship('Item', back_populates='bait')
+
+    # Reverse relationship for FishingLog_Bait
+    fishing_logs = db.relationship('FishingLog', back_populates='bait', lazy='dynamic')

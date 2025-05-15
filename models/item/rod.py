@@ -9,3 +9,4 @@ class Rod(db.Model):
     length_quality = db.Column(db.Integer, nullable=False)
     
     items = db.relationship('Item', back_populates='rod')
+    fishing_logs = db.relationship('FishingLog', back_populates='rod', lazy='dynamic')

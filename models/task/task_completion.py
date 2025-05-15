@@ -8,3 +8,6 @@ class TaskCompletion(db.Model):
 
     task_id = db.Column(db.Integer, db.ForeignKey('task.id'))
     task = db.relationship('Task', back_populates='task_completions')
+
+    player_id = db.Column(db.Integer, db.ForeignKey('player.id'))
+    player = db.relationship('Player', back_populates='task_completions')

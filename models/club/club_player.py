@@ -6,3 +6,5 @@ class ClubPlayer(db.Model):
 
     club_id = db.Column(db.Integer, db.ForeignKey('club.id'))
     club = db.relationship('Club', back_populates='club_players')
+    player_id = db.Column(db.Integer, db.ForeignKey('player.id'))
+    player = db.relationship('Player', back_populates='club_players')

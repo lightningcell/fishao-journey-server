@@ -14,4 +14,6 @@ from .player_budget import *
 from .report import *
 from .task import *
 from .trade import *
-# Diğer alt modüller için de aynı şekilde ekleme yapabilirsiniz.
+from .event_and_npc_integration import *
+from .fish_shop import *
+from .chat import *

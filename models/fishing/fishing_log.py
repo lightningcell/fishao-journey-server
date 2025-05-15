@@ -10,3 +10,19 @@ class FishingLog(db.Model):
 
     fish_id = db.Column(db.Integer, db.ForeignKey('fish.id'))
     fish = db.relationship("Fish", back_populates="fishing_logs")
+
+    # One-to-Many: FishingLog -> Area
+    area_id = db.Column(db.Integer, db.ForeignKey('area.id'))
+    area = db.relationship('Area', back_populates='fishing_logs')
+
+    # One-to-Many: FishingLog -> Bait
+    bait_id = db.Column(db.Integer, db.ForeignKey('bait.id'))
+    bait = db.relationship('Bait', back_populates='fishing_logs')
+
+    # One-to-Many: FishingLog -> Player
+    player_id = db.Column(db.Integer, db.ForeignKey('player.id'))
+    player = db.relationship('Player', back_populates='fishing_logs')
+
+    # One-to-Many: FishingLog -> Rod
+    rod_id = db.Column(db.Integer, db.ForeignKey('rod.id'))
+    rod = db.relationship('Rod', back_populates='fishing_logs')

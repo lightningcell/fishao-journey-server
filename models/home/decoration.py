@@ -10,3 +10,6 @@ class Decoration(db.Model):
     category = db.relationship('DecorationCategory', back_populates='decorations')
 
     decoration_items = db.relationship('DecorationItem', back_populates='decoration', lazy='dynamic')
+    
+    # Reverse one-to-one for Item_Decoration
+    item = db.relationship('Item', back_populates='decoration', uselist=False)

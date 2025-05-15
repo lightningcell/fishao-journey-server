@@ -6,3 +6,7 @@ class FishdexNotepad(db.Model):
 
     fish_id = db.Column(db.Integer, db.ForeignKey('fish.id'))
     fish = db.relationship("Fish", back_populates="fishdex_notepads")
+
+    # One-to-Many: FishdexNotepad -> Player
+    player_id = db.Column(db.Integer, db.ForeignKey('player.id'))
+    player = db.relationship('Player', back_populates='fishdex_notepads')

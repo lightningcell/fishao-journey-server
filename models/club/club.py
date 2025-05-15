@@ -3,6 +3,8 @@ from models import db
 class Club(db.Model):
     __tablename__ = 'club'
     id = db.Column(db.Integer, primary_key=True)
+    leader_id = db.Column(db.Integer, db.ForeignKey('player.id'), unique=True)
+    leader = db.relationship('Player', back_populates='led_club', uselist=False, foreign_keys=[leader_id])
 
     # One-to-many relationships
     club_players = db.relationship('ClubPlayer', back_populates='club', lazy='dynamic')

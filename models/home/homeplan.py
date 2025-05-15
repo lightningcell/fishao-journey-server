@@ -7,3 +7,6 @@ class Homeplan(db.Model):
 
     # One-to-many relationship with DecorationItem
     decoration_items = db.relationship('DecorationItem', back_populates='homeplan', lazy='dynamic')
+
+    # Reverse one-to-one for Player_Homeplan
+    player = db.relationship('Player', back_populates='homeplan', uselist=False)

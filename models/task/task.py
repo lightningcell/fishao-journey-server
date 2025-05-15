@@ -9,6 +9,12 @@ class Task(db.Model):
     star_rate = db.Column(db.Integer, nullable=False)
     fish_length = db.Column(db.Integer, nullable=False)
     area_registration_type = db.Column(db.Enum(RegistrationType), nullable=False)
+    area_id = db.Column(db.Integer, db.ForeignKey('area.id'))
+    area = db.relationship('Area', back_populates='tasks')
+    fish_id = db.Column(db.Integer, db.ForeignKey('fish.id'))
+    fish = db.relationship('Fish', back_populates='tasks')
+    npc_id = db.Column(db.Integer, db.ForeignKey('npc.id'))
+    npc = db.relationship('NPC', back_populates='tasks')
 
     # One-to-many relationship with TaskCompletion
     task_completions = db.relationship('TaskCompletion', back_populates='task', lazy='dynamic')
