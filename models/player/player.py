@@ -19,6 +19,7 @@ class Player(Account):
     level = db.Column(db.Integer)
     xp = db.Column(db.Integer)
     online = db.Column(db.Boolean, default=False)
+    last_activity_date = db.Column(db.DateTime, default=datetime.utcnow)
 
     # Friendship (Self-referential Many-to-Many)
     friends = db.relationship(
