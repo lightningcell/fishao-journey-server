@@ -1,6 +1,6 @@
-from models import db
+from models import db, BaseEntity
 
-class Reject(db.Model):
+class Reject(BaseEntity):
     __tablename__ = 'reject'
     id = db.Column(db.Integer, primary_key=True)
     description = db.Column(db.String, nullable=False)

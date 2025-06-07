@@ -1,8 +1,8 @@
-from models import db
+from models import db, BaseEntity
 from datetime import datetime
 from enums.enum_registration_type import RegistrationType
 
-class AreaRegistration(db.Model):
+class AreaRegistration(BaseEntity):
     __tablename__ = 'area_registration'
     id = db.Column(db.Integer, primary_key=True)
     registration_type = db.Column(db.Enum(RegistrationType))

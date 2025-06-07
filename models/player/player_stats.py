@@ -1,6 +1,6 @@
-from models import db
+from models import db, BaseEntity
 
-class PlayerStats(db.Model):
+class PlayerStats(BaseEntity):
     __tablename__ = 'player_stats'
     id = db.Column(db.Integer, primary_key=True)
     total_game_play_hours = db.Column(db.Integer)

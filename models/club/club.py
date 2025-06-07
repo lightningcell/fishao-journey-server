@@ -1,6 +1,6 @@
-from models import db
+from models import db, BaseEntity
 
-class Club(db.Model):
+class Club(BaseEntity):
     __tablename__ = 'club'
     id = db.Column(db.Integer, primary_key=True)
     leader_id = db.Column(db.Integer, db.ForeignKey('player.id'), unique=True)

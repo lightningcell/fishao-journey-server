@@ -1,6 +1,6 @@
-from models import db
+from models import db, BaseEntity
 
-class SpecialLocation(db.Model):
+class SpecialLocation(BaseEntity):
     __tablename__ = 'special_location'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, nullable=False)

@@ -1,6 +1,6 @@
-from models import db
+from models import db, BaseEntity
 
-class TaskCompletion(db.Model):
+class TaskCompletion(BaseEntity):
     __tablename__ = 'task_completion'
     id = db.Column(db.Integer, primary_key=True)
     completed = db.Column(db.Boolean, nullable=False)

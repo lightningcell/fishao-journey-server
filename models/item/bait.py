@@ -1,6 +1,6 @@
-from models import db
+from models import db, BaseEntity
 
-class Bait(db.Model):
+class Bait(BaseEntity):
     __tablename__ = 'bait'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, nullable=False)

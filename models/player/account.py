@@ -1,7 +1,7 @@
-from models import db
+from models import db, BaseEntity
 from datetime import datetime
 
-class Account(db.Model):
+class Account(BaseEntity):
     __tablename__ = 'account'
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(64), unique=True, nullable=False)

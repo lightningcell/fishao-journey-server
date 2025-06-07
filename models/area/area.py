@@ -1,6 +1,6 @@
-from models import db
+from models import db, BaseEntity
 
-class Area(db.Model):
+class Area(BaseEntity):
     __tablename__ = 'area'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, nullable=False)

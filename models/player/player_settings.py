@@ -1,7 +1,7 @@
-from models import db
+from models import db, BaseEntity
 from enums.enum_width_unit import WidthUnit
 
-class PlayerSettings(db.Model):
+class PlayerSettings(BaseEntity):
     __tablename__ = 'player_settings'
     id = db.Column(db.Integer, primary_key=True)
     birth_date = db.Column(db.DateTime)

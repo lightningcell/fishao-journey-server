@@ -1,4 +1,4 @@
-from models import db
+from models import db, BaseEntity
 from datetime import datetime
 
 # Association Table for Friends

@@ -1,6 +1,6 @@
-from models import db
+from models import db, BaseEntity
 
-class FishingLog(db.Model):
+class FishingLog(BaseEntity):
     __tablename__ = 'fishing_log'
     id = db.Column(db.Integer, primary_key=True)
     is_shiny = db.Column(db.Boolean)

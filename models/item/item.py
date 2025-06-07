@@ -1,7 +1,7 @@
-from models import db
+from models import db, BaseEntity
 from enums.enum_inventory_type import InventoryType
 
-class Item(db.Model):
+class Item(BaseEntity):
     __tablename__ = 'item'
     id = db.Column(db.Integer, primary_key=True)
     amount = db.Column(db.Integer, nullable=False)

@@ -1,5 +1,5 @@
 from models.item.item import Item
-from models import db
+from models import db, BaseEntity
 
 class ShopItem(Item):
     __tablename__ = 'shop_item'

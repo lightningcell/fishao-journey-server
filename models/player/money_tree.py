@@ -1,6 +1,6 @@
-from models import db
+from models import db, BaseEntity
 
-class MoneyTree(db.Model):
+class MoneyTree(BaseEntity):
     __tablename__ = 'money_tree'
     id = db.Column(db.Integer, primary_key=True)
     level = db.Column(db.Integer)

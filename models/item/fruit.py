@@ -1,6 +1,6 @@
-from models import db
+from models import db, BaseEntity
 
-class Fruit(db.Model):
+class Fruit(BaseEntity):
     __tablename__ = 'fruit'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, nullable=False)

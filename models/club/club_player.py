@@ -1,6 +1,6 @@
-from models import db
+from models import db, BaseEntity
 
-class ClubPlayer(db.Model):
+class ClubPlayer(BaseEntity):
     __tablename__ = 'club_player'
     id = db.Column(db.Integer, primary_key=True)
 

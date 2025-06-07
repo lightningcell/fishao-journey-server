@@ -1,6 +1,6 @@
-from models import db
+from models import db, BaseEntity
 
-class Outfit(db.Model):
+class Outfit(BaseEntity):
     __tablename__ = 'outfit'
     id = db.Column(db.Integer, primary_key=True)
     sex = db.Column(db.Integer, nullable=False)

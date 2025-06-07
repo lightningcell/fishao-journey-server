@@ -1,6 +1,6 @@
-from models import db
+from models import db, BaseEntity
 
-class ConfigNPC(db.Model):
+class ConfigNPC(BaseEntity):
     __tablename__ = 'config_npc'
     id = db.Column(db.Integer, primary_key=True)
     herb_amount = db.Column(db.Integer, nullable=False)

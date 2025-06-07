@@ -1,6 +1,6 @@
-from models import db
+from models import db, BaseEntity
 
-class PM(db.Model):
+class PM(BaseEntity):
     __tablename__ = 'pm'
     id = db.Column(db.Integer, primary_key=True)
     subject = db.Column(db.String, nullable=False)

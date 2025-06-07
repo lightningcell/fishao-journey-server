@@ -1,6 +1,6 @@
-from models import db
+from models import db, BaseEntity
 
-class CaughtDate(db.Model):
+class CaughtDate(BaseEntity):
     __tablename__ = 'caught_date'
     id = db.Column(db.Integer, primary_key=True)
     date_range = db.Column(db.String)

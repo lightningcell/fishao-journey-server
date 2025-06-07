@@ -1,6 +1,6 @@
-from models import db
+from models import db, BaseEntity
 
-class CaughtTime(db.Model):
+class CaughtTime(BaseEntity):
     __tablename__ = 'caught_time'
     id = db.Column(db.Integer, primary_key=True)
     time_range = db.Column(db.String)

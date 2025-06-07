@@ -1,6 +1,6 @@
-from models import db
+from models import db, BaseEntity
 
-class MoneyHistory(db.Model):
+class MoneyHistory(BaseEntity):
     __tablename__ = 'money_history'
     id = db.Column(db.Integer, primary_key=True)
     is_fish_bucks = db.Column(db.Boolean, nullable=False)

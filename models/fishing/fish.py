@@ -1,4 +1,4 @@
-from models import db
+from models import db, BaseEntity
 
 # Association table for Fish_Area
 fish_area = db.Table(
@@ -21,7 +21,7 @@ fish_bait_category = db.Table(
     db.Column('bait_category_id', db.Integer, db.ForeignKey('bait_category.id'), primary_key=True)
 )
 
-class Fish(db.Model):
+class Fish(BaseEntity):
     __tablename__ = 'fish'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, nullable=False)

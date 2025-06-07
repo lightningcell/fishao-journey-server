@@ -1,6 +1,6 @@
-from models import db
+from models import db, BaseEntity
 
-class ChatLog(db.Model):
+class ChatLog(BaseEntity):
     __tablename__ = 'chat_log'
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String, nullable=False)

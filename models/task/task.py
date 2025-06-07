@@ -1,7 +1,7 @@
-from models import db
+from models import db, BaseEntity
 from enums.enum_registration_type import RegistrationType
 
-class Task(db.Model):
+class Task(BaseEntity):
     __tablename__ = 'task'
     id = db.Column(db.Integer, primary_key=True)
     fishing_mission_quantity = db.Column(db.Integer, nullable=False)

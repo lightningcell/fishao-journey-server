@@ -1,6 +1,6 @@
-from models import db
+from models import db, BaseEntity
 
-class Config(db.Model):
+class Config(BaseEntity):
     __tablename__ = 'config'
     id = db.Column(db.Integer, primary_key=True)
     raft_start_time = db.Column(db.DateTime, nullable=False)

@@ -1,6 +1,6 @@
-from models import db
+from models import db, BaseEntity
 
-class Homeplan(db.Model):
+class Homeplan(BaseEntity):
     __tablename__ = 'homeplan'
     id = db.Column(db.Integer, primary_key=True)
     # Add fields if needed

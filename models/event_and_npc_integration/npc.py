@@ -1,6 +1,6 @@
-from models import db
+from models import db, BaseEntity
 
-class NPC(db.Model):
+class NPC(BaseEntity):
     __tablename__ = 'npc'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, nullable=False)

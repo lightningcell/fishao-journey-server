@@ -1,6 +1,6 @@
-from models import db
+from models import db, BaseEntity
 
-class FishingLine(db.Model):
+class FishingLine(BaseEntity):
     __tablename__ = 'fishing_line'
     id = db.Column(db.Integer, primary_key=True)
     level = db.Column(db.Integer)

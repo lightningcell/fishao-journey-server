@@ -1,6 +1,6 @@
-from models import db
+from models import db, BaseEntity
 
-class AreaFish(db.Model):
+class AreaFish(BaseEntity):
     __tablename__ = 'area_fish'
     id = db.Column(db.Integer, primary_key=True)
 

@@ -1,6 +1,6 @@
-from models import db
+from models import db, BaseEntity
 
-class CollectionCompletion(db.Model):
+class CollectionCompletion(BaseEntity):
     __tablename__ = 'collection_completion'
     id = db.Column(db.Integer, primary_key=True)
     completion_id = db.Column(db.Integer)

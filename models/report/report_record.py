@@ -1,7 +1,7 @@
-from models import db
+from models import db, BaseEntity
 from enums.enum_record_status import RecordStatus
 
-class ReportRecord(db.Model):
+class ReportRecord(BaseEntity):
     __tablename__ = 'report_record'
     id = db.Column(db.Integer, primary_key=True)
     report_type = db.Column(db.String, nullable=False)

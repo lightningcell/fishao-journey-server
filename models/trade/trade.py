@@ -1,6 +1,6 @@
-from models import db
+from models import db, BaseEntity
 
-class Trade(db.Model):
+class Trade(BaseEntity):
     __tablename__ = 'trade'
     id = db.Column(db.Integer, primary_key=True)
     traded_with_npc = db.Column(db.Boolean, nullable=False)

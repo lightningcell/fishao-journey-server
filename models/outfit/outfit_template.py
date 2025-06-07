@@ -1,6 +1,6 @@
-from models import db
+from models import db, BaseEntity
 
-class OutfitTemplate(db.Model):
+class OutfitTemplate(BaseEntity):
     __tablename__ = 'outfit_template'
     id = db.Column(db.Integer, primary_key=True)
 

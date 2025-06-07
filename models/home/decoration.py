@@ -1,6 +1,6 @@
-from models import db
+from models import db, BaseEntity
 
-class Decoration(db.Model):
+class Decoration(BaseEntity):
     __tablename__ = 'decoration'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, nullable=False)

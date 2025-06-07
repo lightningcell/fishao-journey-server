@@ -1,7 +1,7 @@
-from models import db
+from models import db, BaseEntity
 from enums.enum_penalty_type import PenaltyType
 
-class Penalty(db.Model):
+class Penalty(BaseEntity):
     __tablename__ = 'penalty'
     id = db.Column(db.Integer, primary_key=True)
     penalty_type = db.Column(db.Enum(PenaltyType), nullable=False)

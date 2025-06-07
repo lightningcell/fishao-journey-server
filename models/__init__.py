@@ -2,6 +2,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
 
+from .base_entity import BaseEntity
 from .player import *
 from .item import *
 from .home import *

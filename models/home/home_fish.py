@@ -1,6 +1,6 @@
-from models import db
+from models import db, BaseEntity
 
-class HomeFish(db.Model):
+class HomeFish(BaseEntity):
     __tablename__ = 'home_fish'
     id = db.Column(db.Integer, primary_key=True)
     is_completed = db.Column(db.Boolean, nullable=False)

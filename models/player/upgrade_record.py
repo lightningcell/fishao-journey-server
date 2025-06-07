@@ -1,8 +1,8 @@
-from models import db
+from models import db, BaseEntity
 from datetime import datetime
 from enums.enum_upgrade_type import UpgradeType
 
-class UpgradeRecord(db.Model):
+class UpgradeRecord(BaseEntity):
     __tablename__ = 'upgrade_record'
     id = db.Column(db.Integer, primary_key=True)
     end_date = db.Column(db.DateTime)

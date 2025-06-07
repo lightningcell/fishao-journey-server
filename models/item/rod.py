@@ -1,7 +1,7 @@
-from models import db
+from models import db, BaseEntity
 from enums.enum_rod_sizes import RodSizes
 
-class Rod(db.Model):
+class Rod(BaseEntity):
     __tablename__ = 'rod'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, nullable=False)

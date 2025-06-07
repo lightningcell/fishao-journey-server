@@ -1,6 +1,6 @@
-from models import db
+from models import db, BaseEntity
 
-class FishdexNotepad(db.Model):
+class FishdexNotepad(BaseEntity):
     __tablename__ = 'fishdex_notepad'
     id = db.Column(db.Integer, primary_key=True)
 

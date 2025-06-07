@@ -1,6 +1,6 @@
-from models import db
+from models import db, BaseEntity
 
-class Look(db.Model):
+class Look(BaseEntity):
     __tablename__ = 'look'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, nullable=False)
