@@ -28,27 +28,18 @@ class Player(Account):
         primaryjoin=id==Player_Friend.c.player_id,
         secondaryjoin=id==Player_Friend.c.friend_id,
         backref='friend_of'
-    )
-
-    # One-to-one and one-to-many relationships for current state
+    )    # One-to-one and one-to-many relationships for current state
     current_area_id = db.Column(db.Integer, db.ForeignKey('area.id'))
-    current_area = db.relationship('Area', back_populates='players', foreign_keys=[current_area_id])
-
-    # Current rod/bait relationships
-    current_rod_id = db.Column(db.Integer, db.ForeignKey('item.id'), unique=True)
-    current_rod = db.relationship('Item', foreign_keys=[current_rod_id], back_populates='player_rod', uselist=False)
-
-    current_bait_id = db.Column(db.Integer, db.ForeignKey('item.id'), unique=True)
-    current_bait = db.relationship('Item', foreign_keys=[current_bait_id], back_populates='player_bait', uselist=False)
-
+    current_area = db.relationship('Area', back_populates='players', foreign_keys=[current_area_id])   
+    
     homeplan_id = db.Column(db.Integer, db.ForeignKey('homeplan.id'), unique=True)
     homeplan = db.relationship('Homeplan', back_populates='player', uselist=False)
 
     outfit_id = db.Column(db.Integer, db.ForeignKey('outfit.id'), unique=True)
     outfit = db.relationship('Outfit', back_populates='player', uselist=False)
-
+    
     # Reverse relationship for Item_Player
-    items = db.relationship('Item', back_populates='player', lazy='dynamic')
+    items = db.relationship('Item', back_populates='player', foreign_keys='Item.player_id', lazy='dynamic')
 
     # One-to-one relationships (reverse side)
     settings = db.relationship("PlayerSettings", back_populates="player", uselist=False)

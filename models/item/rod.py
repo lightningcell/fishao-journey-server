@@ -8,5 +8,5 @@ class Rod(BaseEntity):
     size = db.Column(db.Enum(RodSizes), nullable=False)
     length_quality = db.Column(db.Integer, nullable=False)
     
-    items = db.relationship('Item', back_populates='rod')
+    items = db.relationship('Item', back_populates='rod')  # One-to-many: a rod can have many items, but an item can only be one rod
     fishing_logs = db.relationship('FishingLog', back_populates='rod', lazy='dynamic')

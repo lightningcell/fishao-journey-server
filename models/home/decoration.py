@@ -12,4 +12,4 @@ class Decoration(BaseEntity):
     decoration_items = db.relationship('DecorationItem', back_populates='decoration', lazy='dynamic')
     
     # Reverse one-to-one for Item_Decoration
-    item = db.relationship('Item', back_populates='decoration', uselist=False)
+    item = db.relationship('Item', back_populates='decoration', uselist=False)  # One-to-one: a decoration can have one item, and an item can only be one decoration

@@ -6,7 +6,7 @@ class Outfit(BaseEntity):
     sex = db.Column(db.Integer, nullable=False)
     skin_color = db.Column(db.String, nullable=False)
 
-    outfit_template_id = db.Column(db.Integer, db.ForeignKey('outfit_template.id'), unique=True)
+    outfit_template_id = db.Column(db.Integer, db.ForeignKey('outfit_template.id', use_alter=True, name='fk_outfit_outfit_template'), unique=True)
     outfit_template = db.relationship('OutfitTemplate', back_populates='outfit')
     
     # Reverse one-to-one for Player_Outfit
