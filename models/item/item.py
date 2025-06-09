@@ -23,7 +23,11 @@ class Item(BaseEntity):
 
     # Player relationship (One-to-Many)
     player_id = db.Column(db.Integer, db.ForeignKey('player.id'))
-    player = db.relationship('Player', back_populates='items')
+    player = db.relationship(
+        'Player',
+        back_populates='items',
+        foreign_keys=[player_id]
+    )
 
     # Reverse relationships for a player's currently selected items
     current_bait_for_player = db.relationship(
