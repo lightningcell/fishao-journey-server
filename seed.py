@@ -63,12 +63,17 @@ def seed_db():
         MoneyTree(player=player, level=1).create()
         FishingLine(player=player, level=1, color='red').create()
 
-        Item(amount=5, item_type=InventoryType.Bait, bait=bait, player=player).create()
-        Item(amount=1, item_type=InventoryType.Rod, rod=rod, player=player).create()
+        bait_item = Item(amount=5, item_type=InventoryType.Bait, bait=bait, player=player).create()
+        rod_item = Item(amount=1, item_type=InventoryType.Rod, rod=rod, player=player).create()
         Item(amount=1, item_type=InventoryType.Look, look=look, player=player).create()
         Item(amount=2, item_type=InventoryType.Fruit, fruit=fruit, player=player).create()
         Item(amount=1, item_type=InventoryType.Decoration, decoration=decoration, player=player).create()
         ShopItem(amount=1, item_type=InventoryType.Bait, bait=bait).create()
+
+        # Set player's currently selected bait and rod
+        player.current_bait_item = bait_item
+        player.current_rod_item = rod_item
+        player.commit()
 
         Payment(created_date=datetime.utcnow(), owner='owner').create()
 

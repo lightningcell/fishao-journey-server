@@ -37,9 +37,32 @@ class Player(Account):
 
     outfit_id = db.Column(db.Integer, db.ForeignKey('outfit.id'), unique=True)
     outfit = db.relationship('Outfit', back_populates='player', uselist=False)
-    
+
     # Reverse relationship for Item_Player
     items = db.relationship('Item', back_populates='player', foreign_keys='Item.player_id', lazy='dynamic')
+
+    # Currently selected bait and rod items
+    current_bait_item_id = db.Column(
+        db.Integer,
+        db.ForeignKey('item.id', use_alter=True, name='fk_player_current_bait_item')
+    )
+    current_bait_item = db.relationship(
+        'Item',
+        foreign_keys=[current_bait_item_id],
+        back_populates='current_bait_for_player',
+        uselist=False
+    )
+
+    current_rod_item_id = db.Column(
+        db.Integer,
+        db.ForeignKey('item.id', use_alter=True, name='fk_player_current_rod_item')
+    )
+    current_rod_item = db.relationship(
+        'Item',
+        foreign_keys=[current_rod_item_id],
+        back_populates='current_rod_for_player',
+        uselist=False
+    )
 
     # One-to-one relationships (reverse side)
     settings = db.relationship("PlayerSettings", back_populates="player", uselist=False)
