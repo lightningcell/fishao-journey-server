@@ -1,6 +1,6 @@
 """Add player's current bait and rod item relations
 
-Revision ID: 854f163d2740
+Revision ID: 4fc4d647ffad
 Revises: 65e668ad3010
 Create Date: 2025-06-04 00:00:00.000000
 """
@@ -9,7 +9,7 @@ from alembic import op
 import sqlalchemy as sa
 
 # revision identifiers, used by Alembic.
-revision = '854f163d2740'
+revision = '4fc4d647ffad'
 down_revision = '65e668ad3010'
 branch_labels = None
 depends_on = None
