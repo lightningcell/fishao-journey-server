@@ -4,6 +4,8 @@ from enums.enum_registration_type import RegistrationType
 class Task(BaseEntity):
     __tablename__ = 'task'
     id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String, nullable=False)
+    description = db.Column(db.String)
     fishing_mission_quantity = db.Column(db.Integer, nullable=False)
     is_shine_fishing_log = db.Column(db.Boolean, nullable=False)
     star_rate = db.Column(db.Integer, nullable=False)

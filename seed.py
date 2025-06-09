@@ -45,7 +45,7 @@ def seed_db():
         look = Look(name='Casual').create()
         fruit = Fruit(name='Apple').create()
 
-        decoration_cat = DecorationCategory().create()
+        decoration_cat = DecorationCategory(name='Default', description='Default category').create()
         decoration = Decoration(name='Chair', homepoints=10, category=decoration_cat).create()
         homeplan = Homeplan().create()
         DecorationItem(x=0, y=0, floor=0, homeplan=homeplan, decoration=decoration).create()
@@ -75,13 +75,13 @@ def seed_db():
         player.current_rod_item = rod_item
         player.commit()
 
-        Payment(created_date=datetime.utcnow(), owner='owner').create()
+        Payment(created_date=datetime.utcnow(), owner='owner', amount=0.0, status='pending').create()
 
         npc = NPC(name='Guide').create()
         Config(raft_start_time=datetime.utcnow(), raft_end_time=datetime.utcnow()).create()
         ConfigNPC(herb_amount=1, vasily_rate=1, herb_area=area, herb_fish=fish).create()
 
-        outfit_template = OutfitTemplate(player=player).create()
+        outfit_template = OutfitTemplate(player=player, title='Default Template', style='casual').create()
         Outfit(sex=1, skin_color='white', outfit_template=outfit_template).create()
 
         HomeFish(is_completed=False, fish=fish, player=player).create()
@@ -89,7 +89,7 @@ def seed_db():
         ChatLog(username='john', message='Hello', created_date=datetime.utcnow()).create()
         PM(subject='Hi', content='Welcome', receiver=player, sender=player, created_date=datetime.utcnow()).create()
 
-        club = Club(leader=player, created_date=datetime.utcnow()).create()
+        club = Club(name='My Club', leader=player, created_date=datetime.utcnow()).create()
         ClubPlayer(club=club, player=player, created_date=datetime.utcnow()).create()
         ClubFish(club=club, fish=fish).create()
 
@@ -103,7 +103,7 @@ def seed_db():
         Item(amount=1, item_type=InventoryType.Fruit, fruit=fruit, trade_given=trade, player=player).create()
         Item(amount=1, item_type=InventoryType.Rod, rod=rod, trade_taken=trade, player=player).create()
 
-        task = Task(fishing_mission_quantity=1, is_shine_fishing_log=False, star_rate=1, fish_length=10, area_registration_type=RegistrationType.TroutFarm, area=area, fish=fish, npc=npc).create()
+        task = Task(name='Sample Task', description='Catch fish', fishing_mission_quantity=1, is_shine_fishing_log=False, star_rate=1, fish_length=10, area_registration_type=RegistrationType.TroutFarm, area=area, fish=fish, npc=npc).create()
         TaskAward(amount=1, item_type=InventoryType.Fishcoins, task=task).create()
         TaskCompletion(completed=False, catched_fish_amount=0, task=task, player=player).create()
         UpgradeRecord(upgrade_type=UpgradeType.FishingLine, player=player, created_date=datetime.utcnow()).create()
