@@ -25,6 +25,20 @@ class Item(BaseEntity):
     player_id = db.Column(db.Integer, db.ForeignKey('player.id'))
     player = db.relationship('Player', back_populates='items')
 
+    # Reverse relationships for a player's currently selected items
+    current_bait_for_player = db.relationship(
+        'Player',
+        back_populates='current_bait_item',
+        foreign_keys='Player.current_bait_item_id',
+        uselist=False
+    )
+    current_rod_for_player = db.relationship(
+        'Player',
+        back_populates='current_rod_item',
+        foreign_keys='Player.current_rod_item_id',
+        uselist=False
+    )
+
     # Trade relationships (One-to-Many for given and taken)
     trade_given_id = db.Column(db.Integer, db.ForeignKey('trade.id'))
     trade_given = db.relationship('Trade', back_populates='items_given', foreign_keys=[trade_given_id])
