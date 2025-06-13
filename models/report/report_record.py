@@ -1,5 +1,5 @@
 from models import db, BaseEntity
-from enums.enum_record_status import RecordStatus
+from enums.enum_report_status import ReportStatus
 
 class ReportRecord(BaseEntity):
     __tablename__ = 'report_record'
@@ -7,7 +7,7 @@ class ReportRecord(BaseEntity):
     report_type = db.Column(db.String, nullable=False)
     title = db.Column(db.String, nullable=False)
     description = db.Column(db.String, nullable=False)
-    status = db.Column(db.Enum(RecordStatus), nullable=False)
+    status = db.Column(db.Enum(ReportStatus), nullable=False)
     created_date = db.Column(db.DateTime)
 
     reported_player_id = db.Column(db.Integer, db.ForeignKey('player.id'))
