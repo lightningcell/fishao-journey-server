@@ -25,7 +25,7 @@ from enums.enum_registration_type import RegistrationType
 from enums.enum_rod_sizes import RodSizes
 from enums.enum_width_unit import WidthUnit
 from enums.enum_penalty_type import PenaltyType
-from enums.enum_record_status import RecordStatus
+from enums.enum_report_status import ReportStatus
 from enums.enum_upgrade_type import UpgradeType
 
 
@@ -97,7 +97,7 @@ def seed_db():
 
         Penalty(penalty_type=PenaltyType.PM, period_minutes=10, moderator=player, penalized_player=player, created_date=datetime.utcnow()).create()
         Reject(description='spam', moderator=player).create()
-        ReportRecord(report_type='Abuse', title='Spam', description='Spam message', status=RecordStatus.Pending, reported_player=player, reporting_by_player=player, reviewer_moderator=player, created_date=datetime.utcnow()).create()
+        ReportRecord(report_type='Abuse', title='Spam', description='Spam message', status=ReportStatus.Pending, reported_player=player, reporting_by_player=player, reviewer_moderator=player, created_date=datetime.utcnow()).create()
 
         trade = Trade(traded_with_npc=False, area=area, given_by=player, taken_by=player, created_date=datetime.utcnow()).create()
         Item(amount=1, item_type=InventoryType.Fruit, fruit=fruit, trade_given=trade, player=player).create()

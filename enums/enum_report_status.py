@@ -1,6 +1,6 @@
 from enum import Enum
 
-class RecordStatus(Enum):
+class ReportStatus(Enum):
     Pending = "Pending"
     Reviewed = "Reviewed"
     Rejected = "Rejected"
