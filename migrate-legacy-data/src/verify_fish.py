@@ -10,6 +10,7 @@ from models import db
 from models.fishing.fish import Fish
 from models.fishing.caught_time import CaughtTime
 from models.fishing.caught_date import CaughtDate
+from models.fishing.fruit_combination import FruitCombination
 from models.item.bait_category import BaitCategory
 from models.area.area import Area
 from models.area.special_location import SpecialLocation
@@ -19,18 +20,19 @@ def verify_fish_migration():
     """Verify that the fish migration worked correctly"""
     app = create_app()
     
-    with app.app_context():
-        # Count total records
+    with app.app_context():        # Count total records
         total_fish = Fish.query.count()
         total_bait_categories = BaitCategory.query.count()
         total_caught_times = CaughtTime.query.count()
         total_caught_dates = CaughtDate.query.count()
+        fish_with_fruit_combinations = Fish.query.filter(Fish.fruit_combination_id.isnot(None)).count()
         
         print(f"📊 Fish Migration Verification Results:")
         print(f"   Total Fish: {total_fish}")
         print(f"   Total Bait Categories: {total_bait_categories}")
         print(f"   Total Caught Times: {total_caught_times}")
         print(f"   Total Caught dates: {total_caught_dates}")
+        print(f"   Fish with Fruit Combination Requirements: {fish_with_fruit_combinations}")
         print()
         
         # Show bait categories
@@ -40,14 +42,26 @@ def verify_fish_migration():
             fish_count = bait.fishes.count() if hasattr(bait, 'fishes') else 0
             print(f"   - {bait.name}: {fish_count} fish")
         print()
-        
-        # Show fish by rating
+          # Show fish by rating
         print("⭐ Fish by Rating:")
         for rating in range(1, 6):
             count = Fish.query.filter_by(star_rate=rating).count()
             print(f"   {rating} star: {count} fish")
         print()
         
+        # Show fish with fruit combination requirements
+        if fish_with_fruit_combinations > 0:
+            print("🍹 Fish with Fruit Combination Requirements:")
+            fish_with_fruit_req = Fish.query.filter(Fish.fruit_combination_id.isnot(None)).limit(10).all()
+            for fish in fish_with_fruit_req:
+                if fish.fruit_combination:
+                    fruits_str = f"{fish.fruit_combination.fruit1.name}-{fish.fruit_combination.fruit2.name}-{fish.fruit_combination.fruit3.name}"
+                    print(f"   - {fish.name}: requires combination {fish.fruit_combination_id} ({fruits_str})")
+                else:
+                    print(f"   - {fish.name}: requires combination {fish.fruit_combination_id} (combination not found)")
+            if fish_with_fruit_combinations > 10:
+                print(f"   ... and {fish_with_fruit_combinations - 10} more")
+            print()
         # Show sample fish with relationships
         print("🔍 Sample Fish with Details:")
         sample_fish = Fish.query.limit(3).all()
@@ -79,15 +93,14 @@ def verify_fish_migration():
             if date_count > 0:
                 dates = [f"{cd.startdate}-{cd.enddate}" for cd in fish.caught_dates[:2]]
                 print(f"     Catch Dates ({date_count}): {', '.join(dates)}")
-            
-            # Show special requirements
+              # Show special requirements
             special_reqs = []
             if fish.club_points:
                 special_reqs.append(f"Club Points: {fish.club_points}")
             if fish.fishcoins_to_unlock:
                 special_reqs.append(f"Fishcoins: {fish.fishcoins_to_unlock}")
-            if fish.fruit_combination_count_to_unlock:
-                special_reqs.append(f"Fruit Combinations: {fish.fruit_combination_count_to_unlock}")
+            if fish.fruit_combination_id:
+                special_reqs.append(f"Fruit Combination: {fish.fruit_combination_id}")
             
             if special_reqs:
                 print(f"     Special Requirements: {', '.join(special_reqs)}")

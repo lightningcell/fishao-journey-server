@@ -12,6 +12,7 @@ from models import db
 from models.fishing.fish import Fish
 from models.fishing.caught_time import CaughtTime
 from models.fishing.caught_date import CaughtDate
+from models.fishing.fruit_combination import FruitCombination
 from models.item.bait_category import BaitCategory
 from models.area.area import Area
 from models.area.special_location import SpecialLocation
@@ -74,15 +75,19 @@ def load_fish_from_json():
             bait_categories_created = 0
             caught_times_created = 0
             caught_dates_created = 0
+            fruit_combination_links = 0
             warnings = []
             
-            # Get all existing areas and special locations for validation
+            # Get all existing areas, special locations, and fruit combinations for validation
             existing_areas = {area.id: area for area in Area.query.all()}
             existing_special_locations = {sl.title: sl for sl in SpecialLocation.query.all()}
+            existing_fruit_combinations = {fc.id: fc for fc in FruitCombination.query.all()}
             
             print(f"Found {len(existing_areas)} existing areas")
             print(f"Found {len(existing_special_locations)} existing special locations")
-              # Process each fish in the JSON
+            print(f"Found {len(existing_fruit_combinations)} existing fruit combinations")
+            
+            # Process each fish in the JSON
             for i, fish_data_item in enumerate(fish_data):
                 try:
                     fish_id = int(fish_data_item.get('id', 0))
@@ -91,15 +96,25 @@ def load_fish_from_json():
                     if not fish_id:
                         print(f"Warning: Fish at index {i} has no valid ID, skipping...")
                         continue
-                    
-                    # Check if fish already exists
+                      # Check if fish already exists
                     existing_fish = Fish.query.filter_by(id=fish_id).first()
                     if existing_fish:
-                        print(f"Fish with ID {fish_id} already exists, skipping...")
+                        # Update existing fish with fruit combination if needed
+                        catch_req = fish_data_item.get('catch_req', {})
+                        if 'fruit_combinations_done' in catch_req:
+                            fruit_combo_ids = catch_req['fruit_combinations_done']
+                            if fruit_combo_ids and len(fruit_combo_ids) > 0:
+                                fruit_combo_id = fruit_combo_ids[0]
+                                if fruit_combo_id in existing_fruit_combinations:
+                                    if existing_fish.fruit_combination_id != fruit_combo_id:
+                                        existing_fish.fruit_combination_id = fruit_combo_id
+                                        fruit_combination_links += 1
+                                        print(f"Updated existing fish {existing_fish.name} with fruit combination {fruit_combo_id}")
+                                else:
+                                    warnings.append(f"Fruit combination {fruit_combo_id} not found for existing fish {existing_fish.name}")
                         continue
-                  # Create main fish object with safe value handling
-
                     
+                    # Create main fish object with safe value handling
                     fish = Fish(
                         id=fish_id,
                         name=fish_data_item.get('name', ''),
@@ -124,9 +139,18 @@ def load_fish_from_json():
                     if 'club_unlock_by_fishcoins' in catch_req:
                         fish.fishcoins_to_unlock = catch_req['club_unlock_by_fishcoins']
                     
+                    # Handle fruit combination requirement
                     if 'fruit_combinations_done' in catch_req:
-                        # Store the count of fruit combinations needed
-                        fish.fruit_combination_count_to_unlock = len(catch_req['fruit_combinations_done'])
+                        fruit_combo_ids = catch_req['fruit_combinations_done']
+                        if fruit_combo_ids and len(fruit_combo_ids) > 0:
+                            # Take the first (and typically only) fruit combination ID
+                            fruit_combo_id = fruit_combo_ids[0]
+                            if fruit_combo_id in existing_fruit_combinations:
+                                fish.fruit_combination_id = fruit_combo_id
+                                fruit_combination_links += 1
+                                print(f"  Linked fish {fish.name} to fruit combination {fruit_combo_id}")
+                            else:
+                                warnings.append(f"Fruit combination {fruit_combo_id} not found for fish {fish.name}")
                     
                     db.session.add(fish)
                     fish_created += 1
@@ -187,11 +211,12 @@ def load_fish_from_json():
                                 caught_date = CaughtDate(
                                     startdate=start_date,
                                     enddate=end_date,
-                                    fish_id=fish_id                            )
+                                    fish_id=fish_id
+                                )
                                 db.session.add(caught_date)
                                 caught_dates_created += 1
                                 print(f"  Created caught date: {date_range}")
-                    
+                
                 except Exception as e:
                     print(f"❌ Error processing fish at index {i} (ID: {fish_data_item.get('id', 'unknown')}): {e}")
                     print(f"   Fish data: {fish_data_item}")
@@ -205,6 +230,7 @@ def load_fish_from_json():
             print(f"   Bait categories created: {bait_categories_created}")
             print(f"   Caught times created: {caught_times_created}")
             print(f"   Caught dates created: {caught_dates_created}")
+            print(f"   Fruit combination links: {fruit_combination_links}")
             
             if warnings:
                 print(f"\n⚠️  {len(warnings)} warnings occurred:")
