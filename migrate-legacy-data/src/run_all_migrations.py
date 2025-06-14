@@ -17,6 +17,7 @@ def run_all_migrations():
     from load_fruit_combinations import load_fruit_combinations
     from load_fish import load_fish_from_json
     from load_fruits import load_fruits_from_json
+    from load_decorations import load_decorations_from_json
     
     try:
         # Step 1: Load areas (required for fish)
@@ -37,8 +38,7 @@ def run_all_migrations():
         print("\n🍹 Step 4: Loading Fruit Combinations...")
         print("-" * 30)
         load_fruit_combinations()
-        
-        # Step 5: Load fish (depends on areas and bait categories)
+          # Step 5: Load fish (depends on areas and bait categories)
         print("\n🐟 Step 5: Loading Fish...")
         print("-" * 30)
         load_fish_from_json()
@@ -48,9 +48,15 @@ def run_all_migrations():
         print("-" * 30)
         load_fruits_from_json()
         
+        # Step 6: Load decorations
+        print("\n🏠 Step 6: Loading Decorations...")
+        print("-" * 30)
+        load_decorations_from_json()
+        
         print("\n" + "=" * 60)
         print("✅ All migrations completed successfully!")
-          # Run verification
+        
+        # Run verification
         print("\n🔍 Running verification...")
         print("-" * 30)
         
@@ -58,6 +64,7 @@ def run_all_migrations():
         from verify_rods_baits import verify_rods_and_baits
         from verify_fruit_combinations import verify_fruit_combinations
         from verify_fish import verify_fish_migration
+        from verify_decorations import verify_decorations
         
         verify_areas()
         print()
@@ -66,6 +73,8 @@ def run_all_migrations():
         verify_fruit_combinations()
         print()
         verify_fish_migration()
+        print()
+        verify_decorations()
         
     except Exception as e:
         print(f"\n❌ Migration process failed: {e}")

@@ -62,13 +62,12 @@ def analyze_decoration_json():
         elif info['values']:
             print(f"  Unique values count: {len(info['values'])}")
         print()
-    
-    # Create example JSON structure
+      # Create example JSON structure
     example_decoration = {
         "id": "integer - unique identifier",
         "category": "string - decoration category",
         "name": "string - decoration name",
-        "collection": "string - collection name",
+        "collection": "array - list of collection names (can be multiple)",
         "homePoints": "integer - home points value",
         "level": "integer - required level",
         "season": "string - season availability",
@@ -91,16 +90,26 @@ def analyze_decoration_json():
         print(f"Decoration #{i+1}:")
         print(json.dumps(decoration_data[i], indent=2, ensure_ascii=False))
         print()
-    
-    # Analyze collections
+      # Analyze collections (now can be a list)
     print("🎨 COLLECTION ANALYSIS:")
     print("-" * 40)
     collections = {}
     for decoration in decoration_data:
-        collection = decoration.get('collection', 'No Collection')
-        if collection not in collections:
-            collections[collection] = 0
-        collections[collection] += 1
+        decoration_collections = decoration.get('collection', [])
+        
+        # Handle both string and list formats
+        if isinstance(decoration_collections, str):
+            decoration_collections = [decoration_collections]
+        elif not isinstance(decoration_collections, list):
+            decoration_collections = ['No Collection']
+        
+        if not decoration_collections:
+            decoration_collections = ['No Collection']
+            
+        for collection in decoration_collections:
+            if collection not in collections:
+                collections[collection] = 0
+            collections[collection] += 1
     
     for collection, count in sorted(collections.items(), key=lambda x: x[1], reverse=True):
         print(f"'{collection}': {count} decorations")
