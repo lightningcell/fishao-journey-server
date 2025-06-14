@@ -83,7 +83,15 @@
     }
   },
   "12": { "name": "Lucky Raft", "badge_id": 76 },
-  "108": { "name": "Lost Valley", "badge_id": 33 },
+  "108": { 
+    "name": "Lost Valley", 
+    "badge_id": 33,
+    "special_location": {
+      "Lost Valley Part 1": "EFPT_LOST_VALLEY_POND_1",
+      "Lost Valley Part 2": "EFPT_LOST_VALLEY_POND_2",
+      "Lost Valley (All)": [108, "EFPT_LOST_VALLEY_POND_1", "EFPT_LOST_VALLEY_POND_2"]
+    }
+  },
   "109": { "name": "Lost Valley 2", "badge_id": 34 },
   "110": { "name": "Little Rio", "badge_id": 55 },
   "111": { "name": "Pirate Cave", "badge_id": 56 },
