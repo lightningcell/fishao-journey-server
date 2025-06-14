@@ -9,6 +9,7 @@ player_fruit_combination = db.Table(
     db.Column('fruit_combination_id', db.Integer, db.ForeignKey('fruit_combination.id'), primary_key=True)
 )
 
+
 class FruitCombination(BaseEntity):
     __tablename__ = 'fruit_combination'
     
@@ -31,13 +32,14 @@ class FruitCombination(BaseEntity):
     fruit1 = db.relationship('Fruit', foreign_keys=[fruit1_id])
     fruit2 = db.relationship('Fruit', foreign_keys=[fruit2_id])
     fruit3 = db.relationship('Fruit', foreign_keys=[fruit3_id])
-    
-    # Many-to-Many relationship with Player
+      # Many-to-Many relationship with Player
     players = db.relationship(
         'Player',
         secondary=player_fruit_combination,
         backref='fruit_combinations'
     )
+    
+    # Note: Fish relationship is defined in Fish model with backref='unlocked_fish'
     
     def __repr__(self):
         return f'<FruitCombination {self.id}: {self.fruit1.name if self.fruit1 else "?"}-{self.fruit2.name if self.fruit2 else "?"}-{self.fruit3.name if self.fruit3 else "?"}>'
