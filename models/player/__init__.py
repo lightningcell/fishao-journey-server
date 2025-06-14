@@ -5,3 +5,5 @@ from .money_tree import MoneyTree
 from .player_settings import PlayerSettings
 from .player_stats import PlayerStats
 from .upgrade_record import UpgradeRecord
+from .decoration_record import DecorationRecord
+from .fruit_record import FruitRecord

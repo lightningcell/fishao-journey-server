@@ -64,7 +64,8 @@ class Fish(BaseEntity):
     special_locations = db.relationship('SpecialLocation', secondary=fish_special_location, back_populates='fishes')
 
     # One-to-One: Fish -> FruitCombination (for unlock requirement)
-    fruit_combination = db.relationship('FruitCombination', backref='unlocked_fish', uselist=False)
-
-    # Reverse relationship for ConfigNPC_HerbFish
+    fruit_combination = db.relationship('FruitCombination', backref='unlocked_fish', uselist=False)    # Reverse relationship for ConfigNPC_HerbFish
     config_npc = db.relationship('ConfigNPC', back_populates='herb_fish', uselist=False)
+    
+    # Many-to-many relationship with Collection
+    collections = db.relationship('Collection', secondary='collection_fish', back_populates='fishes', lazy='dynamic')
