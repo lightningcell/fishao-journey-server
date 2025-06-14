@@ -37,7 +37,9 @@ class Fish(BaseEntity):
     price = db.Column(db.Integer)
     club_points = db.Column(db.Integer)
     fishcoins_to_unlock = db.Column(db.Integer)
-    fruit_combination_count_to_unlock = db.Column(db.Integer)
+    
+    # Foreign key for fruit combination requirement
+    fruit_combination_id = db.Column(db.Integer, db.ForeignKey('fruit_combination.id'))
 
     # Relationships
     fishing_logs = db.relationship("FishingLog", back_populates="fish", lazy='dynamic')
@@ -58,10 +60,11 @@ class Fish(BaseEntity):
     areas = db.relationship('Area', secondary=fish_area, back_populates='fishes')
 
     # Many-to-Many: Fish <-> BaitCategory
-    bait_categories = db.relationship('BaitCategory', secondary=fish_bait_category, back_populates='fishes')
-
-    # Many-to-Many: Fish <-> SpecialLocation
+    bait_categories = db.relationship('BaitCategory', secondary=fish_bait_category, back_populates='fishes')    # Many-to-Many: Fish <-> SpecialLocation
     special_locations = db.relationship('SpecialLocation', secondary=fish_special_location, back_populates='fishes')
+
+    # One-to-One: Fish -> FruitCombination (for unlock requirement)
+    fruit_combination = db.relationship('FruitCombination', backref='unlocked_fish', uselist=False)
 
     # Reverse relationship for ConfigNPC_HerbFish
     config_npc = db.relationship('ConfigNPC', back_populates='herb_fish', uselist=False)
