@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, date, time
 
 from app import create_app
 from models import db
@@ -48,14 +48,13 @@ def seed_db():
         decoration_cat = DecorationCategory(name='Default', description='Default category').create()
         decoration = Decoration(name='Chair', homepoints=10, category=decoration_cat).create()
         homeplan = Homeplan().create()
-        DecorationItem(x=0, y=0, floor=0, homeplan=homeplan, decoration=decoration).create()
-
+        DecorationItem(x=0, y=0, floor=0, homeplan=homeplan, decoration=decoration).create()        
         fish = Fish(name='Salmon').create()
         AreaFish(area=area, fish=fish).create()
         FishdexNotepad(player=None, fish=fish).create()
-        CaughtTime(time_range='Morning', fish=fish).create()
-        CaughtDate(date_range='Spring', fish=fish).create()
-        CollectionCompletion(completion_id=1, fish=fish).create()
+        CaughtTime(starttime=time(6, 0), endtime=time(12, 0), fish=fish).create()
+        CaughtDate(startdate=date(2025, 3, 1), enddate=date(2025, 5, 31), fish=fish).create()
+        CollectionCompletion(completion_id=1, name='Spring Collection', fish=fish).create()
 
         player = Player(username='john', email='john@example.com', password_hash='hash').create()
         PlayerSettings(player=player, width_unit=WidthUnit.feet).create()
