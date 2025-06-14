@@ -67,12 +67,12 @@ class Player(Account):
     # One-to-one relationships (reverse side)
     settings = db.relationship("PlayerSettings", back_populates="player", uselist=False)
     stats = db.relationship("PlayerStats", back_populates="player", uselist=False)
-    moneytree = db.relationship("MoneyTree", back_populates="player", uselist=False)
-
-    # One-to-many relationships
+    moneytree = db.relationship("MoneyTree", back_populates="player", uselist=False)    # One-to-many relationships
     area_registrations = db.relationship("AreaRegistration", back_populates="player", lazy='dynamic')
     upgrade_records = db.relationship("UpgradeRecord", back_populates="player", lazy='dynamic')
     home_fishes = db.relationship("HomeFish", back_populates="player", lazy='dynamic')
+    decoration_records = db.relationship("DecorationRecord", back_populates="player", lazy='dynamic')
+    fruit_records = db.relationship("FruitRecord", back_populates="player", lazy='dynamic')
 
     # Reverse relationship for FishingLog_Player
     fishing_logs = db.relationship('FishingLog', back_populates='player', lazy='dynamic')
