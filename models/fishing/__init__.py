@@ -6,3 +6,4 @@ from .collection_completion import CollectionCompletion
 from .caught_time import CaughtTime
 from .caught_date import CaughtDate
 from .area_fish import AreaFish
+from .fruit_combination import FruitCombination
