@@ -31,3 +31,4 @@ from .event_and_npc_integration import *
 from .fish_shop import *
 from .chat import *
 from .collection import *
+from .tournament import *
