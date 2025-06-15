@@ -1,0 +1,16 @@
+[
+    { "name": "Simple", "size": "Small", "length_quality": 60 },
+    { "name": "Big", "size": "Big", "length_quality": 100 },
+    { "name": "Power", "size": "Normal", "length_quality": 150 },
+    { "name": "Quality Rod", "size": "Normal", "length_quality": 150 },
+    { "name": "Bronze", "size": "Small", "length_quality": 250 },
+    { "name": "Pink Neon", "size": "Small", "length_quality": 300 },
+    { "name": "Silver", "size": "Normal", "length_quality": 350 },
+    { "name": "Golden", "size": "Big", "length_quality": 450 },
+    { "name": "Rainbow", "size": "Big", "length_quality": 450 },
+    { "name": "Banana Rod", "size": "Normal", "length_quality": 175 },
+    { "name": "Glowing Rod", "size": "Big", "length_quality": 650 },
+    { "name": "Oar", "size": "Big", "length_quality": 1200 },
+    { "name": "FISHAO", "size": "Big", "length_quality": 1000 },
+    { "name": "Expert", "size": "Big", "length_quality": 1250 }
+]
