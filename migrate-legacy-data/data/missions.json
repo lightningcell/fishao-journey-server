@@ -1,0 +1,860 @@
+[
+    {
+        "MISSION": "Learn the FISHAO basics",
+        "REWARD": "10 Fishcoins",
+        "CATEGORY (OF MISSION)": "Extra",
+        "CATEGORY (OF REWARD)": "Coins"
+    },
+    {
+        "MISSION": "Decorate your home",
+        "REWARD": "200 Fishbucks",
+        "CATEGORY (OF MISSION)": "Home",
+        "CATEGORY (OF REWARD)": "Bucks"
+    },
+    {
+        "MISSION": "Play Bob's minigame",
+        "REWARD": "20 Energy",
+        "CATEGORY (OF MISSION)": "Extra from an specific area",
+        "CATEGORY (OF REWARD)": "Energy"
+    },
+    {
+        "MISSION": "Talk to Breeder Rex",
+        "REWARD": "120 Fishbucks",
+        "CATEGORY (OF MISSION)": "Rex",
+        "CATEGORY (OF REWARD)": "Bucks"
+    },
+    {
+        "MISSION": "Catch 3 fish",
+        "REWARD": "40 Fishbucks",
+        "CATEGORY (OF MISSION)": "Catch random fish",
+        "CATEGORY (OF REWARD)": "Bucks"
+    },
+    {
+        "MISSION": "Visit baker Jamie",
+        "REWARD": "1 Fishcoin",
+        "CATEGORY (OF MISSION)": "Extra from an specific area",
+        "CATEGORY (OF REWARD)": "Coins"
+    },
+    {
+        "MISSION": "Change your character",
+        "REWARD": "100 Maggots",
+        "CATEGORY (OF MISSION)": "Extra",
+        "CATEGORY (OF REWARD)": "Bait"
+    },
+    {
+        "MISSION": "Visit the troutfarm",
+        "REWARD": "1 Fishcoin",
+        "CATEGORY (OF MISSION)": "Extra from an specific area",
+        "CATEGORY (OF REWARD)": "Coins"
+    },
+    {
+        "MISSION": "Find and visit Carp's Deco Shop",
+        "REWARD": "80 Fishbucks",
+        "CATEGORY (OF MISSION)": "Extra from an specific area",
+        "CATEGORY (OF REWARD)": "Bucks"
+    },
+    {
+        "MISSION": "Visit the fish market",
+        "REWARD": "2 Fishcoins",
+        "CATEGORY (OF MISSION)": "Extra from an specific area",
+        "CATEGORY (OF REWARD)": "Coins"
+    },
+    {
+        "MISSION": "Sell a fish",
+        "REWARD": "15 Fish",
+        "CATEGORY (OF MISSION)": "Extra from an specific area",
+        "CATEGORY (OF REWARD)": "Bait"
+    },
+    {
+        "MISSION": "Buy something in Carp's Deco Shop",
+        "REWARD": "Big rod",
+        "CATEGORY (OF MISSION)": "Extra from an specific area",
+        "CATEGORY (OF REWARD)": "Rod"
+    },
+    {
+        "MISSION": "Catch a fish larger than 50 cm",
+        "REWARD": "1 Fishcoin",
+        "CATEGORY (OF MISSION)": "Cm",
+        "CATEGORY (OF REWARD)": "Coins"
+    },
+    {
+        "MISSION": "Upgrade your fishing line (level 3)",
+        "REWARD": "3 Fishcoins",
+        "CATEGORY (OF MISSION)": "Fishing line",
+        "CATEGORY (OF REWARD)": "Coins"
+    },
+    {
+        "MISSION": "Catch 10 fish",
+        "REWARD": "1 Fishcoin",
+        "CATEGORY (OF MISSION)": "Catch random fish",
+        "CATEGORY (OF REWARD)": "Coins"
+    },
+    {
+        "MISSION": "Find the perfect fishing spot",
+        "REWARD": "20 Fishbucks",
+        "CATEGORY (OF MISSION)": "Extra from an specific area",
+        "CATEGORY (OF REWARD)": "Bucks"
+    },
+    {
+        "MISSION": "Go to Cool Mountain",
+        "REWARD": "30 Energy",
+        "CATEGORY (OF MISSION)": "Visit an specific area",
+        "CATEGORY (OF REWARD)": "Energy"
+    },
+    {
+        "MISSION": "Trade with another player",
+        "REWARD": "2 Fishcoins",
+        "CATEGORY (OF MISSION)": "Extra from an specific area",
+        "CATEGORY (OF REWARD)": "Coins"
+    },
+    {
+        "MISSION": "Work on your fishdex: catch 10 different fish",
+        "REWARD": "1 Luck Potion I",
+        "CATEGORY (OF MISSION)": "Fishdex",
+        "CATEGORY (OF REWARD)": "Gadget"
+    },
+    {
+        "MISSION": "Go on a raft fishing tour",
+        "REWARD": "1 Luck Potion I",
+        "CATEGORY (OF MISSION)": "Extra from an specific area",
+        "CATEGORY (OF REWARD)": "Gadget"
+    },
+    {
+        "MISSION": "Participate in a tournament",
+        "REWARD": "Anthurium Plant",
+        "CATEGORY (OF MISSION)": "Tournament",
+        "CATEGORY (OF REWARD)": "Deco"
+    },
+    {
+        "MISSION": "Catch a 3-star fish",
+        "REWARD": "2 Fishcoins",
+        "CATEGORY (OF MISSION)": "Specific amount of stars",
+        "CATEGORY (OF REWARD)": "Coins"
+    },
+    {
+        "MISSION": "Use a fish radar",
+        "REWARD": "80 Fishbucks",
+        "CATEGORY (OF MISSION)": "Use a gadget",
+        "CATEGORY (OF REWARD)": "Bucks"
+    },
+    {
+        "MISSION": "Catch 20 fish",
+        "REWARD": "40 Fishbucks",
+        "CATEGORY (OF MISSION)": "Catch random fish",
+        "CATEGORY (OF REWARD)": "Bucks"
+    },
+    {
+        "MISSION": "Work on your fishdex: catch 20 different fish",
+        "REWARD": "500 Fishbucks",
+        "CATEGORY (OF MISSION)": "Fishdex",
+        "CATEGORY (OF REWARD)": "Bucks"
+    },
+    {
+        "MISSION": "Trade shells with Coral",
+        "REWARD": "Simple rod",
+        "CATEGORY (OF MISSION)": "Extra from an specific area",
+        "CATEGORY (OF REWARD)": "Rod"
+    },
+    {
+        "MISSION": "Catch a 4-star fish",
+        "REWARD": "3 Fishcoins",
+        "CATEGORY (OF MISSION)": "Specific amount of stars",
+        "CATEGORY (OF REWARD)": "Coins"
+    },
+    {
+        "MISSION": "Collect 2,500 home points",
+        "REWARD": "1 White fish radar",
+        "CATEGORY (OF MISSION)": "Home",
+        "CATEGORY (OF REWARD)": "Gadget"
+    },
+    {
+        "MISSION": "Use a luck potion",
+        "REWARD": "80 Fishbucks",
+        "CATEGORY (OF MISSION)": "Use a gadget",
+        "CATEGORY (OF REWARD)": "Bucks"
+    },
+    {
+        "MISSION": "Breed 1 fish for your backyard",
+        "REWARD": "Pink Tulips",
+        "CATEGORY (OF MISSION)": "Rex",
+        "CATEGORY (OF REWARD)": "Deco"
+    },
+    {
+        "MISSION": "Go to the FISHAO forums",
+        "REWARD": "1 Fishcoin",
+        "CATEGORY (OF MISSION)": "Extra",
+        "CATEGORY (OF REWARD)": "Coins"
+    },
+    {
+        "MISSION": "Complete your daily quests",
+        "REWARD": "2 Fishcoins",
+        "CATEGORY (OF MISSION)": "Extra",
+        "CATEGORY (OF REWARD)": "Coins"
+    },
+    {
+        "MISSION": "Go to Mystic Desert",
+        "REWARD": "Cactus",
+        "CATEGORY (OF MISSION)": "Visit an specific area",
+        "CATEGORY (OF REWARD)": "Deco"
+    },
+    {
+        "MISSION": "Fish in the pyramid",
+        "REWARD": "80 Fishbucks",
+        "CATEGORY (OF MISSION)": "Extra from an specific area",
+        "CATEGORY (OF REWARD)": "Bucks"
+    },
+    {
+        "MISSION": "Use a magic watch",
+        "REWARD": "2 Fishcoins",
+        "CATEGORY (OF MISSION)": "Use a gadget",
+        "CATEGORY (OF REWARD)": "Coins"
+    },
+    {
+        "MISSION": "Go to Sibiri City",
+        "REWARD": "1 Magic Watch",
+        "CATEGORY (OF MISSION)": "Visit an specific area",
+        "CATEGORY (OF REWARD)": "Gadget"
+    },
+    {
+        "MISSION": "Catch a fish larger than 100 cm",
+        "REWARD": "30 Energy",
+        "CATEGORY (OF MISSION)": "Cm",
+        "CATEGORY (OF REWARD)": "Energy"
+    },
+    {
+        "MISSION": "Upgrade your money tree (level 5)",
+        "REWARD": "100 Fishbucks",
+        "CATEGORY (OF MISSION)": "Money tree",
+        "CATEGORY (OF REWARD)": "Bucks"
+    },
+    {
+        "MISSION": "Catch an Ariidae",
+        "REWARD": "20 Energy",
+        "CATEGORY (OF MISSION)": "Catch an specific fish",
+        "CATEGORY (OF REWARD)": "Energy"
+    },
+    {
+        "MISSION": "Catch a Nile Perch",
+        "REWARD": "2 Fishcoins",
+        "CATEGORY (OF MISSION)": "Catch an specific fish",
+        "CATEGORY (OF REWARD)": "Coins"
+    },
+    {
+        "MISSION": "Go inside the igloo",
+        "REWARD": "Simple rod",
+        "CATEGORY (OF MISSION)": "Extra from an specific area",
+        "CATEGORY (OF REWARD)": "Rod"
+    },
+    {
+        "MISSION": "Go to Aquayama",
+        "REWARD": "20 Worms",
+        "CATEGORY (OF MISSION)": "Visit an specific area",
+        "CATEGORY (OF REWARD)": "Bait"
+    },
+    {
+        "MISSION": "Catch a Giant Gourami",
+        "REWARD": "1 Green fish radar",
+        "CATEGORY (OF MISSION)": "Catch an specific fish",
+        "CATEGORY (OF REWARD)": "Gadget"
+    },
+    {
+        "MISSION": "Catch a Wels Catfish",
+        "REWARD": "Big rod",
+        "CATEGORY (OF MISSION)": "Catch an specific fish",
+        "CATEGORY (OF REWARD)": "Rod"
+    },
+    {
+        "MISSION": "Catch a Sockeye Salmon",
+        "REWARD": "20 Energy",
+        "CATEGORY (OF MISSION)": "Catch an specific fish",
+        "CATEGORY (OF REWARD)": "Energy"
+    },
+    {
+        "MISSION": "Catch an Opah",
+        "REWARD": "40 Cherry",
+        "CATEGORY (OF MISSION)": "Catch an specific fish",
+        "CATEGORY (OF REWARD)": "Bait"
+    },
+    {
+        "MISSION": "Go to Seagull Harbor",
+        "REWARD": "Captain Carp Statue",
+        "CATEGORY (OF MISSION)": "Visit an specific area",
+        "CATEGORY (OF REWARD)": "Deco"
+    },
+    {
+        "MISSION": "Rent a boat",
+        "REWARD": "Big rod",
+        "CATEGORY (OF MISSION)": "Extra from an specific area",
+        "CATEGORY (OF REWARD)": "Rod"
+    },
+    {
+        "MISSION": "Catch a Tarpon Atlantic",
+        "REWARD": "2 Fishcoins",
+        "CATEGORY (OF MISSION)": "Catch an specific fish",
+        "CATEGORY (OF REWARD)": "Coins"
+    },
+    {
+        "MISSION": "Go to Thombani Town",
+        "REWARD": "1 Blue fish radar",
+        "CATEGORY (OF MISSION)": "Visit an specific area",
+        "CATEGORY (OF REWARD)": "Gadget"
+    },
+    {
+        "MISSION": "Fish in the locked pond",
+        "REWARD": "3 Fishcoins",
+        "CATEGORY (OF MISSION)": "Extra from an specific area",
+        "CATEGORY (OF REWARD)": "Coins"
+    },
+    {
+        "MISSION": "Catch an Electric Catfish",
+        "REWARD": "FISHAO Wall",
+        "CATEGORY (OF MISSION)": "Catch an specific fish",
+        "CATEGORY (OF REWARD)": "Deco"
+    },
+    {
+        "MISSION": "Go to Marshville",
+        "REWARD": "1 White fish radar",
+        "CATEGORY (OF MISSION)": "Visit an specific area",
+        "CATEGORY (OF REWARD)": "Gadget"
+    },
+    {
+        "MISSION": "Catch an Elephantfish",
+        "REWARD": "2 Fishcoins",
+        "CATEGORY (OF MISSION)": "Catch an specific fish",
+        "CATEGORY (OF REWARD)": "Coins"
+    },
+    {
+        "MISSION": "Catch a shiny",
+        "REWARD": "1 Shiny potion x2",
+        "CATEGORY (OF MISSION)": "Shiny fish",
+        "CATEGORY (OF REWARD)": "Gadget"
+    },
+    {
+        "MISSION": "Talk to all NPCs in the game. (43)",
+        "REWARD": "Star Painting",
+        "CATEGORY (OF MISSION)": "NPC",
+        "CATEGORY (OF REWARD)": "Deco"
+    },
+    {
+        "MISSION": "Catch 5 shinies",
+        "REWARD": "1 Shiny potion x4",
+        "CATEGORY (OF MISSION)": "Shiny fish",
+        "CATEGORY (OF REWARD)": "Gadget"
+    },
+    {
+        "MISSION": "Talk to Herb",
+        "REWARD": "80 Fishbucks",
+        "CATEGORY (OF MISSION)": "NPC",
+        "CATEGORY (OF REWARD)": "Bucks"
+    },
+    {
+        "MISSION": "Work on your fishdex: catch 30 different fish",
+        "REWARD": "Jamie Statue",
+        "CATEGORY (OF MISSION)": "Fishdex",
+        "CATEGORY (OF REWARD)": "Deco"
+    },
+    {
+        "MISSION": "Visit the home of a friend",
+        "REWARD": "3 Fishcoins",
+        "CATEGORY (OF MISSION)": "Friends",
+        "CATEGORY (OF REWARD)": "Coins"
+    },
+    {
+        "MISSION": "Catch a Chinese Sturgeon",
+        "REWARD": "2 Fishcoins",
+        "CATEGORY (OF MISSION)": "Catch an specific fish",
+        "CATEGORY (OF REWARD)": "Coins"
+    },
+    {
+        "MISSION": "Work on your fishdex: catch 40 different fish",
+        "REWARD": "5 Fishcoins",
+        "CATEGORY (OF MISSION)": "Fishdex",
+        "CATEGORY (OF REWARD)": "Coins"
+    },
+    {
+        "MISSION": "Go to the FISHAO wiki",
+        "REWARD": "40 Fishbucks",
+        "CATEGORY (OF MISSION)": "Extra",
+        "CATEGORY (OF REWARD)": "Bucks"
+    },
+    {
+        "MISSION": "Catch a Silver Scabbardfish",
+        "REWARD": "15 Fish",
+        "CATEGORY (OF MISSION)": "Catch an specific fish",
+        "CATEGORY (OF REWARD)": "Bait"
+    },
+    {
+        "MISSION": "Invite a new friend to play FISHAO",
+        "REWARD": "250 Energy",
+        "CATEGORY (OF MISSION)": "Extra",
+        "CATEGORY (OF REWARD)": "Energy"
+    },
+    {
+        "MISSION": "Grab a fishbox",
+        "REWARD": "Screech Painting",
+        "CATEGORY (OF MISSION)": "Extra",
+        "CATEGORY (OF REWARD)": "Deco"
+    },
+    {
+        "MISSION": "Catch 50 fish",
+        "REWARD": "80 Fishbucks",
+        "CATEGORY (OF MISSION)": "Catch random fish",
+        "CATEGORY (OF REWARD)": "Bucks"
+    },
+    {
+        "MISSION": "Collect 15,000 home points",
+        "REWARD": "Pineapple Tree",
+        "CATEGORY (OF MISSION)": "Home",
+        "CATEGORY (OF REWARD)": "Deco"
+    },
+    {
+        "MISSION": "Work on your fishdex: catch 50 different fish",
+        "REWARD": "Big rod",
+        "CATEGORY (OF MISSION)": "Fishdex",
+        "CATEGORY (OF REWARD)": "Rod"
+    },
+    {
+        "MISSION": "Catch a fish in a friend's backyard",
+        "REWARD": "Simple rod",
+        "CATEGORY (OF MISSION)": "Friends",
+        "CATEGORY (OF REWARD)": "Rod"
+    },
+    {
+        "MISSION": "Catch a 5-star fish",
+        "REWARD": "Steel rod",
+        "CATEGORY (OF MISSION)": "Specific amount of stars",
+        "CATEGORY (OF REWARD)": "Rod"
+    },
+    {
+        "MISSION": "Work on your fishdex: catch 60 different fish",
+        "REWARD": "2000 Fishbucks",
+        "CATEGORY (OF MISSION)": "Fishdex",
+        "CATEGORY (OF REWARD)": "Bucks"
+    },
+    {
+        "MISSION": "Let a friend visit your home",
+        "REWARD": "Uncle Sam Statue",
+        "CATEGORY (OF MISSION)": "Friends",
+        "CATEGORY (OF REWARD)": "Deco"
+    },
+    {
+        "MISSION": "Collect the \"Simple\" collection",
+        "REWARD": "Totem Pole",
+        "CATEGORY (OF MISSION)": "Complete a deco set",
+        "CATEGORY (OF REWARD)": "Deco"
+    },
+    {
+        "MISSION": "Breed 10 fish for your backyard",
+        "REWARD": "Trout Painting",
+        "CATEGORY (OF MISSION)": "Rex",
+        "CATEGORY (OF REWARD)": "Deco"
+    },
+    {
+        "MISSION": "Catch a fish larger than 150 cm",
+        "REWARD": "3 Fishcoins",
+        "CATEGORY (OF MISSION)": "Cm",
+        "CATEGORY (OF REWARD)": "Coins"
+    },
+    {
+        "MISSION": "Make a new friend",
+        "REWARD": "10 Energy",
+        "CATEGORY (OF MISSION)": "Make new friends",
+        "CATEGORY (OF REWARD)": "Energy"
+    },
+    {
+        "MISSION": "Catch a Piranha",
+        "REWARD": "2 Fishcoins",
+        "CATEGORY (OF MISSION)": "Catch an specific fish",
+        "CATEGORY (OF REWARD)": "Coins"
+    },
+    {
+        "MISSION": "Upgrade your fishing line (level 8)",
+        "REWARD": "5 Fishcoins",
+        "CATEGORY (OF MISSION)": "Fishing line",
+        "CATEGORY (OF REWARD)": "Coins"
+    },
+    {
+        "MISSION": "Collect 40,000 home points",
+        "REWARD": "4 Fishcoins",
+        "CATEGORY (OF MISSION)": "Home",
+        "CATEGORY (OF REWARD)": "Coins"
+    },
+    {
+        "MISSION": "Catch a Gar",
+        "REWARD": "20 Energy",
+        "CATEGORY (OF MISSION)": "Catch an specific fish",
+        "CATEGORY (OF REWARD)": "Energy"
+    },
+    {
+        "MISSION": "Win a tournament",
+        "REWARD": "1200 Fishbucks",
+        "CATEGORY (OF MISSION)": "Tournament",
+        "CATEGORY (OF REWARD)": "Bucks"
+    },
+    {
+        "MISSION": "Catch 100 fish",
+        "REWARD": "10 Meat",
+        "CATEGORY (OF MISSION)": "Catch random fish",
+        "CATEGORY (OF REWARD)": "Bait"
+    },
+    {
+        "MISSION": "Upgrade your money tree",
+        "REWARD": "10 Fishcoins",
+        "CATEGORY (OF MISSION)": "Money tree",
+        "CATEGORY (OF REWARD)": "Coins"
+    },
+    {
+        "MISSION": "Catch a fish larger than 200 cm",
+        "REWARD": "1 Luck Potion II",
+        "CATEGORY (OF MISSION)": "Cm",
+        "CATEGORY (OF REWARD)": "Gadget"
+    },
+    {
+        "MISSION": "Catch an Atlantic Bluefin Tuna",
+        "REWARD": "Steel rod",
+        "CATEGORY (OF MISSION)": "Catch an specific fish",
+        "CATEGORY (OF REWARD)": "Rod"
+    },
+    {
+        "MISSION": "Work on your fishdex: catch 80 different fish",
+        "REWARD": "5 Fishcoins",
+        "CATEGORY (OF MISSION)": "Fishdex",
+        "CATEGORY (OF REWARD)": "Coins"
+    },
+    {
+        "MISSION": "Catch a Pike",
+        "REWARD": "80 Fishbucks",
+        "CATEGORY (OF MISSION)": "Catch an specific fish",
+        "CATEGORY (OF REWARD)": "Bucks"
+    },
+    {
+        "MISSION": "Catch na Orangespotted Sunfish",
+        "REWARD": "20 Energy",
+        "CATEGORY (OF MISSION)": "Catch an specific fish",
+        "CATEGORY (OF REWARD)": "Energy"
+    },
+    {
+        "MISSION": "Collect 80,000 home points",
+        "REWARD": "2000 Fishbucks",
+        "CATEGORY (OF MISSION)": "Home",
+        "CATEGORY (OF REWARD)": "Bucks"
+    },
+    {
+        "MISSION": "Win 5 tournaments",
+        "REWARD": "4000 Fishbucks",
+        "CATEGORY (OF MISSION)": "Tournament",
+        "CATEGORY (OF REWARD)": "Bucks"
+    },
+    {
+        "MISSION": "Catch a Barracuda",
+        "REWARD": "2 Fishcoins",
+        "CATEGORY (OF MISSION)": "Catch an specific fish",
+        "CATEGORY (OF REWARD)": "Coins"
+    },
+    {
+        "MISSION": "Catch a Pacuma Toadfish",
+        "REWARD": "80 Fishbucks",
+        "CATEGORY (OF MISSION)": "Catch an specific fish",
+        "CATEGORY (OF REWARD)": "Bucks"
+    },
+    {
+        "MISSION": "Catch a fish larger than 250 cm",
+        "REWARD": "Steel rod",
+        "CATEGORY (OF MISSION)": "Cm",
+        "CATEGORY (OF REWARD)": "Rod"
+    },
+    {
+        "MISSION": "Catch a French Angelfish",
+        "REWARD": "15 Fish",
+        "CATEGORY (OF MISSION)": "Catch an specific fish",
+        "CATEGORY (OF REWARD)": "Bait"
+    },
+    {
+        "MISSION": "Work on your fishdex: catch 100 different fish",
+        "REWARD": "Egg Table",
+        "CATEGORY (OF MISSION)": "Fishdex",
+        "CATEGORY (OF REWARD)": "Deco"
+    },
+    {
+        "MISSION": "Win 10 tournaments",
+        "REWARD": "Steel rod",
+        "CATEGORY (OF MISSION)": "Tournament",
+        "CATEGORY (OF REWARD)": "Rod"
+    },
+    {
+        "MISSION": "Catch an Oscar",
+        "REWARD": "2 Fishcoins",
+        "CATEGORY (OF MISSION)": "Catch an specific fish",
+        "CATEGORY (OF REWARD)": "Coins"
+    },
+    {
+        "MISSION": "Catch a Pink Salmon",
+        "REWARD": "2 Fishcoins",
+        "CATEGORY (OF MISSION)": "Catch an specific fish",
+        "CATEGORY (OF REWARD)": "Coins"
+    },
+    {
+        "MISSION": "Catch 500 fish",
+        "REWARD": "Red Flowers",
+        "CATEGORY (OF MISSION)": "Catch random fish",
+        "CATEGORY (OF REWARD)": "Deco"
+    },
+    {
+        "MISSION": "Collect 150,000 home points",
+        "REWARD": "6 Fishcoins",
+        "CATEGORY (OF MISSION)": "Home",
+        "CATEGORY (OF REWARD)": "Coins"
+    },
+    {
+        "MISSION": "Catch an Occelate River Stingray",
+        "REWARD": "Big rod",
+        "CATEGORY (OF MISSION)": "Catch an specific fish",
+        "CATEGORY (OF REWARD)": "Rod"
+    },
+    {
+        "MISSION": "Catch a Zander",
+        "REWARD": "80 Fishbucks",
+        "CATEGORY (OF MISSION)": "Catch an specific fish",
+        "CATEGORY (OF REWARD)": "Bucks"
+    },
+    {
+        "MISSION": "Work on your fishdex: catch 120 different fish",
+        "REWARD": "2000 Fishbucks",
+        "CATEGORY (OF MISSION)": "Fishdex",
+        "CATEGORY (OF REWARD)": "Bucks"
+    },
+    {
+        "MISSION": "Catch a fish bigger than 300 cm",
+        "REWARD": "Steel rod",
+        "CATEGORY (OF MISSION)": "Cm",
+        "CATEGORY (OF REWARD)": "Rod"
+    },
+    {
+        "MISSION": "Catch a Rainbow Parrotfish",
+        "REWARD": "2 Fishcoins",
+        "CATEGORY (OF MISSION)": "Catch an specific fish",
+        "CATEGORY (OF REWARD)": "Coins"
+    },
+    {
+        "MISSION": "Catch a Mekong Giant Catfish",
+        "REWARD": "2 Fishcoins",
+        "CATEGORY (OF MISSION)": "Catch an specific fish",
+        "CATEGORY (OF REWARD)": "Coins"
+    },
+    {
+        "MISSION": "Catch a Suckermouth Catfish",
+        "REWARD": "20 Energy",
+        "CATEGORY (OF MISSION)": "Catch an specific fish",
+        "CATEGORY (OF REWARD)": "Energy"
+    },
+    {
+        "MISSION": "Catch a Common Dolphinfish",
+        "REWARD": "20 Energy",
+        "CATEGORY (OF MISSION)": "Catch an specific fish",
+        "CATEGORY (OF REWARD)": "Energy"
+    },
+    {
+        "MISSION": "Work on your fishdex: catch 140 different fish",
+        "REWARD": "Steel rod",
+        "CATEGORY (OF MISSION)": "Fishdex",
+        "CATEGORY (OF REWARD)": "Rod"
+    },
+    {
+        "MISSION": "Breed 20 fish for your backyard",
+        "REWARD": "20 Fishcoins",
+        "CATEGORY (OF MISSION)": "Rex",
+        "CATEGORY (OF REWARD)": "Coins"
+    },
+    {
+        "MISSION": "Catch a Giant Moray",
+        "REWARD": "2 Fishcoins",
+        "CATEGORY (OF MISSION)": "Catch an specific fish",
+        "CATEGORY (OF REWARD)": "Coins"
+    },
+    {
+        "MISSION": "Catch a fish larger than 350 cm",
+        "REWARD": "Steel rod",
+        "CATEGORY (OF MISSION)": "Cm",
+        "CATEGORY (OF REWARD)": "Rod"
+    },
+    {
+        "MISSION": "Work on your fishdex: catch 160 different fish",
+        "REWARD": "Bronze rod",
+        "CATEGORY (OF MISSION)": "Fishdex",
+        "CATEGORY (OF REWARD)": "Rod"
+    },
+    {
+        "MISSION": "Catch 1,000 fish",
+        "REWARD": "Steel rod",
+        "CATEGORY (OF MISSION)": "Catch random fish",
+        "CATEGORY (OF REWARD)": "Rod"
+    },
+    {
+        "MISSION": "Collect 300,000 home points",
+        "REWARD": "4800 Fishbucks",
+        "CATEGORY (OF MISSION)": "Home",
+        "CATEGORY (OF REWARD)": "Bucks"
+    },
+    {
+        "MISSION": "Catch an Ocean Sunfish",
+        "REWARD": "1 Green fish radar",
+        "CATEGORY (OF MISSION)": "Catch an specific fish",
+        "CATEGORY (OF REWARD)": "Gadget"
+    },
+    {
+        "MISSION": "Upgrade your money tree (level 15)",
+        "REWARD": "1000 Fishbucks",
+        "CATEGORY (OF MISSION)": "Money tree",
+        "CATEGORY (OF REWARD)": "Bucks"
+    },
+    {
+        "MISSION": "Work on your fishdex: catch 180 different fish",
+        "REWARD": "170 Energy",
+        "CATEGORY (OF MISSION)": "Fishdex",
+        "CATEGORY (OF REWARD)": "Energy"
+    },
+    {
+        "MISSION": "Catch a fish larger than 400 cm",
+        "REWARD": "10 Fishcoins",
+        "CATEGORY (OF MISSION)": "Cm",
+        "CATEGORY (OF REWARD)": "Coins"
+    },
+    {
+        "MISSION": "Catch a fish larger than 450 cm",
+        "REWARD": "4000 Fishbucks",
+        "CATEGORY (OF MISSION)": "Cm",
+        "CATEGORY (OF REWARD)": "Bucks"
+    },
+    {
+        "MISSION": "Catch a fish larger than 500 cm",
+        "REWARD": "10 Fishcoins",
+        "CATEGORY (OF MISSION)": "Cm",
+        "CATEGORY (OF REWARD)": "Coins"
+    },
+    {
+        "MISSION": "Work on your fishdex: catch 190 different fish",
+        "REWARD": "Silver rod",
+        "CATEGORY (OF MISSION)": "Fishdex",
+        "CATEGORY (OF REWARD)": "Rod"
+    },
+    {
+        "MISSION": "Work on your fishdex: catch 200 different fish",
+        "REWARD": "Birth Painting",
+        "CATEGORY (OF MISSION)": "Fishdex",
+        "CATEGORY (OF REWARD)": "Deco"
+    },
+    {
+        "MISSION": "Catch a fish larger than 550 cm",
+        "REWARD": "Steel rod",
+        "CATEGORY (OF MISSION)": "Cm",
+        "CATEGORY (OF REWARD)": "Rod"
+    },
+    {
+        "MISSION": "Collect 500,000 home points",
+        "REWARD": "15 Fishcoins",
+        "CATEGORY (OF MISSION)": "Home",
+        "CATEGORY (OF REWARD)": "Coins"
+    },
+    {
+        "MISSION": "Make 5 new friends",
+        "REWARD": "10 Energy",
+        "CATEGORY (OF MISSION)": "Make new friends",
+        "CATEGORY (OF REWARD)": "Energy"
+    },
+    {
+        "MISSION": "Work on your fishdex: catch 220 different fish",
+        "REWARD": "20 Fishcoins",
+        "CATEGORY (OF MISSION)": "Fishdex",
+        "CATEGORY (OF REWARD)": "Coins"
+    },
+    {
+        "MISSION": "Upgrade your fishing line (level 15)",
+        "REWARD": "8 Fishcoins",
+        "CATEGORY (OF MISSION)": "Fishing line",
+        "CATEGORY (OF REWARD)": "Coins"
+    },
+    {
+        "MISSION": "Catch 10 5-star fish",
+        "REWARD": "50 Fishcoins",
+        "CATEGORY (OF MISSION)": "Specific amount of stars",
+        "CATEGORY (OF REWARD)": "Coins"
+    },
+    {
+        "MISSION": "Collect the \"Gold\" set",
+        "REWARD": "Famous Painting",
+        "CATEGORY (OF MISSION)": "Complete a deco set",
+        "CATEGORY (OF REWARD)": "Deco"
+    },
+    {
+        "MISSION": "Win 50 tournaments",
+        "REWARD": "Herb Statue",
+        "CATEGORY (OF MISSION)": "Tournament",
+        "CATEGORY (OF REWARD)": "Deco"
+    },
+    {
+        "MISSION": "Catch a fish larger than 700 cm",
+        "REWARD": "Pearl Painting",
+        "CATEGORY (OF MISSION)": "Cm",
+        "CATEGORY (OF REWARD)": "Deco"
+    },
+    {
+        "MISSION": "Catch a fish larger than 800 cm",
+        "REWARD": "4000 Fishbucks",
+        "CATEGORY (OF MISSION)": "Cm",
+        "CATEGORY (OF REWARD)": "Bucks"
+    },
+    {
+        "MISSION": "Catch a fish larger than 1000 cm",
+        "REWARD": "Adam Painting",
+        "CATEGORY (OF MISSION)": "Cm",
+        "CATEGORY (OF REWARD)": "Deco"
+    },
+    {
+        "MISSION": "Complete shiny 1-star collection",
+        "REWARD": "100 Fishcoins",
+        "CATEGORY (OF MISSION)": "Shiny fish",
+        "CATEGORY (OF REWARD)": "Coins"
+    },
+    {
+        "MISSION": "Breed all available fish for your backyard",
+        "REWARD": "Breeder Rex Statue",
+        "CATEGORY (OF MISSION)": "Rex",
+        "CATEGORY (OF REWARD)": "Deco"
+    },
+    {
+        "MISSION": "Upgrade your fishing line (level 20)",
+        "REWARD": "50 Fishcoins",
+        "CATEGORY (OF MISSION)": "Fishing line",
+        "CATEGORY (OF REWARD)": "Coins"
+    },
+    {
+        "MISSION": "Upgrade your money tree (level 20)",
+        "REWARD": "50 Fishcoins",
+        "CATEGORY (OF MISSION)": "Money tree",
+        "CATEGORY (OF REWARD)": "Coins"
+    },
+    {
+        "MISSION": "Complete your Fishdex!",
+        "REWARD": "Expert Rod",
+        "CATEGORY (OF MISSION)": "Fishdex",
+        "CATEGORY (OF REWARD)": "Rod"
+    },
+    {
+        "MISSION": "Complete shiny 2-star collection",
+        "REWARD": "200 Fishcoins",
+        "CATEGORY (OF MISSION)": "Shiny fish",
+        "CATEGORY (OF REWARD)": "Coins"
+    },
+    {
+        "MISSION": "Complete shiny 3-star collection",
+        "REWARD": "300 Fishcoins",
+        "CATEGORY (OF MISSION)": "Shiny fish",
+        "CATEGORY (OF REWARD)": "Coins"
+    },
+    {
+        "MISSION": "Complete shiny 4-star collection",
+        "REWARD": "400 Fishcoins",
+        "CATEGORY (OF MISSION)": "Shiny fish",
+        "CATEGORY (OF REWARD)": "Coins"
+    }
+]

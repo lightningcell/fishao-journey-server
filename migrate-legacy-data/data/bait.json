@@ -1,0 +1,470 @@
+[
+    {
+        "id": 1,
+        "name": "hook",
+        "category": "hook",
+        "price_fishcoins": 0,
+        "price_fishbucks": -1,
+        "quality_duration": -1,
+        "player_level_req": 0
+    },
+    {
+        "id": 2,
+        "name": "cherry",
+        "category": "vegetal",
+        "price_fishcoins": 1,
+        "price_fishbucks": 79,
+        "quality_duration": 40,
+        "player_level_req": 7
+    },
+    {
+        "id": 3,
+        "name": "dough",
+        "category": "dough",
+        "price_fishcoins": 0,
+        "price_fishbucks": -1,
+        "quality_duration": 50,
+        "player_level_req": 1
+    },
+    {
+        "id": 4,
+        "name": "grasshoppers",
+        "category": "insects",
+        "price_fishcoins": 2,
+        "price_fishbucks": -1,
+        "quality_duration": 40,
+        "player_level_req": 4
+    },
+    {
+        "id": 5,
+        "name": "fish",
+        "category": "fish",
+        "price_fishcoins": 2,
+        "price_fishbucks": -1,
+        "quality_duration": 15,
+        "player_level_req": 5
+    },
+    {
+        "id": 6,
+        "name": "vegetabball",
+        "category": "vegetal",
+        "price_fishcoins": 1,
+        "price_fishbucks": 89,
+        "quality_duration": 40,
+        "player_level_req": 9
+    },
+    {
+        "id": 7,
+        "name": "corn",
+        "category": "vegetal",
+        "price_fishcoins": 5,
+        "price_fishbucks": -1,
+        "quality_duration": 200,
+        "player_level_req": 3
+    },
+    {
+        "id": 8,
+        "name": "maggots",
+        "category": "insects",
+        "price_fishcoins": 5,
+        "price_fishbucks": -1,
+        "quality_duration": 100,
+        "player_level_req": 6
+    },
+    {
+        "id": 9,
+        "name": "mealworms",
+        "category": "insects",
+        "price_fishcoins": 2,
+        "price_fishbucks": -1,
+        "quality_duration": 40,
+        "player_level_req": 2
+    },
+    {
+        "id": 10,
+        "name": "worms",
+        "category": "insects",
+        "price_fishcoins": 1,
+        "price_fishbucks": -1,
+        "quality_duration": 20,
+        "player_level_req": 1
+    },
+    {
+        "id": 11,
+        "name": "meat",
+        "category": "meat",
+        "price_fishcoins": 1,
+        "price_fishbucks": -1,
+        "quality_duration": 10,
+        "player_level_req": 50
+    },
+    {
+        "id": 12,
+        "name": "shad",
+        "category": "lures",
+        "price_fishcoins": 2,
+        "price_fishbucks": -1,
+        "quality_duration": 50,
+        "player_level_req": 24
+    },
+    {
+        "id": 13,
+        "name": "shad",
+        "category": "lures",
+        "price_fishcoins": 2,
+        "price_fishbucks": -1,
+        "quality_duration": 50,
+        "player_level_req": 12
+    },
+    {
+        "id": 14,
+        "name": "plug",
+        "category": "lures",
+        "price_fishcoins": 8,
+        "price_fishbucks": -1,
+        "quality_duration": 200,
+        "player_level_req": 54
+    },
+    {
+        "id": 15,
+        "name": "plug",
+        "category": "lures",
+        "price_fishcoins": 4,
+        "price_fishbucks": -1,
+        "quality_duration": 100,
+        "player_level_req": 48
+    },
+    {
+        "id": 16,
+        "name": "twister",
+        "category": "lures",
+        "price_fishcoins": 2,
+        "price_fishbucks": -1,
+        "quality_duration": 50,
+        "player_level_req": 15
+    },
+    {
+        "id": 17,
+        "name": "plug",
+        "category": "lures",
+        "price_fishcoins": 7,
+        "price_fishbucks": -1,
+        "quality_duration": 175,
+        "player_level_req": 60
+    },
+    {
+        "id": 18,
+        "name": "plug",
+        "category": "lures",
+        "price_fishcoins": 5,
+        "price_fishbucks": -1,
+        "quality_duration": 125,
+        "player_level_req": 57
+    },
+    {
+        "id": 19,
+        "name": "spinner",
+        "category": "lures",
+        "price_fishcoins": 3,
+        "price_fishbucks": -1,
+        "quality_duration": 75,
+        "player_level_req": 27
+    },
+    {
+        "id": 20,
+        "name": "plug",
+        "category": "lures",
+        "price_fishcoins": 6,
+        "price_fishbucks": -1,
+        "quality_duration": 150,
+        "player_level_req": 63
+    },
+    {
+        "id": 21,
+        "name": "plug",
+        "category": "lures",
+        "price_fishcoins": 8,
+        "price_fishbucks": -1,
+        "quality_duration": 200,
+        "player_level_req": 51
+    },
+    {
+        "id": 22,
+        "name": "streamer",
+        "category": "lures",
+        "price_fishcoins": 1,
+        "price_fishbucks": -1,
+        "quality_duration": 25,
+        "player_level_req": 33
+    },
+    {
+        "id": 23,
+        "name": "Spinner",
+        "category": "lures",
+        "price_fishcoins": 4,
+        "price_fishbucks": -1,
+        "quality_duration": 100,
+        "player_level_req": 4
+    },
+    {
+        "id": 24,
+        "name": "plug",
+        "category": "lures",
+        "price_fishcoins": 8,
+        "price_fishbucks": -1,
+        "quality_duration": 200,
+        "player_level_req": 66
+    },
+    {
+        "id": 25,
+        "name": "twister",
+        "category": "lures",
+        "price_fishcoins": 2,
+        "price_fishbucks": -1,
+        "quality_duration": 50,
+        "player_level_req": 30
+    },
+    {
+        "id": 26,
+        "name": "Spinner",
+        "category": "lures",
+        "price_fishcoins": 5,
+        "price_fishbucks": -1,
+        "quality_duration": 125,
+        "player_level_req": 1
+    },
+    {
+        "id": 27,
+        "name": "plug",
+        "category": "lures",
+        "price_fishcoins": 5,
+        "price_fishbucks": -1,
+        "quality_duration": 125,
+        "player_level_req": 45
+    },
+    {
+        "id": 28,
+        "name": "plug",
+        "category": "lures",
+        "price_fishcoins": 10,
+        "price_fishbucks": -1,
+        "quality_duration": 250,
+        "player_level_req": 9
+    },
+    {
+        "id": 29,
+        "name": "plug",
+        "category": "lures",
+        "price_fishcoins": 6,
+        "price_fishbucks": -1,
+        "quality_duration": 150,
+        "player_level_req": 78
+    },
+    {
+        "id": 30,
+        "name": "shad",
+        "category": "lures",
+        "price_fishcoins": 4,
+        "price_fishbucks": -1,
+        "quality_duration": 100,
+        "player_level_req": 75
+    },
+    {
+        "id": 31,
+        "name": "plug",
+        "category": "lures",
+        "price_fishcoins": 4,
+        "price_fishbucks": -1,
+        "quality_duration": 100,
+        "player_level_req": 87
+    },
+    {
+        "id": 32,
+        "name": "plug",
+        "category": "lures",
+        "price_fishcoins": 5,
+        "price_fishbucks": -1,
+        "quality_duration": 125,
+        "player_level_req": 81
+    },
+    {
+        "id": 33,
+        "name": "plug",
+        "category": "lures",
+        "price_fishcoins": 4,
+        "price_fishbucks": -1,
+        "quality_duration": 100,
+        "player_level_req": 84
+    },
+    {
+        "id": 34,
+        "name": "shad",
+        "category": "lures",
+        "price_fishcoins": 2,
+        "price_fishbucks": -1,
+        "quality_duration": 50,
+        "player_level_req": 18
+    },
+    {
+        "id": 35,
+        "name": "shad",
+        "category": "lures",
+        "price_fishcoins": 3,
+        "price_fishbucks": -1,
+        "quality_duration": 75,
+        "player_level_req": 39
+    },
+    {
+        "id": 36,
+        "name": "spinner",
+        "category": "lures",
+        "price_fishcoins": 3,
+        "price_fishbucks": -1,
+        "quality_duration": 75,
+        "player_level_req": 16
+    },
+    {
+        "id": 37,
+        "name": "twister",
+        "category": "lures",
+        "price_fishcoins": 2,
+        "price_fishbucks": -1,
+        "quality_duration": 50,
+        "player_level_req": 21
+    },
+    {
+        "id": 38,
+        "name": "poon",
+        "category": "lures",
+        "price_fishcoins": 3,
+        "price_fishbucks": -1,
+        "quality_duration": 75,
+        "player_level_req": 42
+    },
+    {
+        "id": 39,
+        "name": "plug",
+        "category": "lures",
+        "price_fishcoins": 8,
+        "price_fishbucks": -1,
+        "quality_duration": 200,
+        "player_level_req": 58
+    },
+    {
+        "id": 40,
+        "name": "plug",
+        "category": "lures",
+        "price_fishcoins": 10,
+        "price_fishbucks": -1,
+        "quality_duration": 500,
+        "player_level_req": 72
+    },
+    {
+        "id": 41,
+        "name": "plug",
+        "category": "lures",
+        "price_fishcoins": 2,
+        "price_fishbucks": -1,
+        "quality_duration": 50,
+        "player_level_req": 69
+    },
+    {
+        "id": 42,
+        "name": "spoon",
+        "category": "lures",
+        "price_fishcoins": 4,
+        "price_fishbucks": -1,
+        "quality_duration": 100,
+        "player_level_req": 36
+    },
+    {
+        "id": 43,
+        "name": "spoon",
+        "category": "lures",
+        "price_fishcoins": 20,
+        "price_fishbucks": -1,
+        "quality_duration": 500,
+        "player_level_req": 90
+    },
+    {
+        "id": 44,
+        "name": "null",
+        "category": "shark",
+        "price_fishcoins": 5,
+        "price_fishbucks": -1,
+        "quality_duration": 25,
+        "player_level_req": 29
+    },
+    {
+        "id": 45,
+        "name": "prehistoric",
+        "category": "prehistoric",
+        "price_fishcoins": 5,
+        "price_fishbucks": -1,
+        "quality_duration": 25,
+        "player_level_req": 0
+    },
+    {
+        "id": 46,
+        "name": "pelican",
+        "category": "pelican",
+        "price_fishcoins": 199,
+        "price_fishbucks": -1,
+        "quality_duration": -1,
+        "player_level_req": 0
+    },
+    {
+        "id": 47,
+        "name": "monkfish",
+        "category": "monkfish",
+        "price_fishcoins": 49,
+        "price_fishbucks": -1,
+        "quality_duration": -1,
+        "player_level_req": 0
+    },
+    {
+        "id": 48,
+        "name": "star",
+        "category": "star",
+        "price_fishcoins": 129,
+        "price_fishbucks": -1,
+        "quality_duration": -1,
+        "player_level_req": 0
+    },
+    {
+        "id": 49,
+        "name": "tuna",
+        "category": "tuna",
+        "price_fishcoins": 0,
+        "price_fishbucks": -1,
+        "quality_duration": 20,
+        "player_level_req": 0
+    },
+    {
+        "id": 50,
+        "name": "marlin",
+        "category": "marlin",
+        "price_fishcoins": 0,
+        "price_fishbucks": -1,
+        "quality_duration": 20,
+        "player_level_req": 0
+    },
+    {
+        "id": 51,
+        "name": "barracuda",
+        "category": "barracuda",
+        "price_fishcoins": 0,
+        "price_fishbucks": -1,
+        "quality_duration": 20,
+        "player_level_req": 0
+    },
+    {
+        "id": 52,
+        "name": "monster",
+        "category": "monster",
+        "price_fishcoins": 0,
+        "price_fishbucks": -1,
+        "quality_duration": 20,
+        "player_level_req": 0
+    }
+]

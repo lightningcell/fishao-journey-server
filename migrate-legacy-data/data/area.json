@@ -1,0 +1,137 @@
+{
+  "1": {
+    "name": "Laketown",
+    "badge_id": 1,
+    "sublocations": {
+      "Laketown": 1,
+      "Trout Farm": 101,
+      "All": [1, 101]
+    }
+  },
+  "2": { "name": "Rio Tropical", "badge_id": 2 },
+  "3": {
+    "name": "Pinheira Beach",
+    "badge_id": 3,
+    "special_location": {
+      "Pinheira Beach (Beach)": 3,
+      "Pinheira Beach (Pier)": "EFPT_PANHEIRA_BEACH_JETTY",
+      "Pinheira Beach (All)": [3, "EFPT_PANHEIRA_BEACH_JETTY"]
+    }
+  },
+  "4": {
+    "name": "Cool Mountain",
+    "badge_id": 4,
+    "special_location": {
+      "Cool Mountain": 4,
+      "Cool Mountain (Raft)": "EFPT_COOL_MOUNTAIN_RAFT",
+      "Cool Mountain (All)": [4, "EFPT_COOL_MOUNTAIN_RAFT"]
+    }
+  },
+  "5": {
+    "name": "Mystic Desert",
+    "badge_id": 5,
+    "sublocations": {
+      "Mystic Desert": 5,
+      "Pyramid": 104,
+      "All": [5, 104]
+    }
+  },
+  "6": { "name": "Sibiri City", "badge_id": 6 },
+  "7": { "name": "Aquayama", "badge_id": 7 },
+  "8": {
+    "name": "Seagull Harbor",
+    "badge_id": 8,
+    "special_location": {
+      "Seagull Harbor (Harbor)": 8,
+      "Seagull Harbor (Boat)": "EFPT_SEAGULL_HARBOR_BOAT",
+      "Seagull Harbor (All)": [8, "EFPT_SEAGULL_HARBOR_BOAT"]
+    }
+  },
+  "9": {
+    "name": "Thombani Town",
+    "badge_id": 9,
+    "special_location": {
+      "Thombani Town (River)": 9,
+      "Thombani Town (Locked Pond)": "EFPT_THOMBANI_TOWN_AFRICAN_LAKE",
+      "Thombani Town (All)": [9, "EFPT_THOMBANI_TOWN_AFRICAN_LAKE"]
+    }
+  },
+  "10": { "name": "Marshville", "badge_id": 10 },
+  "11": {
+    "name": "Palm Island",
+    "badge_id": 52,
+    "special_location": {
+      "Palm Island (Outside)": "EFPT_PALM_ISLAND_ZONE_A",
+      "Palm Island (Left up corner)": "EFPT_PALM_ISLAND_ZONE_B",
+      "Palm Island (Behind the boat)": "EFPT_PALM_ISLAND_ZONE_C",
+      "Palm Island (Under the boat)": "EFPT_PALM_ISLAND_ZONE_D",
+      "Palm Island (Inside)": "EFPT_PALM_ISLAND_ZONE_E",
+      "Palm Island (Down corners)": "EFPT_PALM_ISLAND_ZONE_G",
+      "Palm Island (Next to the bridge)": "EFPT_PALM_ISLAND_ZONE_F",
+      "Palm Island (Small island)": "EFPT_PALM_ISLAND_ZONE_H",
+      "Palm Island (All)": [
+        11,
+        "EFPT_PALM_ISLAND_ZONE_A",
+        "EFPT_PALM_ISLAND_ZONE_B",
+        "EFPT_PALM_ISLAND_ZONE_C",
+        "EFPT_PALM_ISLAND_ZONE_D",
+        "EFPT_PALM_ISLAND_ZONE_E",
+        "EFPT_PALM_ISLAND_ZONE_F",
+        "EFPT_PALM_ISLAND_ZONE_G",
+        "EFPT_PALM_ISLAND_ZONE_H"
+      ]
+    }
+  },
+  "12": { "name": "Lucky Raft", "badge_id": 76 },
+  "108": { 
+    "name": "Lost Valley", 
+    "badge_id": 33,
+    "special_location": {
+      "Lost Valley Part 1": "EFPT_LOST_VALLEY_POND_1",
+      "Lost Valley Part 2": "EFPT_LOST_VALLEY_POND_2",
+      "Lost Valley (All)": [108, "EFPT_LOST_VALLEY_POND_1", "EFPT_LOST_VALLEY_POND_2"]
+    }
+  },
+  "109": { "name": "Lost Valley 2", "badge_id": 34 },
+  "110": { "name": "Little Rio", "badge_id": 55 },
+  "111": { "name": "Pirate Cave", "badge_id": 56 },
+  "112": {
+    "name": "Club",
+    "badge_id": 75,
+    "special_location": {
+      "Club (Saltwater)": "EFPT_CLUB_AREA_SALT",
+      "Club (Freshwater)": "EFPT_CLUB_AREA_FRESH",
+      "Club (All)": [112, "EFPT_CLUB_AREA_SALT", "EFPT_CLUB_AREA_FRESH"]
+    }
+  },
+  "113": { "name": "Factory", "badge_id": 5 },
+  "201": { "name": "Boat on Sea", "badge_id": 11 },
+  "202": { "name": "Lake Run", "badge_id": 12 },
+  "203": { "name": "Race", "badge_id": 13 },
+  "204": {
+    "name": "Moray",
+    "badge_id": 54,
+    "special_location": {
+      "Moray (Outside)": "EFPT_PALM_ISLAND_ZONE_A",
+      "Moray (Left up corner)": "EFPT_PALM_ISLAND_ZONE_B",
+      "Moray (Behind the boat)": "EFPT_PALM_ISLAND_ZONE_C",
+      "Moray (Under the boat)": "EFPT_PALM_ISLAND_ZONE_D",
+      "Moray (Inside)": "EFPT_PALM_ISLAND_ZONE_E",
+      "Moray (Down corners)": "EFPT_PALM_ISLAND_ZONE_G",
+      "Moray (Next to the bridge)": "EFPT_PALM_ISLAND_ZONE_F",
+      "Moray (Small island)": "EFPT_PALM_ISLAND_ZONE_H",
+      "Moray (All)": [
+        204,
+        "EFPT_PALM_ISLAND_ZONE_A",
+        "EFPT_PALM_ISLAND_ZONE_B",
+        "EFPT_PALM_ISLAND_ZONE_C",
+        "EFPT_PALM_ISLAND_ZONE_D",
+        "EFPT_PALM_ISLAND_ZONE_E",
+        "EFPT_PALM_ISLAND_ZONE_F",
+        "EFPT_PALM_ISLAND_ZONE_G",
+        "EFPT_PALM_ISLAND_ZONE_H"
+      ]
+    }
+  },
+  "300": { "name": "Backyard", "badge_id": 14 }
+}
