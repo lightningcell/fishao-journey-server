@@ -4,7 +4,7 @@ Role initialization script for Fishao Journey Server
 This script creates the default roles in the system: Admin, Moderator, Player, Developer
 """
 
-from app import create_app
+from app.app import create_app
 from app.models import db
 from app.models.player import AccountRole
 
