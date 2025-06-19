@@ -1,8 +1,8 @@
 from datetime import datetime, date, time
 
 from app import create_app
-from models import db
-from models import (
+from app.models import db
+from app.models import (
     Area, SpecialLocation,
     BaitCategory, Bait, Rod, Look, Fruit,
     DecorationCategory, Decoration, DecorationItem, Homeplan, HomeFish,
@@ -20,13 +20,13 @@ from models import (
     Task, TaskAward, TaskCompletion,
     Trade
 )
-from enums.enum_inventory_type import InventoryType
-from enums.enum_registration_type import RegistrationType
-from enums.enum_rod_sizes import RodSizes
-from enums.enum_width_unit import WidthUnit
-from enums.enum_penalty_type import PenaltyType
-from enums.enum_report_status import ReportStatus
-from enums.enum_upgrade_type import UpgradeType
+from app.enums.enum_inventory_type import InventoryType
+from app.enums.enum_registration_type import RegistrationType
+from app.enums.enum_rod_sizes import RodSizes
+from app.enums.enum_width_unit import WidthUnit
+from app.enums.enum_penalty_type import PenaltyType
+from app.enums.enum_report_status import ReportStatus
+from app.enums.enum_upgrade_type import UpgradeType
 
 
 def seed_db():

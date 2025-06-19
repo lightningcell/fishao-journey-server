@@ -5,8 +5,8 @@ This script creates the default roles in the system: Admin, Moderator, Player, D
 """
 
 from app import create_app
-from models import db
-from models.player import AccountRole
+from app.models import db
+from app.models.player import AccountRole
 
 
 def init_roles():
