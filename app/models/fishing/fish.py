@@ -1,4 +1,4 @@
-from app.models import db, BaseEntity
+from models import db, BaseEntity
 
 # Association table for Fish_Area
 fish_area = db.Table(

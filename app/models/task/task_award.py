@@ -1,5 +1,5 @@
-from app.models.item.item import Item
-from app.models import db, BaseEntity
+from models.item.item import Item
+from models import db, BaseEntity
 
 class TaskAward(Item):
     __tablename__ = 'task_award'

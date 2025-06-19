@@ -1,4 +1,4 @@
-from app.models import db, BaseEntity
+from models import db, BaseEntity
 from datetime import datetime
 
 # Association table for many-to-many relationship between Account and AccountRole

@@ -1,4 +1,4 @@
-from app.models import db, BaseEntity
+from models import db, BaseEntity
 
 class MoneyTree(BaseEntity):
     __tablename__ = 'money_tree'

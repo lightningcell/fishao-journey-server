@@ -1,6 +1,6 @@
-from app.models import db, BaseEntity
+from models import db, BaseEntity
 from datetime import datetime
-from app.enums.enum_registration_type import RegistrationType
+from enums.enum_registration_type import RegistrationType
 
 class AreaRegistration(BaseEntity):
     __tablename__ = 'area_registration'

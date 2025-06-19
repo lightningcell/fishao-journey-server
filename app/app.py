@@ -1,6 +1,6 @@
 from flask import Flask
 from flask_migrate import Migrate
-from app.models import db
+from models import db
 import os
 
 def create_app():
@@ -13,12 +13,12 @@ def create_app():
     
     # SQLAlchemy'yi başlat
     db.init_app(app)
-    
-    # Flask-Migrate'i başlat
+      # Flask-Migrate'i başlat
     migrate = Migrate(app, db)
     
-    # Blueprint'leri burada ekleyebilirsiniz
-    # app.register_blueprint(your_blueprint)
+    # Blueprint'leri kayıt et
+    from controllers.main import main_bp
+    app.register_blueprint(main_bp)
     
     return app
 

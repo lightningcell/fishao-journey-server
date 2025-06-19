@@ -1,4 +1,4 @@
-from app.models import db, BaseEntity
+from models import db, BaseEntity
 
 class CollectionCompletion(BaseEntity):
     __tablename__ = 'collection_completion'

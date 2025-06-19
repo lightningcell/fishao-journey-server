@@ -1,5 +1,5 @@
-from app.models import db, BaseEntity
-from app.enums.enum_collection_type import CollectionType
+from models import db, BaseEntity
+from enums.enum_collection_type import CollectionType
 
 # Association table for Collection-Decoration Many-to-Many relationship
 collection_decoration = db.Table(

@@ -1,5 +1,5 @@
-from app.models import db, BaseEntity
-from app.enums.enum_width_unit import WidthUnit
+from models import db, BaseEntity
+from enums.enum_width_unit import WidthUnit
 
 class PlayerSettings(BaseEntity):
     __tablename__ = 'player_settings'

@@ -1,5 +1,5 @@
-from app.models import db, BaseEntity
-from app.enums.enum_tournament_type import TournamentType
+from models import db, BaseEntity
+from enums.enum_tournament_type import TournamentType
 from datetime import datetime
 
 

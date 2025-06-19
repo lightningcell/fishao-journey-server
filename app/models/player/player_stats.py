@@ -1,4 +1,4 @@
-from app.models import db, BaseEntity
+from models import db, BaseEntity
 
 class PlayerStats(BaseEntity):
     __tablename__ = 'player_stats'

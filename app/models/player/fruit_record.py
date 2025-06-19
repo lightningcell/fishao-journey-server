@@ -1,4 +1,4 @@
-from app.models import db, BaseEntity
+from models import db, BaseEntity
 from datetime import datetime
 
 class FruitRecord(BaseEntity):

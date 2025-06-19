@@ -1,5 +1,5 @@
-from app.models import db, BaseEntity
-from app.enums.enum_report_status import ReportStatus
+from models import db, BaseEntity
+from enums.enum_report_status import ReportStatus
 
 class ReportRecord(BaseEntity):
     __tablename__ = 'report_record'

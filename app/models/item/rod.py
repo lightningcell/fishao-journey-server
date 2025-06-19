@@ -1,5 +1,5 @@
-from app.models import db, BaseEntity
-from app.enums.enum_rod_sizes import RodSizes
+from models import db, BaseEntity
+from enums.enum_rod_sizes import RodSizes
 
 class Rod(BaseEntity):
     __tablename__ = 'rod'

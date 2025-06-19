@@ -1,4 +1,4 @@
-from app.models import db, BaseEntity
+from models import db, BaseEntity
 
 class SpecialLocation(BaseEntity):
     __tablename__ = 'special_location'

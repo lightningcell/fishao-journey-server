@@ -1,7 +1,7 @@
-from app.models import db, BaseEntity
-from app.enums.enum_registration_type import RegistrationType
-from app.enums.enum_task_type import TaskType
-from app.enums.enum_upgrade_type import UpgradeType
+from models import db, BaseEntity
+from enums.enum_registration_type import RegistrationType
+from enums.enum_task_type import TaskType
+from enums.enum_upgrade_type import UpgradeType
 
 class Task(BaseEntity):
     __tablename__ = 'task'

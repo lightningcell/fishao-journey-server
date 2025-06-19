@@ -1,4 +1,4 @@
-from app.models import db, BaseEntity
+from models import db, BaseEntity
 
 class OutfitTemplate(BaseEntity):
     __tablename__ = 'outfit_template'

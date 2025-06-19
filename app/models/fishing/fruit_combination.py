@@ -1,5 +1,5 @@
-from app.models import db, BaseEntity
-from app.enums.enum_inventory_type import InventoryType
+from models import db, BaseEntity
+from enums.enum_inventory_type import InventoryType
 from sqlalchemy import JSON
 
 # Association Table for Player-FruitCombination Many-to-Many relationship

@@ -1,5 +1,5 @@
-from app.models import db, BaseEntity
-from app.enums.enum_penalty_type import PenaltyType
+from models import db, BaseEntity
+from enums.enum_penalty_type import PenaltyType
 
 class Penalty(BaseEntity):
     __tablename__ = 'penalty'

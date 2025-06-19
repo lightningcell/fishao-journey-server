@@ -1,4 +1,4 @@
-from app.models import db, BaseEntity
+from models import db, BaseEntity
 
 class ConfigNPC(BaseEntity):
     __tablename__ = 'config_npc'

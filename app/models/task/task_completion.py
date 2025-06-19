@@ -1,4 +1,4 @@
-from app.models import db, BaseEntity
+from models import db, BaseEntity
 
 class TaskCompletion(BaseEntity):
     __tablename__ = 'task_completion'

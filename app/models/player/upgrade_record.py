@@ -1,6 +1,6 @@
-from app.models import db, BaseEntity
+from models import db, BaseEntity
 from datetime import datetime
-from app.enums.enum_upgrade_type import UpgradeType
+from enums.enum_upgrade_type import UpgradeType
 
 class UpgradeRecord(BaseEntity):
     __tablename__ = 'upgrade_record'

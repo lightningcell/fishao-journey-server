@@ -1,4 +1,4 @@
-from app.models import db, BaseEntity
+from models import db, BaseEntity
 
 class ChatLog(BaseEntity):
     __tablename__ = 'chat_log'

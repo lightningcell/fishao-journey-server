@@ -1,6 +1,6 @@
-from app.models import db, BaseEntity
+from models import db, BaseEntity
 from datetime import datetime
-from app.enums.enum_tournament_status import TournamentStatus
+from enums.enum_tournament_status import TournamentStatus
 
 
 class TournamentHistory(BaseEntity):
