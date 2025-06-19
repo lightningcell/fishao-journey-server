@@ -1,6 +1,6 @@
 from datetime import datetime, date, time
 
-from app import create_app
+from app.app import create_app
 from app.models import db
 from app.models import (
     Area, SpecialLocation,
