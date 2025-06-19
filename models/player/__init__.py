@@ -1,5 +1,6 @@
 from .player import Player
 from .account import Account
+from .account_role import AccountRole
 from .area_registration import AreaRegistration
 from .money_tree import MoneyTree
 from .player_settings import PlayerSettings
