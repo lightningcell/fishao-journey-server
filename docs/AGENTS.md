@@ -247,8 +247,8 @@ player_fishing_logs = player.fishing_logs.limit(10).all()
 
 ### Enumeration Usage
 ```python
-from enums.enum_inventory_type import InventoryType
-from enums.enum_rod_sizes import RodSizes
+from app.enums.enum_inventory_type import InventoryType
+from app.enums.enum_rod_sizes import RodSizes
 
 # Creating items with proper types
 bait_item = Item(
