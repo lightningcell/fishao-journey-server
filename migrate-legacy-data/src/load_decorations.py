@@ -7,11 +7,11 @@ project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..
 if project_root not in sys.path:
     sys.path.insert(0, project_root)
 
-from models import db
-from models.home.decoration import Decoration
-from models.home.decoration_category import DecorationCategory
-from models.collection.collection import Collection
-from enums.enum_collection_type import CollectionType
+from app.models import db
+from app.models.home.decoration import Decoration
+from app.models.home.decoration_category import DecorationCategory
+from app.models.collection.collection import Collection
+from app.enums.enum_collection_type import CollectionType
 from config import create_app
 
 def load_decorations_from_json():

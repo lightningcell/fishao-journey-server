@@ -7,9 +7,9 @@ project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..
 if project_root not in sys.path:
     sys.path.insert(0, project_root)
 
-from models import db
-from models.item.rod import Rod
-from enums.enum_rod_sizes import RodSizes
+from app.models import db
+from app.models.item.rod import Rod
+from app.enums.enum_rod_sizes import RodSizes
 from config import create_app
 
 def load_rods_from_json():
