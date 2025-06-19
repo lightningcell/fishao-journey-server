@@ -3,7 +3,7 @@ Database configuration and app factory for migration scripts
 """
 import os
 from flask import Flask
-from models import db
+from app.models import db
 
 def create_app():
     """Create and configure Flask application for migration scripts"""
