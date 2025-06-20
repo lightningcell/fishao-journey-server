@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}FISHAO Journey{% endblock %}</title>
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">      <!-- Custom CSS -->
+    <link rel="stylesheet" href="/static/css/base.css">
+    <link rel="stylesheet" href="/static/css/buttons.css">
+    <link rel="stylesheet" href="/static/css/forms.css">
+    <link rel="stylesheet" href="/static/css/navbar.css">
+    <link rel="stylesheet" href="/static/css/dashboard.css">
+    <link rel="stylesheet" href="/static/css/components.css">
+    
+    <!-- Additional CSS blocks -->
+    {% block additional_css %}{% endblock %}
+</head>
+<body class="{% block body_class %}{% endblock %}">
+    <!-- Navigation -->
+    {% block navbar %}
+        {% include 'navbar.html' %}
+    {% endblock %}
+    
+    <!-- Main Content -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    
+    <!-- Footer -->    {% block footer %}    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Fishao Journey. All rights reserved.</p>
+        </div>
+    </footer>
+    {% endblock %}
+    
+    <!-- JavaScript -->
+    {% block javascript %}
+    <script>
+        // Mobile navbar toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const navbarToggle = document.querySelector('.navbar-toggle');
+            const navbarNav = document.querySelector('.navbar-nav');
+            
+            if (navbarToggle && navbarNav) {
+                navbarToggle.addEventListener('click', function() {
+                    navbarNav.classList.toggle('active');
+                });
+            }
+            
+            // Checkbox functionality
+            const checkboxes = document.querySelectorAll('.checkbox');
+            checkboxes.forEach(function(checkbox) {
+                checkbox.addEventListener('click', function() {
+                    const input = this.nextElementSibling;
+                    if (input && input.type === 'checkbox') {
+                        input.checked = !input.checked;
+                        this.classList.toggle('checked', input.checked);
+                    }
+                });
+            });
+        });
+    </script>
+    {% endblock %}
+</body>
+</html>

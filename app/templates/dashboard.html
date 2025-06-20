@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - Fishao Journey{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="dashboard-header">
+        <h1>Welcome back, {{ player.username }}!</h1>
+        <div class="player-stats">
+            <div class="stat-item">
+                <i class="fas fa-coins"></i>
+                <span>{{ player.fishbucks or 0 }} Fishbucks</span>
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-gem"></i>
+                <span>{{ player.fishcash or 0 }} Fishcash</span>
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-star"></i>
+                <span>Level {{ player.level or 1 }}</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="dashboard-content">
+        <div class="welcome-message">
+            <h2>Your Fishing Adventure Awaits!</h2>
+            <p>Welcome to Fishao Journey! Start your fishing adventure, explore new areas, and catch amazing fish!</p>
+        </div>
+        
+        <div class="quick-actions">
+            <a href="/game" class="btn btn-blue">
+                <i class="fas fa-gamepad"></i>
+                Start Fishing
+            </a>
+            <a href="/profile" class="btn btn-green">
+                <i class="fas fa-user"></i>
+                View Profile
+            </a>
+            <a href="/shop" class="btn btn-orange">
+                <i class="fas fa-shopping-cart"></i>
+                Visit Shop
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

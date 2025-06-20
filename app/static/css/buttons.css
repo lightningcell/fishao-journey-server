@@ -1,0 +1,66 @@
+/* Button styles */
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .92), inset 0 2px rgba(255, 255, 255, .3);
+    cursor: pointer;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.3s ease;
+    color: white;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .92), inset 0 2px rgba(255, 255, 255, .3);
+}
+
+.btn:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .92), inset 0 1px rgba(255, 255, 255, .3);
+}
+
+/* Button variants */
+.btn-blue {
+    background-image: linear-gradient(to top, #116fa4, #47c1f4);
+}
+
+.btn-green {
+    background-image: linear-gradient(to top, #367801, #5bcf02);
+}
+
+.btn-orange {
+    background-image: linear-gradient(to top, #f06000, #ffa200);
+}
+
+/* Button sizes */
+.btn-small {
+    padding: 8px 16px;
+    font-size: 14px;
+}
+
+.btn-large {
+    padding: 16px 32px;
+    font-size: 18px;
+}
+
+.btn-block {
+    display: block;
+    width: 100%;
+}
+
+/* Button icon styles */
+.btn .btn-icon {
+    margin-right: 8px;
+    color: white;
+}
+
+.btn:hover .btn-icon {
+    color: white;
+}

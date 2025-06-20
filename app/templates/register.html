@@ -1,0 +1,123 @@
+{% extends "base.html" %}
+
+{% block title %}Register - Fishao Journey{% endblock %}
+
+{% block body_class %}register-page{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div>
+        <div class="form-container centered-div">
+            <!-- Logo/Brand -->
+            <div class="text-center mb-20">
+                <h1 class="login-title">
+                    <i class="fas fa-fish login-icon"></i>
+                    Join Fishao Journey
+                </h1>
+                <p class="login-subtitle">Create your account and start fishing!</p>
+            </div>
+            
+            <!-- Register Form -->
+            <form method="POST" action="{{ url_for('main.register') }}">
+                {{ form.hidden_tag() }}
+                
+                <!-- Flash Messages -->
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        {% for category, message in messages %}
+                            <div class="alert alert-{{ category }}">{{ message }}</div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+                
+                <!-- Username Field -->
+                <div class="form-group">
+                    {{ form.username.label(class="form-label") }}
+                    <i class="fas fa-user form-icon"></i>
+                    {{ form.username() }}
+                    {% if form.username.errors %}
+                        <div class="field-error">
+                            {% for error in form.username.errors %}
+                                <small>{{ error }}</small>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+                
+                <!-- Email Field -->
+                <div class="form-group">
+                    {{ form.email.label(class="form-label") }}
+                    <i class="fas fa-envelope form-icon"></i>
+                    {{ form.email() }}
+                    {% if form.email.errors %}
+                        <div class="field-error">
+                            {% for error in form.email.errors %}
+                                <small>{{ error }}</small>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+                
+                <!-- Password Field -->
+                <div class="form-group">
+                    {{ form.password.label(class="form-label") }}
+                    <i class="fas fa-lock form-icon"></i>
+                    {{ form.password() }}
+                    {% if form.password.errors %}
+                        <div class="field-error">
+                            {% for error in form.password.errors %}
+                                <small>{{ error }}</small>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+                
+                <!-- Confirm Password Field -->
+                <div class="form-group">
+                    {{ form.confirm_password.label(class="form-label") }}
+                    <i class="fas fa-lock form-icon"></i>
+                    {{ form.confirm_password() }}
+                    {% if form.confirm_password.errors %}
+                        <div class="field-error">
+                            {% for error in form.confirm_password.errors %}
+                                <small>{{ error }}</small>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+                
+                <!-- Accept Terms Checkbox -->
+                <div class="checkbox-group">
+                    <span class="checkbox"></span>
+                    {{ form.accept_terms() }}
+                    {{ form.accept_terms.label(class="checkbox-label") }}
+                    {% if form.accept_terms.errors %}
+                        <div class="field-error">
+                            {% for error in form.accept_terms.errors %}
+                                <small>{{ error }}</small>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+                
+                <!-- Register Button -->
+                {{ form.submit() }}
+                <i class="fas fa-user-plus btn-icon"></i>
+                
+                <!-- Additional Links -->
+                <div class="text-center mt-20">
+                    <p class="register-prompt">
+                        Already have an account?
+                    </p>
+                    <a href="{{ url_for('main.login') }}" class="btn btn-blue register-btn">
+                        <i class="fas fa-sign-in-alt btn-icon"></i>
+                        Login
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block additional_css %}{% endblock %}

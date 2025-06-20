@@ -1,0 +1,108 @@
+/* Dashboard styles */
+.dashboard-header {
+    background: linear-gradient(135deg, #47c1f4, #116fa4);
+    color: white;
+    padding: 30px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.dashboard-header h1 {
+    margin: 0 0 20px 0;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.player-stats {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.stat-item {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 15px 20px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+}
+
+.stat-item i {
+    font-size: 20px;
+    color: #ffdd57;
+}
+
+.dashboard-content {
+    text-align: center;
+}
+
+.welcome-message {
+    background: #f8f1e0;
+    padding: 30px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+}
+
+.welcome-message h2 {
+    color: #775332;
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+.welcome-message p {
+    color: #a89574;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.quick-actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.quick-actions .btn {
+    min-width: 150px;
+    padding: 15px 25px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.quick-actions .btn i {
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .player-stats {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .stat-item {
+        width: 100%;
+        max-width: 200px;
+        justify-content: center;
+    }
+    
+    .quick-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .quick-actions .btn {
+        width: 100%;
+        max-width: 200px;
+    }
+}
+
+/* Register page specific styles */
+.register-page .footer {
+    display: none;
+}

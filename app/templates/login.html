@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+
+{% block title %}Login - FISHAO Journey{% endblock %}
+
+{% block body_class %}login-page{% endblock %}
+
+
+
+{% block content %}
+<div class="container">
+    <div>
+        <div class="form-container centered-div">
+            <!-- Logo/Brand -->            <div class="text-center mb-20">
+                <h1 class="login-title">
+                    <i class="fas fa-fish login-icon"></i>
+                    FISHAO Journey
+                </h1>
+                <p class="login-subtitle">Your fishing adventure starts here!</p>
+            </div>
+              <!-- Login Form -->
+            <form method="POST" action="{{ url_for('main.login') }}">
+                {{ form.hidden_tag() }}
+                
+                <!-- Flash Messages -->
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        {% for category, message in messages %}
+                            <div class="alert alert-{{ category }}">{{ message }}</div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+                  <!-- Username Field -->
+                <div class="form-group">
+                    <label for="username" class="form-label">
+                        <i class="fas fa-user form-icon"></i>
+                        Username
+                    </label>
+                    {{ form.username(class="form-input", placeholder="Enter your username") }}
+                    {% if form.username.errors %}
+                        <div class="field-error">
+                            {% for error in form.username.errors %}
+                                <small>{{ error }}</small>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+                
+                <!-- Password Field -->
+                <div class="form-group">
+                    <label for="password" class="form-label">
+                        <i class="fas fa-lock form-icon"></i>
+                        Password
+                    </label>
+                    {{ form.password(class="form-input", placeholder="Enter your password") }}
+                    {% if form.password.errors %}
+                        <div class="field-error">
+                            {% for error in form.password.errors %}
+                                <small>{{ error }}</small>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+                  <!-- Remember Me Checkbox -->
+                <div class="checkbox-group">
+                    <span class="checkbox"></span>
+                    {{ form.remember_me(class="styled") }}
+                    <label for="remember_me" class="checkbox-label">Remember Me</label>
+                </div>
+                
+                <!-- Login Button -->
+                 <button type="submit" class="btn btn-blue btn-block btn-large" name="{{ form.submit.name }}" value="">
+                    <i class="fas fa-sign-in-alt btn-icon"></i>
+                    {{ form.submit.label.text }}
+                </button>
+                
+                <!-- Additional Links -->                <div class="text-center mt-20">
+                    <p class="register-prompt">
+                        Don't have an account?
+                    </p>                    <a href="{{ url_for('main.register') }}" class="btn btn-green register-btn">
+                        <i class="fas fa-user-plus btn-icon"></i>
+                        Register
+                    </a>
+                    <a href="/forgot-password" class="forgot-password-link">
+                        <i class="fas fa-question-circle forgot-icon"></i>
+                        Forgot Password
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block additional_css %}{% endblock %}

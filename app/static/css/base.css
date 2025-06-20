@@ -1,0 +1,63 @@
+/* Base styles for the application */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+    background-color: antiquewhite;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Common utility classes */
+.text-center {
+    text-align: center;
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+.mb-20 {
+    margin-bottom: 20px;
+}
+
+.p-20 {
+    padding: 20px;
+}
+
+/* Footer styles */
+.footer {
+    margin-top: 50px;
+    padding: 20px 0;
+    text-align: center;
+    background-color: #f8f1e0;
+    color: #775332;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Login page override */
+.login-page .footer {
+    display: none;
+}
+
+/* Icon styles - reusable across components */
+.navbar-brand i {
+    margin-right: 10px;
+    font-size: 28px;
+}
+
