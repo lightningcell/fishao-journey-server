@@ -1,3 +1,2 @@
-from .models import *
-from enums import *
-from app.app import *
+# Remove this file to avoid import issues
+# Flask CLI will use app.py directly
