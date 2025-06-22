@@ -65,7 +65,7 @@ class TwoFactorService(BaseService):
     def enable_2fa(self, account_id, totp_code, secret_key):
         """Enable 2FA for an account after verifying TOTP code"""
         try:
-            account = Account.query.get(account_id)
+            account = Account.get(account_id)
             if not account:
                 return ServiceResponse(False, message="Account not found")
             
@@ -83,11 +83,11 @@ class TwoFactorService(BaseService):
             backup_codes = [secrets.token_hex(4).upper() for _ in range(10)]
             
             # Save to database
-            account.totp_secret = secret_key
-            account.backup_codes = json.dumps(backup_codes)
-            account.is2fa_enabled = True
-            
-            self.db.session.commit()
+            account.change(
+                totp_secret=secret_key,
+                backup_codes=json.dumps(backup_codes),
+                is2fa_enabled=True
+            ).commit()
             
             return ServiceResponse(True, data={
                 'backup_codes': backup_codes,
@@ -97,11 +97,10 @@ class TwoFactorService(BaseService):
         except Exception as e:
             self.db.session.rollback()
             return ServiceResponse(False, message="Failed to enable 2FA", error=str(e))
-    
     def disable_2fa(self, account_id, password, totp_code_or_backup):
         """Disable 2FA for an account"""
         try:
-            account = Account.query.get(account_id)
+            account = Account.get(account_id)
             if not account:
                 return ServiceResponse(False, message="Account not found")
             
@@ -131,13 +130,12 @@ class TwoFactorService(BaseService):
             
             if not is_valid:
                 return ServiceResponse(False, message="Invalid verification code or backup code")
-            
-            # Disable 2FA
-            account.is2fa_enabled = False
-            account.totp_secret = None
-            account.backup_codes = None
-            
-            self.db.session.commit()
+              # Disable 2FA
+            account.change(
+                is2fa_enabled=False,
+                totp_secret=None,
+                backup_codes=None
+            ).commit()
             
             return ServiceResponse(True, message="2FA disabled successfully")
             
@@ -148,7 +146,7 @@ class TwoFactorService(BaseService):
     def setup_2fa(self, account_id):
         """Start 2FA setup process"""
         try:
-            account = Account.query.get(account_id)
+            account = Account.get(account_id)
             if not account:
                 return ServiceResponse(False, message="Account not found")
             
@@ -176,7 +174,7 @@ class TwoFactorService(BaseService):
     def verify_2fa_login(self, account_id, totp_code_or_backup):
         """Verify 2FA code during login"""
         try:
-            account = Account.query.get(account_id)
+            account = Account.get(account_id)
             if not account:
                 return ServiceResponse(False, message="Account not found")
             

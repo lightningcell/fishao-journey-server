@@ -34,10 +34,8 @@ class AuthService(BaseService):
             totp_result = self.two_factor_service.verify_2fa_login(account.id, totp_code)
             if not totp_result.success:
                 return ServiceResponse(False, message=totp_result.message)
-        
-        # Update last login
-        account.last_login = datetime.utcnow()
-        self.db.session.commit()
+          # Update last login
+        account.change(last_login=datetime.utcnow()).commit()
         
         return ServiceResponse(True, data=account, message="Login successful.")
     
@@ -57,8 +55,7 @@ class AuthService(BaseService):
                     return ServiceResponse(False, message="Username already exists")
                 else:
                     return ServiceResponse(False, message="Email already exists")
-            
-            # Create new player (which inherits from Account)
+              # Create new player (which inherits from Account)
             player = Player(
                 username=username,
                 email=email,
@@ -73,8 +70,7 @@ class AuthService(BaseService):
                 xp=0,
                 online=False
             )
-            self.db.session.add(player)
-            self.db.session.commit()
+            player.create()
             return ServiceResponse(True, data=player, message="Registration successful.")
             
         except Exception as e:
@@ -85,7 +81,7 @@ class AuthService(BaseService):
         """
         Get player by ID
         """
-        player = Player.query.get(player_id)
+        player = Player.get(player_id)
         if player:
             return ServiceResponse(True, data=player)
         return ServiceResponse(False, message="Player not found.")
@@ -109,7 +105,7 @@ class AuthService(BaseService):
         Verify 2FA code for an already password-authenticated account
         """
         try:
-            account = Account.query.get(account_id)
+            account = Account.get(account_id)
             if not account:
                 return ServiceResponse(False, message="Account not found")
             
@@ -120,10 +116,8 @@ class AuthService(BaseService):
             totp_result = self.two_factor_service.verify_2fa_login(account.id, totp_code)
             if not totp_result.success:
                 return ServiceResponse(False, message=totp_result.message)
-            
-            # Update last login
-            account.last_login = datetime.utcnow()
-            self.db.session.commit()
+              # Update last login
+            account.change(last_login=datetime.utcnow()).commit()
             
             return ServiceResponse(True, data=account, message="2FA verification successful")
             

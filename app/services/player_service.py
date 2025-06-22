@@ -6,52 +6,54 @@ from .base import BaseService, ServiceResponse
 
 class PlayerService(BaseService):
     def get_player_by_id(self, player_id):
-        player = Player.query.get(player_id)
+        player = Player.get(player_id)
         if player:
             return ServiceResponse(True, data=player)
         return ServiceResponse(False, message="Player not found.")
 
     def update_player_activity(self, player_id):
-        player = Player.query.get(player_id)
+        player = Player.get(player_id)
         if player:
-            player.last_activity_date = datetime.utcnow()
-            player.online = True
-            self.db.session.commit()
+            player.change(
+                last_activity_date=datetime.utcnow(),
+                online=True
+            ).commit()
             return ServiceResponse(True, data=player)
         return ServiceResponse(False, message="Player not found.")
 
     def set_player_offline(self, player_id):
-        player = Player.query.get(player_id)
+        player = Player.get(player_id)
         if player:
-            player.online = False
-            self.db.session.commit()
+            player.change(online=False).commit()
             return ServiceResponse(True, data=player)
         return ServiceResponse(False, message="Player not found.")
 
     def update_player_currency(self, player_id, fishbucks=None, fishcoins=None):
-        player = Player.query.get(player_id)
+        player = Player.get(player_id)
         if player:
+            update_data = {}
             if fishbucks is not None:
-                player.fishbucks = fishbucks
+                update_data['fishbucks'] = fishbucks
             if fishcoins is not None:
-                player.fishcoins = fishcoins
-            self.db.session.commit()
+                update_data['fishcoins'] = fishcoins
+            player.change(**update_data).commit()
             return ServiceResponse(True, data=player)
         return ServiceResponse(False, message="Player not found.")
 
     def add_experience(self, player_id, xp_amount):
-        player = Player.query.get(player_id)
+        player = Player.get(player_id)
         if player:
-            player.xp += xp_amount
-            new_level = (player.xp // 1000) + 1
+            new_xp = player.xp + xp_amount
+            new_level = (new_xp // 1000) + 1
+            update_data = {'xp': new_xp}
             if new_level > player.level:
-                player.level = new_level
-            self.db.session.commit()
+                update_data['level'] = new_level
+            player.change(**update_data).commit()
             return ServiceResponse(True, data=player)
         return ServiceResponse(False, message="Player not found.")
 
     def get_player_stats(self, player_id):
-        player = Player.query.get(player_id)
+        player = Player.get(player_id)
         if player:
             stats = {
                 'id': player.id,
