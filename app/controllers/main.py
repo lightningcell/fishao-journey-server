@@ -2,6 +2,7 @@ from flask import Blueprint, render_template, request, redirect, url_for, flash,
 from forms import LoginForm, RegisterForm
 from services import AuthService, PlayerService
 from models import db
+from utils.role_decorators import require_admin, require_moderator, require_developer, require_player
 
 main_bp = Blueprint('main', __name__)
 
@@ -102,6 +103,7 @@ def register():
     return render_template('register.html', form=form)
 
 @main_bp.route('/dashboard')
+@require_admin()
 def dashboard():
     """Dashboard page - requires login"""
     if 'user_id' not in session:
