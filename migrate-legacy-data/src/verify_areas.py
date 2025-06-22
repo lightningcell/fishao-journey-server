@@ -2,13 +2,13 @@ import os
 import sys
 
 # Add the project root to Python path for imports
-project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
+project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', 'app'))
 if project_root not in sys.path:
     sys.path.insert(0, project_root)
 
-from app.models import db
-from app.models.area.area import Area
-from app.models.area.special_location import SpecialLocation
+from models import db
+from models.area.area import Area
+from models.area.special_location import SpecialLocation
 from config import create_app
 
 def verify_migration():

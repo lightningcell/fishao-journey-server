@@ -3,13 +3,13 @@ import os
 import sys
 
 # Add the project root to Python path for imports
-project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
+project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', 'app'))
 if project_root not in sys.path:
     sys.path.insert(0, project_root)
 
-from app.models import db
-from app.models.item.bait import Bait
-from app.models.item.bait_category import BaitCategory
+from models import db
+from models.item.bait import Bait
+from models.item.bait_category import BaitCategory
 from config import create_app
 
 def load_baits_from_json():

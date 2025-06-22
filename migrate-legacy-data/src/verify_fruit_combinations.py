@@ -2,14 +2,14 @@ import os
 import sys
 
 # Add the project root to Python path for imports
-project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
+project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', 'app'))
 if project_root not in sys.path:
     sys.path.insert(0, project_root)
 
-from app.models import db
-from app.models.item.fruit import Fruit
-from app.models.fishing.fruit_combination import FruitCombination
-from app.enums.enum_inventory_type import InventoryType
+from models import db
+from models.item.fruit import Fruit
+from models.fishing.fruit_combination import FruitCombination
+from enums.enum_inventory_type import InventoryType
 from config import create_app
 
 def verify_fruit_combinations():
