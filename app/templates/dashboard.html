@@ -3,21 +3,24 @@
 {% block title %}Dashboard - Fishao Journey{% endblock %}
 
 {% block content %}
-<div class="container">
-    <div class="dashboard-header">
+<div class="container">    <div class="dashboard-header">
         <h1>Welcome back, {{ player.username }}!</h1>
         <div class="player-stats">
             <div class="stat-item">
                 <i class="fas fa-coins"></i>
-                <span>{{ player.fishbucks or 0 }} Fishbucks</span>
+                <span>{{ player.fishbucks }} Fishbucks</span>
             </div>
             <div class="stat-item">
                 <i class="fas fa-gem"></i>
-                <span>{{ player.fishcash or 0 }} Fishcash</span>
+                <span>{{ player.fishcoins }} fishcoins</span>
             </div>
             <div class="stat-item">
                 <i class="fas fa-star"></i>
-                <span>Level {{ player.level or 1 }}</span>
+                <span>Level {{ player.level }}</span>
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-trophy"></i>
+                <span>{{ player.xp }} XP</span>
             </div>
         </div>
     </div>

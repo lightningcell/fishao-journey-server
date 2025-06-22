@@ -1,10 +1,12 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash, session
 from forms import LoginForm, RegisterForm
-from models.player import Account, Player
+from services import AuthService, PlayerService
 from models import db
-from werkzeug.security import check_password_hash, generate_password_hash
 
 main_bp = Blueprint('main', __name__)
+
+auth_service = AuthService(db)
+player_service = PlayerService(db)
 
 @main_bp.route('/')
 def index():
@@ -21,11 +23,11 @@ def login():
         password = form.password.data
         remember = form.remember_me.data
         
-        # Find account by username
-        account = Account.query.filter_by(username=username).first()
+        # Authenticate user using service
+        result = auth_service.authenticate_user(username, password)
         
-        if account and check_password_hash(account.password_hash, password):
-            # Login successful
+        if result.success:
+            account = result.data
             session['user_id'] = account.id
             session['username'] = account.username
             
@@ -35,7 +37,7 @@ def login():
             flash('Login successful! Welcome back!', 'success')
             return redirect(url_for('main.dashboard'))
         else:
-            flash('Invalid username or password.', 'error')
+            flash(result.message or 'Invalid username or password.', 'error')
     
     return render_template('login.html', form=form)
 
@@ -49,31 +51,13 @@ def register():
         email = form.email.data
         password = form.password.data
         
-        # Create new account
-        try:
-            account = Account(
-                username=username,
-                email=email,
-                password_hash=generate_password_hash(password)
-            )
-            account.create()
-            
-            # Create player profile
-            player = Player(
-                id=account.id,
-                fishbucks=1000,  # Starting fishbucks
-                fishcash=0,
-                level=1,
-                experience=0
-            )
-            player.create()
-            
+        # Register new player using service
+        result = auth_service.register_player(username, email, password)
+        if result.success:
             flash('Registration successful! You can now login.', 'success')
             return redirect(url_for('main.login'))
-            
-        except Exception as e:
-            db.session.rollback()
-            flash('Registration failed. Please try again.', 'error')
+        else:
+            flash(result.message or 'Registration failed. Please try again.', 'error')
     
     return render_template('register.html', form=form)
 
@@ -84,7 +68,14 @@ def dashboard():
         flash('Please login to access this page.', 'warning')
         return redirect(url_for('main.login'))
     
-    player = Player.query.get(session['user_id'])
+    player_result = player_service.get_player_by_id(session['user_id'])
+    if not player_result.success:
+        flash('Player not found. Please login again.', 'error')
+        return redirect(url_for('main.logout'))
+    player = player_result.data
+    
+    player_service.update_player_activity(player.id)
+    
     return render_template('dashboard.html', player=player)
 
 @main_bp.route('/logout')

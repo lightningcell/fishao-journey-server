@@ -2,7 +2,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField, SubmitField
 from wtforms.validators import DataRequired, Length, ValidationError
 from markupsafe import Markup
-from models.player import Account
+from models.player import Player
 
 
 class LoginForm(FlaskForm):
@@ -36,15 +36,14 @@ class LoginForm(FlaskForm):
         render_kw={'class': 'styled'}
     )
     
-    submit = SubmitField(
-        Markup('Login'),
+    submit = SubmitField(        Markup('Login'),
         render_kw={'class': 'btn btn-blue btn-block btn-large'}
     )
     
     def validate_username(self, username):
         """Custom validator to check if username exists"""
-        account = Account.query.filter_by(username=username.data).first()
-        if not account:
+        player = Player.query.filter_by(username=username.data).first()
+        if not player:
             raise ValidationError('Invalid username or password.')
 
 
@@ -107,19 +106,18 @@ class RegisterForm(FlaskForm):
     
     submit = SubmitField(
         'Register',
-        render_kw={'class': 'btn btn-green btn-block btn-large'}
-    )
+        render_kw={'class': 'btn btn-green btn-block btn-large'}    )
     
     def validate_username(self, username):
         """Check if username is already taken"""
-        account = Account.query.filter_by(username=username.data).first()
-        if account:
+        player = Player.query.filter_by(username=username.data).first()
+        if player:
             raise ValidationError('Username already exists. Please choose a different one.')
     
     def validate_email(self, email):
         """Check if email is already registered"""
-        account = Account.query.filter_by(email=email.data).first()
-        if account:
+        player = Player.query.filter_by(email=email.data).first()
+        if player:
             raise ValidationError('Email already registered. Please use a different email.')
     
     def validate_confirm_password(self, confirm_password):

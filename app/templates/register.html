@@ -7,12 +7,12 @@
 {% block content %}
 <div class="container">
     <div>
-        <div class="form-container centered-div">
+        <div class="form-container">
             <!-- Logo/Brand -->
             <div class="text-center mb-20">
                 <h1 class="login-title">
                     <i class="fas fa-fish login-icon"></i>
-                    Join Fishao Journey
+                    Join FISHAO Journey
                 </h1>
                 <p class="login-subtitle">Create your account and start fishing!</p>
             </div>
@@ -32,9 +32,11 @@
                 
                 <!-- Username Field -->
                 <div class="form-group">
-                    {{ form.username.label(class="form-label") }}
-                    <i class="fas fa-user form-icon"></i>
-                    {{ form.username() }}
+                    <label for="username" class="form-label">
+                        <i class="fas fa-user form-icon"></i>
+                        Username
+                    </label>
+                    {{ form.username(class="form-input", placeholder="Enter your username") }}
                     {% if form.username.errors %}
                         <div class="field-error">
                             {% for error in form.username.errors %}
@@ -46,9 +48,11 @@
                 
                 <!-- Email Field -->
                 <div class="form-group">
-                    {{ form.email.label(class="form-label") }}
-                    <i class="fas fa-envelope form-icon"></i>
-                    {{ form.email() }}
+                    <label for="email" class="form-label">
+                        <i class="fas fa-envelope form-icon"></i>
+                        Email
+                    </label>
+                    {{ form.email(class="form-input", placeholder="Enter your email") }}
                     {% if form.email.errors %}
                         <div class="field-error">
                             {% for error in form.email.errors %}
@@ -60,9 +64,11 @@
                 
                 <!-- Password Field -->
                 <div class="form-group">
-                    {{ form.password.label(class="form-label") }}
-                    <i class="fas fa-lock form-icon"></i>
-                    {{ form.password() }}
+                    <label for="password" class="form-label">
+                        <i class="fas fa-lock form-icon"></i>
+                        Password
+                    </label>
+                    {{ form.password(class="form-input", placeholder="Create a password") }}
                     {% if form.password.errors %}
                         <div class="field-error">
                             {% for error in form.password.errors %}
@@ -74,9 +80,11 @@
                 
                 <!-- Confirm Password Field -->
                 <div class="form-group">
-                    {{ form.confirm_password.label(class="form-label") }}
-                    <i class="fas fa-lock form-icon"></i>
-                    {{ form.confirm_password() }}
+                    <label for="confirm_password" class="form-label">
+                        <i class="fas fa-lock form-icon"></i>
+                        Confirm Password
+                    </label>
+                    {{ form.confirm_password(class="form-input", placeholder="Confirm your password") }}
                     {% if form.confirm_password.errors %}
                         <div class="field-error">
                             {% for error in form.confirm_password.errors %}
@@ -101,8 +109,10 @@
                 </div>
                 
                 <!-- Register Button -->
-                {{ form.submit() }}
-                <i class="fas fa-user-plus btn-icon"></i>
+                <button type="submit" class="btn btn-green btn-block btn-large" name="{{ form.submit.name }}" value="">
+                    <i class="fas fa-user-plus btn-icon"></i>
+                    {{ form.submit.label.text }}
+                </button>
                 
                 <!-- Additional Links -->
                 <div class="text-center mt-20">
