@@ -1,53 +1,55 @@
-<nav class="navbar">
-    <div class="navbar-container">
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
         <!-- Brand/Logo -->
-        <a href="/" class="navbar-brand">
-            <i class="fas fa-fish"></i>
+        <a class="navbar-brand d-flex align-items-center" href="/">
+            <i class="fas fa-fish me-2"></i>
             FISHAO Journey
         </a>
         
         <!-- Mobile menu toggle -->
-        <button class="navbar-toggle">
-            <i class="fas fa-bars"></i>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
         </button>
         
         <!-- Navigation menu -->
-        <ul class="navbar-nav">            <li class="nav-item">
-                <a href="/" class="nav-link">
-                    <i class="fas fa-home"></i>
-                    Home
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="/game" class="nav-link">
-                    <i class="fas fa-gamepad"></i>
-                    Game
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="/profile" class="nav-link">
-                    <i class="fas fa-user"></i>
-                    Profile
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="/leaderboard" class="nav-link">
-                    <i class="fas fa-trophy"></i>
-                    Leaderboard
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="/shop" class="nav-link">
-                    <i class="fas fa-shopping-cart"></i>
-                    Shop
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="/logout" class="nav-link">
-                    <i class="fas fa-sign-out-alt"></i>
-                    Logout
-                </a>
-            </li>
-        </ul>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">
+                        <i class="fas fa-home me-1"></i>
+                        Home
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/game">
+                        <i class="fas fa-gamepad me-1"></i>
+                        Game
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/profile">
+                        <i class="fas fa-user me-1"></i>
+                        Profile
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/leaderboard">
+                        <i class="fas fa-trophy me-1"></i>
+                        Leaderboard
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/shop">
+                        <i class="fas fa-shopping-cart me-1"></i>
+                        Shop
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">
+                        <i class="fas fa-sign-out-alt me-1"></i>
+                        Logout
+                    </a>
+                </li>            </ul>
+        </div>
     </div>
 </nav>

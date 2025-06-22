@@ -1,0 +1,37 @@
+:root {
+    /* Original FISHAO brand colors */
+    --fishao-beige: #f8f1e0;
+    --fishao-brown: #775332;
+    --fishao-light-brown: #a89574;
+    --fishao-cream: #fbebb2;
+    --fishao-gold: #d8ca99;
+    --fishao-blue: #47c1f4;
+    --fishao-blue-dark: #116fa4;
+    --fishao-green: #5bcf02;
+    --fishao-green-dark: #367801;
+    --fishao-orange: #ffa200;
+    --fishao-orange-dark: #f06000;
+    --fishao-red: #e53e3e;
+    --fishao-red-dark: #c53030;
+    
+    /* Theme settings */
+    --fishao-font-family: 'Quicksand', sans-serif;
+    --fishao-border-radius: 8px;
+    --fishao-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    --fishao-shadow-lg: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+    --fishao-input-shadow: inset -2px 2px 1px var(--fishao-gold), -2px 2px 0 rgba(255, 255, 255, 0.8);
+    --fishao-input-focus-shadow: inset -2px 2px 1px var(--fishao-gold), -2px 2px 0 rgba(255, 255, 255, 0.8), 0 0 0 2px rgba(71, 193, 244, 0.3);
+    --fishao-btn-shadow: 0 1px 2px rgba(0, 0, 0, .92), inset 0 2px rgba(255, 255, 255, .3);
+    --fishao-btn-hover-shadow: 0 2px 4px rgba(0, 0, 0, .92), inset 0 2px rgba(255, 255, 255, .3);
+
+    /* Bootstrap override colors */
+    --fishao-primary: #0d6efd;
+    --fishao-success: #198754;
+    --fishao-warning: #ffc107;
+    --fishao-danger: #dc3545;
+    --fishao-info: #0dcaf0;
+    --fishao-light: #f8f9fa;
+    --fishao-dark: #212529;
+    
+}
+

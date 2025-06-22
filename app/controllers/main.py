@@ -37,9 +37,49 @@ def login():
             flash('Login successful! Welcome back!', 'success')
             return redirect(url_for('main.dashboard'))
         else:
-            flash(result.message or 'Invalid username or password.', 'error')
+            # Check if 2FA is required
+            if result.data and result.data.get('requires_2fa'):
+                session['temp_account_id'] = result.data['account_id']
+                return render_template('2fa_login.html', username=username)
+            else:
+                flash(result.message or 'Invalid username or password.', 'error')
     
     return render_template('login.html', form=form)
+
+@main_bp.route('/login/2fa', methods=['POST'])
+def login_2fa():
+    """Handle 2FA verification during login"""
+    if 'temp_account_id' not in session:
+        flash('Invalid session. Please login again.', 'error')
+        return redirect(url_for('main.login'))
+    
+    totp_code = request.form.get('totp_code')
+    remember = request.form.get('remember') == 'on'
+    
+    if not totp_code:        
+        flash('Please enter the verification code.', 'error')
+        return render_template('2fa_login.html')
+    
+    # Verify 2FA code for already authenticated account
+    result = auth_service.two_factor_service.verify_2fa_login(session['temp_account_id'], totp_code)
+    
+    if result.success:
+        account = result.data
+        session['user_id'] = account.id
+        session['username'] = account.username
+        session.pop('temp_account_id', None)
+        
+        if remember:
+            session.permanent = True
+        
+        flash('Login successful! Welcome back!', 'success')
+        return redirect(url_for('main.dashboard'))
+    else:
+        flash(result.message, 'error')
+        # Get account for username display
+        account_result = auth_service.get_player_by_id(session['temp_account_id'])
+        username = account_result.data.username if account_result.success else 'Unknown'
+        return render_template('2fa_login.html', username=username)
 
 @main_bp.route('/register', methods=['GET', 'POST'])
 def register():

@@ -1,0 +1,92 @@
+/* Form containers */
+.form-container {
+    background-color: var(--fishao-beige);
+    border-radius: 10px;
+    padding: 30px;
+    margin: 20px auto;
+    min-width: 400px;
+    max-width: 400px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-label {
+    display: block;
+    color: var(--fishao-brown);
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+/* Form inputs - unified styling */
+.form-control,
+.form-control-lg {
+    color: var(--fishao-brown);
+    background: var(--fishao-cream);
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-family: var(--fishao-font-family);
+    box-shadow: var(--fishao-input-shadow);
+    transition: all 0.3s ease;
+}
+
+.form-control:focus,
+.form-control-lg:focus {
+    outline: none;
+    box-shadow: var(--fishao-input-focus-shadow);
+    border-color: transparent;
+    color: var(--fishao-brown);
+    background: var(--fishao-cream);
+}
+
+.form-control::placeholder,
+.form-control-lg::placeholder {
+    color: var(--fishao-light-brown);
+}
+
+.form-control-lg {
+    font-size: 1.1rem;
+    padding: 0.75rem 1rem;
+}
+
+/* Form validation states */
+.form-control.is-valid {
+    border-color: var(--fishao-green);
+    background: var(--fishao-cream);
+    box-shadow: var(--fishao-input-shadow), 0 0 0 2px rgba(92, 207, 2, 0.3);
+}
+
+.form-control.is-invalid {
+    border-color: var(--fishao-red);
+    background: var(--fishao-cream);
+    box-shadow: var(--fishao-input-shadow), 0 0 0 2px rgba(229, 62, 62, 0.3);
+}
+
+.invalid-feedback,
+.valid-feedback {
+    font-family: var(--fishao-font-family);
+    font-weight: 500;
+}
+
+.invalid-feedback {
+    color: var(--fishao-red);
+}
+
+.valid-feedback {
+    color: var(--fishao-green);
+}
+
+/* Bootstrap form-check styling with FISHAO theme */
+.form-check-input:checked {
+    background-color: var(--fishao-primary);
+    border-color: var(--fishao-primary);
+}
+
+.form-check-input:focus {
+    border-color: var(--fishao-primary);
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}

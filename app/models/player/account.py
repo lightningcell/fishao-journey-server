@@ -18,6 +18,8 @@ class Account(BaseEntity):
     is_active = db.Column(db.Boolean, default=True)
     is_banned = db.Column(db.Boolean, default=False)
     is2fa_enabled = db.Column(db.Boolean, default=False)
+    totp_secret = db.Column(db.String(32))  # TOTP secret key
+    backup_codes = db.Column(db.Text)  # JSON string of backup codes
     changed_date = db.Column(db.DateTime)
     owner = db.Column(db.String)
     changed_by = db.Column(db.String)

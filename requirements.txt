@@ -4,3 +4,5 @@ Flask-Migrate==4.0.5
 Flask-WTF==1.1.1
 WTForms==3.0.1
 python-dotenv==1.0.0
+pyotp==2.9.0
+qrcode==7.4.2

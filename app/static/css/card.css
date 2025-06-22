@@ -1,0 +1,10 @@
+.card {
+    background-color: #f9f0df;
+    border-radius: var(--fishao-border-radius);
+    box-shadow: var(--fishao-shadow);
+    border: none;
+}
+
+.card.shadow-lg {
+    box-shadow: var(--fishao-shadow-lg);
+}

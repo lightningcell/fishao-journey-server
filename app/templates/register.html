@@ -2,132 +2,133 @@
 
 {% block title %}Register - Fishao Journey{% endblock %}
 
-{% block body_class %}register-page{% endblock %}
-
 {% block content %}
-<div class="container">
-    <div>
-        <div class="form-container">
-            <!-- Logo/Brand -->
-            <div class="text-center mb-20">
-                <h1 class="login-title">
-                    <i class="fas fa-fish login-icon"></i>
-                    Join FISHAO Journey
-                </h1>
-                <p class="login-subtitle">Create your account and start fishing!</p>
+<div class="container-fluid vh-100 d-flex align-items-center justify-content-center bg-light">
+    <div class="row w-100 justify-content-center">
+        <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5">
+            <div class="card shadow-lg border-0">
+                <div class="card-body p-4">
+                    <!-- Logo/Brand -->
+                    <div class="text-center mb-4">
+                        <h1 class="h3 mb-3 text-success">
+                            <i class="fas fa-fish me-2"></i>
+                            Join FISHAO Journey
+                        </h1>
+                        <p class="text-muted">Create your account and start fishing!</p>
+                    </div>
+                    
+                    <!-- Register Form -->
+                    <form method="POST" action="{{ url_for('main.register') }}">
+                        {{ form.hidden_tag() }}
+                        
+                        <!-- Flash Messages -->
+                        {% with messages = get_flashed_messages(with_categories=true) %}
+                            {% if messages %}
+                                {% for category, message in messages %}
+                                    <div class="alert alert-{{ 'danger' if category == 'error' else category }} alert-dismissible fade show">
+                                        {{ message }}
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
+                        {% endwith %}
+                        
+                        <div class="row">
+                            <!-- Username Field -->
+                            <div class="col-12 mb-3">
+                                <label for="username" class="form-label">
+                                    <i class="fas fa-user me-2"></i>Username
+                                </label>
+                                {{ form.username(class="form-control", placeholder="Enter your username") }}
+                                {% if form.username.errors %}
+                                    <div class="invalid-feedback d-block">
+                                        {% for error in form.username.errors %}
+                                            {{ error }}
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                            </div>
+                            
+                            <!-- Email Field -->
+                            <div class="col-12 mb-3">
+                                <label for="email" class="form-label">
+                                    <i class="fas fa-envelope me-2"></i>Email
+                                </label>
+                                {{ form.email(class="form-control", placeholder="Enter your email") }}
+                                {% if form.email.errors %}
+                                    <div class="invalid-feedback d-block">
+                                        {% for error in form.email.errors %}
+                                            {{ error }}
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                            </div>
+                            
+                            <!-- Password Field -->
+                            <div class="col-md-6 mb-3">
+                                <label for="password" class="form-label">
+                                    <i class="fas fa-lock me-2"></i>Password
+                                </label>
+                                {{ form.password(class="form-control", placeholder="Create a password") }}
+                                {% if form.password.errors %}
+                                    <div class="invalid-feedback d-block">
+                                        {% for error in form.password.errors %}
+                                            {{ error }}
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                            </div>
+                            
+                            <!-- Confirm Password Field -->
+                            <div class="col-md-6 mb-3">
+                                <label for="confirm_password" class="form-label">
+                                    <i class="fas fa-lock me-2"></i>Confirm Password
+                                </label>
+                                {{ form.confirm_password(class="form-control", placeholder="Confirm your password") }}
+                                {% if form.confirm_password.errors %}
+                                    <div class="invalid-feedback d-block">
+                                        {% for error in form.confirm_password.errors %}
+                                            {{ error }}
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                        
+                        <!-- Accept Terms Checkbox -->
+                        <div class="form-check mb-3">
+                            {{ form.accept_terms(class="form-check-input") }}
+                            <label class="form-check-label" for="accept_terms">
+                                I accept the Terms and Conditions
+                            </label>
+                            {% if form.accept_terms.errors %}
+                                <div class="invalid-feedback d-block">
+                                    {% for error in form.accept_terms.errors %}
+                                        {{ error }}
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+                        
+                        <!-- Register Button -->
+                        <div class="d-grid mb-3">
+                            <button type="submit" class="btn btn-success btn-lg">
+                                <i class="fas fa-user-plus me-2"></i>
+                                {{ form.submit.label.text }}
+                            </button>
+                        </div>
+                        
+                        <!-- Additional Links -->
+                        <div class="text-center">
+                            <p class="mb-2">Already have an account?</p>
+                            <a href="{{ url_for('main.login') }}" class="btn btn-primary btn-sm">
+                                <i class="fas fa-sign-in-alt me-2"></i>Login
+                            </a>
+                        </div>
+                    </form>
+                </div>
             </div>
-            
-            <!-- Register Form -->
-            <form method="POST" action="{{ url_for('main.register') }}">
-                {{ form.hidden_tag() }}
-                
-                <!-- Flash Messages -->
-                {% with messages = get_flashed_messages(with_categories=true) %}
-                    {% if messages %}
-                        {% for category, message in messages %}
-                            <div class="alert alert-{{ category }}">{{ message }}</div>
-                        {% endfor %}
-                    {% endif %}
-                {% endwith %}
-                
-                <!-- Username Field -->
-                <div class="form-group">
-                    <label for="username" class="form-label">
-                        <i class="fas fa-user form-icon"></i>
-                        Username
-                    </label>
-                    {{ form.username(class="form-input", placeholder="Enter your username") }}
-                    {% if form.username.errors %}
-                        <div class="field-error">
-                            {% for error in form.username.errors %}
-                                <small>{{ error }}</small>
-                            {% endfor %}
-                        </div>
-                    {% endif %}
-                </div>
-                
-                <!-- Email Field -->
-                <div class="form-group">
-                    <label for="email" class="form-label">
-                        <i class="fas fa-envelope form-icon"></i>
-                        Email
-                    </label>
-                    {{ form.email(class="form-input", placeholder="Enter your email") }}
-                    {% if form.email.errors %}
-                        <div class="field-error">
-                            {% for error in form.email.errors %}
-                                <small>{{ error }}</small>
-                            {% endfor %}
-                        </div>
-                    {% endif %}
-                </div>
-                
-                <!-- Password Field -->
-                <div class="form-group">
-                    <label for="password" class="form-label">
-                        <i class="fas fa-lock form-icon"></i>
-                        Password
-                    </label>
-                    {{ form.password(class="form-input", placeholder="Create a password") }}
-                    {% if form.password.errors %}
-                        <div class="field-error">
-                            {% for error in form.password.errors %}
-                                <small>{{ error }}</small>
-                            {% endfor %}
-                        </div>
-                    {% endif %}
-                </div>
-                
-                <!-- Confirm Password Field -->
-                <div class="form-group">
-                    <label for="confirm_password" class="form-label">
-                        <i class="fas fa-lock form-icon"></i>
-                        Confirm Password
-                    </label>
-                    {{ form.confirm_password(class="form-input", placeholder="Confirm your password") }}
-                    {% if form.confirm_password.errors %}
-                        <div class="field-error">
-                            {% for error in form.confirm_password.errors %}
-                                <small>{{ error }}</small>
-                            {% endfor %}
-                        </div>
-                    {% endif %}
-                </div>
-                
-                <!-- Accept Terms Checkbox -->
-                <div class="checkbox-group">
-                    <span class="checkbox"></span>
-                    {{ form.accept_terms() }}
-                    {{ form.accept_terms.label(class="checkbox-label") }}
-                    {% if form.accept_terms.errors %}
-                        <div class="field-error">
-                            {% for error in form.accept_terms.errors %}
-                                <small>{{ error }}</small>
-                            {% endfor %}
-                        </div>
-                    {% endif %}
-                </div>
-                
-                <!-- Register Button -->
-                <button type="submit" class="btn btn-green btn-block btn-large" name="{{ form.submit.name }}" value="">
-                    <i class="fas fa-user-plus btn-icon"></i>
-                    {{ form.submit.label.text }}
-                </button>
-                
-                <!-- Additional Links -->
-                <div class="text-center mt-20">
-                    <p class="register-prompt">
-                        Already have an account?
-                    </p>
-                    <a href="{{ url_for('main.login') }}" class="btn btn-blue register-btn">
-                        <i class="fas fa-sign-in-alt btn-icon"></i>
-                        Login
-                    </a>
-                </div>
-            </form>
         </div>
     </div>
 </div>
 {% endblock %}
-
-{% block additional_css %}{% endblock %}

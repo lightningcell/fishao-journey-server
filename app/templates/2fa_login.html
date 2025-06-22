@@ -1,0 +1,116 @@
+{% extends "base.html" %}
+
+{% block title %}Two-Factor Authentication - FISHAO Journey{% endblock %}
+
+{% block content %}
+<div class="container-fluid vh-100 d-flex align-items-center justify-content-center bg-light">
+    <div class="row w-100 justify-content-center">
+        <div class="col-12 col-sm-8 col-md-6 col-lg-4">
+            <div class="card shadow-lg border-0">
+                <div class="card-header bg-warning text-center py-4">
+                    <h1 class="h3 mb-2">
+                        <i class="fas fa-shield-alt me-2"></i>
+                        Two-Factor Authentication
+                    </h1>
+                    <p class="mb-0 text-dark opacity-75">
+                        Enter the 6-digit code from your authenticator app
+                    </p>
+                </div>
+                
+                <div class="card-body p-4">
+                    <form method="POST" action="{{ url_for('main.login_2fa') }}">
+                        <!-- Flash Messages -->
+                        {% with messages = get_flashed_messages(with_categories=true) %}
+                            {% if messages %}
+                                {% for category, message in messages %}
+                                    <div class="alert alert-{{ 'danger' if category == 'error' else category }} alert-dismissible fade show">
+                                        {{ message }}
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
+                        {% endwith %}
+
+                        <!-- User Info -->
+                        <div class="alert alert-info">
+                            <i class="fas fa-user me-2"></i>
+                            <strong>Account:</strong> {{ username }}
+                        </div>
+
+                        <!-- 2FA Code Field -->
+                        <div class="mb-3">
+                            <label for="totp_code" class="form-label">
+                                <i class="fas fa-key me-2"></i>Verification Code
+                            </label>
+                            <input type="text" class="form-control form-control-lg text-center fw-bold" 
+                                   id="totp_code" name="totp_code" 
+                                   maxlength="6" pattern="[0-9]{6}" placeholder="123456" 
+                                   autocomplete="one-time-code" required autofocus>
+                            <div class="form-text text-center">
+                                Enter the 6-digit code from your authenticator app or use a backup code
+                            </div>
+                        </div>
+
+                        <!-- Remember Me -->
+                        <div class="form-check mb-3">
+                            <input type="checkbox" class="form-check-input" id="remember" name="remember">
+                            <label class="form-check-label" for="remember">
+                                Remember this device for 30 days
+                            </label>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="d-grid mb-3">
+                            <button type="submit" class="btn btn-primary btn-lg">
+                                <i class="fas fa-sign-in-alt me-2"></i>
+                                Verify & Login
+                            </button>
+                        </div>
+
+                        <!-- Back to Login -->
+                        <div class="text-center">
+                            <a href="{{ url_for('main.login') }}" class="text-decoration-none">
+                                <i class="fas fa-arrow-left me-1"></i>
+                                Back to Login
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% block javascript %}
+<script>
+// Auto-submit when 6 digits are entered
+document.getElementById('totp_code').addEventListener('input', function(e) {
+    // Remove non-digits
+    e.target.value = e.target.value.replace(/\D/g, '');
+    
+    // Add visual feedback
+    if (e.target.value.length === 6) {
+        e.target.classList.add('is-valid');
+        // Auto-submit after a short delay
+        setTimeout(() => {
+            e.target.form.submit();
+        }, 300);
+    } else {
+        e.target.classList.remove('is-valid');
+    }
+});
+
+// Focus on code input when page loads
+window.addEventListener('load', function() {
+    document.getElementById('totp_code').focus();
+});
+
+// Add loading state to button on form submit
+document.querySelector('form').addEventListener('submit', function(e) {
+    const submitBtn = e.target.querySelector('button[type="submit"]');
+    submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Verifying...';
+    submitBtn.disabled = true;
+});
+</script>
+{% endblock %}
+{% endblock %}

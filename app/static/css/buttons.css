@@ -1,12 +1,13 @@
-/* Button styles */
+
+/* Base button styling */
 .btn {
     display: inline-block;
     padding: 12px 24px;
     border: none;
     border-radius: 10px;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, .92), inset 0 2px rgba(255, 255, 255, .3);
+    box-shadow: var(--fishao-btn-shadow);
     cursor: pointer;
-    font-family: 'Quicksand', sans-serif;
+    font-family: var(--fishao-font-family);
     font-size: 16px;
     font-weight: 500;
     text-decoration: none;
@@ -18,25 +19,47 @@
 
 .btn:hover {
     transform: translateY(-1px);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, .92), inset 0 2px rgba(255, 255, 255, .3);
+    box-shadow: var(--fishao-btn-hover-shadow);
+    color: white;
 }
 
 .btn:active {
     transform: translateY(0);
-    box-shadow: 0 1px 2px rgba(0, 0, 0, .92), inset 0 1px rgba(255, 255, 255, .3);
+    box-shadow: var(--fishao-btn-shadow);
 }
 
-/* Button variants */
+/* Button color variants */
+.btn-primary {
+    background-image: linear-gradient(to top, var(--fishao-blue-dark), var(--fishao-blue));
+}
+
+.btn-success {
+    background-image: linear-gradient(to top, var(--fishao-green-dark), var(--fishao-green));
+}
+
+.btn-warning {
+    background-image: linear-gradient(to top, var(--fishao-orange-dark), var(--fishao-orange));
+}
+
+.btn-danger {
+    background-image: linear-gradient(to top, var(--fishao-red-dark), var(--fishao-red));
+}
+
+/* Legacy button variants */
 .btn-blue {
-    background-image: linear-gradient(to top, #116fa4, #47c1f4);
+    background-image: linear-gradient(to top, var(--fishao-blue-dark), var(--fishao-blue));
 }
 
 .btn-green {
-    background-image: linear-gradient(to top, #367801, #5bcf02);
+    background-image: linear-gradient(to top, var(--fishao-green-dark), var(--fishao-green));
 }
 
 .btn-orange {
-    background-image: linear-gradient(to top, #f06000, #ffa200);
+    background-image: linear-gradient(to top, var(--fishao-orange-dark), var(--fishao-orange));
+}
+
+.btn-red {
+    background-image: linear-gradient(to top, var(--fishao-red-dark), var(--fishao-red));
 }
 
 /* Button sizes */
@@ -50,12 +73,17 @@
     font-size: 18px;
 }
 
+.btn-lg {
+    padding: 0.75rem 1.5rem;
+    font-size: 1.1rem;
+}
+
 .btn-block {
     display: block;
     width: 100%;
 }
 
-/* Button icon styles */
+/* Button icons */
 .btn .btn-icon {
     margin-right: 8px;
     color: white;

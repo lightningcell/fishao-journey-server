@@ -5,14 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}FISHAO Journey{% endblock %}</title>
     
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
     <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">      <!-- Custom CSS -->
-    <link rel="stylesheet" href="/static/css/base.css">
-    <link rel="stylesheet" href="/static/css/buttons.css">
-    <link rel="stylesheet" href="/static/css/forms.css">
-    <link rel="stylesheet" href="/static/css/navbar.css">
-    <link rel="stylesheet" href="/static/css/dashboard.css">
-    <link rel="stylesheet" href="/static/css/components.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/custom.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/variables.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/navbar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/buttons.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/card.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/form.css') }}">   
+
     
     <!-- Additional CSS blocks -->
     {% block additional_css %}{% endblock %}
@@ -24,44 +31,24 @@
     {% endblock %}
     
     <!-- Main Content -->
-    <main>
+    <main class="min-vh-100 d-flex flex-column">
         {% block content %}{% endblock %}
     </main>
     
-    <!-- Footer -->    {% block footer %}    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 Fishao Journey. All rights reserved.</p>
+    <!-- Footer -->
+    {% block footer %}
+    <footer class="bg-dark text-light py-3 mt-auto">
+        <div class="container text-center">
+            <p class="mb-0">&copy; 2025 Fishao Journey. All rights reserved.</p>
         </div>
     </footer>
     {% endblock %}
     
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
     <!-- JavaScript -->
     {% block javascript %}
-    <script>
-        // Mobile navbar toggle
-        document.addEventListener('DOMContentLoaded', function() {
-            const navbarToggle = document.querySelector('.navbar-toggle');
-            const navbarNav = document.querySelector('.navbar-nav');
-            
-            if (navbarToggle && navbarNav) {
-                navbarToggle.addEventListener('click', function() {
-                    navbarNav.classList.toggle('active');
-                });
-            }
-            
-            // Checkbox functionality
-            const checkboxes = document.querySelectorAll('.checkbox');
-            checkboxes.forEach(function(checkbox) {
-                checkbox.addEventListener('click', function() {
-                    const input = this.nextElementSibling;
-                    if (input && input.type === 'checkbox') {
-                        input.checked = !input.checked;
-                        this.classList.toggle('checked', input.checked);
-                    }
-                });
-            });
-        });
-    </script>
     {% endblock %}
 </body>
 </html>

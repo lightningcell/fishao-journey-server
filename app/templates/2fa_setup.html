@@ -1,0 +1,301 @@
+{% extends "base.html" %}
+
+{% block title %}Setup Two-Factor Authentication - FISHAO Journey{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-12 col-lg-8">
+            <div class="card shadow border-0">
+                <div class="card-header bg-primary text-white text-center py-4">
+                    <h1 class="h3 mb-2">
+                        <i class="fas fa-shield-alt me-3"></i>
+                        Setup Two-Factor Authentication
+                    </h1>
+                    <p class="mb-0 opacity-75">
+                        Secure your account with an additional layer of protection
+                    </p>
+                </div>
+
+                <div class="card-body p-4">
+                    <div class="row">
+                        <!-- Step 1: QR Code -->
+                        <div class="col-12 col-md-6 mb-4">
+                            <div class="h-100 p-4">
+                                <div class="d-flex align-items-center mb-3">
+                                    <span class="badge bg-success rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px;">
+                                        <span class="fw-bold">1</span>
+                                    </span>
+                                    <h4 class="h5 mb-0">Scan QR Code</h4>
+                                </div>
+                                
+                                <p class="text-muted mb-3">
+                                    Use your authenticator app to scan this QR code:<br>
+                                    <small class="text-info">
+                                        <i class="fas fa-mobile-alt me-1"></i>
+                                        Google Authenticator, Authy, Microsoft Authenticator, etc.
+                                    </small>
+                                </p>
+                                
+                                <div class="text-center mb-3">
+                                    <div class="d-inline-block p-3 bg-white rounded shadow-sm">
+                                        <img src="{{ qr_code }}" alt="QR Code" class="img-fluid" style="max-width: 200px;">
+                                    </div>
+                                </div>
+                                
+                                <div class="text-center">
+                                    <p class="small text-muted mb-2">
+                                        Can't scan? Enter this key manually:
+                                    </p>
+                                    <div class="d-flex align-items-center justify-content-center">
+                                        <code class="form-control">{{ secret_key }}</code>
+                                        <button type="button" class="btn btn-blue btn-sm ms-2" onclick="copySecret()">
+                                            <i class="fas fa-copy"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Verification -->
+                        <div class="col-12 col-md-6 mb-4">
+                            <div class="h-100 p-4">
+                                <div class="d-flex align-items-center mb-3">
+                                    <span class="badge bg-primary rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px;">
+                                        <span class="fw-bold">2</span>
+                                    </span>
+                                    <h4 class="h5 mb-0">Enter Verification Code</h4>
+                                </div>
+                                
+                                <form method="POST">
+                                    <div class="mb-3">
+                                        <label for="totp_code" class="form-label">
+                                            Enter the 6-digit code from your authenticator app:
+                                        </label>
+                                        <input type="text" 
+                                               class="form-control form-control-lg text-center fw-bold" 
+                                               id="totp_code" 
+                                               name="totp_code" 
+                                               maxlength="6" 
+                                               pattern="[0-9]{6}" 
+                                               placeholder="000000" 
+                                               autocomplete="off"
+                                               required>
+                                        <div class="form-text text-center">
+                                            <i class="fas fa-info-circle text-info me-1"></i>
+                                            Code refreshes every 30 seconds
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="d-grid gap-2">
+                                        <button type="submit" class="btn btn-green">
+                                            <i class="fas fa-check me-2"></i>
+                                            Verify & Enable 2FA
+                                        </button>
+                                        <a href="{{ url_for('main.dashboard') }}" class="btn btn-red">
+                                            <i class="fas fa-arrow-left me-2"></i>
+                                            Cancel Setup
+                                        </a>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.setup-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.setup-step {
+    border: 2px solid #e9ecef;
+    border-radius: 12px;
+    padding: 1.5rem;
+    background: #f8f9fa;
+}
+
+.step-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.step-number {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(to top, #367801, #5bcf02);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 18px;
+    margin-right: 1rem;
+}
+
+.qr-code-container {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid #dee2e6;
+}
+
+.qr-wrapper {
+    display: inline-block;
+    padding: 1rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.qr-image {
+    max-width: 200px;
+    height: auto;
+    display: block;
+}
+
+.secret-key-box {
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 0.75rem;
+    margin: 1rem auto;
+    max-width: 400px;
+    position: relative;
+}
+
+.secret-key {
+    background: transparent;
+    color: #495057;
+    font-weight: 600;
+    word-break: break-all;
+}
+
+.copy-btn {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #6c757d;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+.copy-btn:hover {
+    background: #e9ecef;
+    color: #495057;
+}
+
+.code-input-container {
+    position: relative;
+}
+
+.code-input {
+    font-family: 'Courier New', monospace;
+    letter-spacing: 0.2em;
+    padding: 1rem;
+    border: 2px solid #dee2e6;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.code-input:focus {
+    border-color: #5bcf02;
+    box-shadow: 0 0 0 3px rgba(91, 207, 2, 0.1);
+}
+
+.input-hint {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.verification-form {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid #dee2e6;
+}
+
+@media (max-width: 768px) {
+    .setup-steps {
+        gap: 1.5rem;
+    }
+    
+    .setup-step {
+        padding: 1rem;
+    }
+    
+    .step-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .step-number {
+        margin-right: 0;
+    }
+    
+    .qr-image {
+        max-width: 150px;
+    }
+}
+</style>
+
+<script>
+// Auto-submit when 6 digits are entered
+document.getElementById('totp_code').addEventListener('input', function(e) {
+    // Only allow numbers
+    e.target.value = e.target.value.replace(/[^0-9]/g, '');
+    
+    if (e.target.value.length === 6) {
+        // Add a small delay to show the complete code
+        setTimeout(() => {
+            e.target.form.submit();
+        }, 500);
+    }
+});
+
+// Copy secret key function
+function copySecret() {
+    const secretKey = document.querySelector('.secret-key').textContent;
+    navigator.clipboard.writeText(secretKey).then(function() {
+        const btn = document.querySelector('.copy-btn');
+        const originalHTML = btn.innerHTML;
+        btn.innerHTML = '<i class="fas fa-check text-success"></i>';
+        setTimeout(() => {
+            btn.innerHTML = originalHTML;
+        }, 2000);
+    }).catch(function(err) {
+        console.error('Could not copy text: ', err);
+        // Fallback for older browsers
+        const textArea = document.createElement('textarea');
+        textArea.value = secretKey;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+    });
+}
+
+// Add loading state to submit button
+document.querySelector('.verification-form').addEventListener('submit', function(e) {
+    const submitBtn = e.target.querySelector('button[type="submit"]');
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Verifying...';
+    submitBtn.disabled = true;
+});
+</script>
+{% endblock %}

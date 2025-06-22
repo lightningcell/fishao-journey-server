@@ -18,7 +18,10 @@ def create_app():
     
     # Blueprint'leri kayıt et
     from controllers.main import main_bp
+    from controllers.two_factor import two_factor_bp
+    
     app.register_blueprint(main_bp)
+    app.register_blueprint(two_factor_bp)
     
     return app
 
