@@ -87,13 +87,13 @@
             </div>
             <div class="card-body">
                 <div class="d-grid gap-2">
-                    <a href="/admin/areas" class="btn btn-outline-primary">
+                    <a href="/admin/areas" class="btn btn-green">
                         <i class="fas fa-map me-2"></i>Manage Areas
                     </a>
-                    <a href="/admin/fish" class="btn btn-outline-success">
+                    <a href="/admin/fish" class="btn btn-blue">
                         <i class="fas fa-fish me-2"></i>Manage Fish
                     </a>
-                    <a href="/admin/decorations" class="btn btn-outline-info">
+                    <a href="/admin/decorations" class="btn btn-orange">
                         <i class="fas fa-palette me-2"></i>Manage Decorations
                     </a>
                 </div>
@@ -154,23 +154,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
 async function loadDashboardStats() {
     try {
-        // Areas count
-        const areasResponse = await fetch('/admin/api/areas?per_page=1');
-        const areasData = await areasResponse.json();
-        if (areasData.success) {
-            document.getElementById('total-areas').textContent = areasData.data.pagination.total;
+        // Dashboard stats API'sinden tüm istatistikleri tek seferde al
+        const statsResponse = await fetch('/admin/api/dashboard-stats');
+        const statsData = await statsResponse.json();
+        
+        if (statsData.success) {
+            const stats = statsData.data;
+            document.getElementById('total-areas').textContent = stats.areas_count;
+            document.getElementById('total-fish').textContent = stats.fish_count;
+            document.getElementById('total-decorations').textContent = stats.decorations_count;
+            // Placeholder for players
+            document.getElementById('total-players').textContent = '156';
         }
-
-        // Fish count
-        const fishResponse = await fetch('/admin/api/fish?per_page=1');
-        const fishData = await fishResponse.json();
-        if (fishData.success) {
-            document.getElementById('total-fish').textContent = fishData.data.pagination.total;
-        }
-
-        // Placeholder for decorations and players
-        document.getElementById('total-decorations').textContent = '28';
-        document.getElementById('total-players').textContent = '156';
         
     } catch (error) {
         console.error('Error loading dashboard stats:', error);

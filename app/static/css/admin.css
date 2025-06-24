@@ -308,6 +308,25 @@
     font-weight: 500;
 }
 
+/* Home Points Display */
+.home-points {
+    color: var(--fishao-orange);
+    font-weight: 600;
+}
+
+/* Category Badge Styling */
+.admin-data-table .badge.bg-info {
+    background: linear-gradient(to right, var(--fishao-blue-dark), var(--fishao-blue)) !important;
+}
+
+.admin-data-table .badge.bg-success {
+    background: linear-gradient(to right, var(--fishao-green-dark), var(--fishao-green)) !important;
+}
+
+.admin-data-table .badge.bg-secondary {
+    background: linear-gradient(to right, var(--fishao-light-brown), var(--fishao-brown)) !important;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .admin-container {
