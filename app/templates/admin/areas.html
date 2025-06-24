@@ -1,0 +1,242 @@
+{% extends "admin/base.html" %}
+
+{% block title %}Areas Management{% endblock %}
+
+{% block breadcrumb %}
+<li class="breadcrumb-item active">Areas</li>
+{% endblock %}
+
+{% block page_title %}Areas Management{% endblock %}
+
+{% block page_actions %}
+<button class="btn btn-primary" onclick="showCreateModal()">
+    <i class="fas fa-plus me-2"></i>Add New Area
+</button>
+{% endblock %}
+
+{% block content %}
+<!-- Data Overview Component -->
+<div class="data-overview-container">
+    <!-- Filters & Search -->
+    <div class="card mb-4">
+        <div class="card-body">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <div class="input-group">
+                        <span class="input-group-text">
+                            <i class="fas fa-search"></i>
+                        </span>
+                        <input type="text" class="form-control" id="searchInput" placeholder="Search areas...">
+                    </div>
+                </div>
+                <div class="col-md-6 text-end">
+                    <div class="data-info">
+                        <span class="badge bg-primary" id="totalItemsInfo">Loading...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Data Table -->
+    <div class="card">
+        <div class="card-body">
+            <!-- Loading Spinner -->
+            <div id="loadingSpinner" class="text-center py-5">
+                <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <p class="mt-2 text-muted">Loading areas...</p>
+            </div>
+            
+            <!-- Data Table -->
+            <div id="dataTableContainer" style="display: none;">
+                <div class="table-responsive">
+                    <table class="table table-hover admin-data-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Area ID</th>
+                                <th>Level Req.</th>
+                                <th>Type</th>
+                                <th>Parent Area</th>
+                                <th>Sub Areas</th>
+                                <th>Fish Count</th>
+                                <th>Special Locations</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="dataTableBody">
+                            <!-- Data will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- Pagination -->
+                <nav aria-label="Page navigation" class="mt-4">
+                    <ul class="pagination justify-content-center" id="paginationContainer">
+                        <!-- Pagination will be populated by JavaScript -->
+                    </ul>
+                </nav>
+            </div>
+            
+            <!-- No Data State -->
+            <div id="noDataContainer" class="text-center py-5" style="display: none;">
+                <i class="fas fa-map text-muted" style="font-size: 4rem;"></i>
+                <h5 class="mt-3 text-muted">No areas found</h5>
+                <p class="text-muted">Try adjusting your search criteria or add a new area.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Create/Edit Modal -->
+<div class="modal fade" id="areaModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="areaModalTitle">Add New Area</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form id="areaForm">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="areaName" class="form-label">Area Name</label>
+                                <input type="text" class="form-control" id="areaName" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="areaId" class="form-label">Area ID</label>
+                                <input type="number" class="form-control" id="areaId" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="levelRequirement" class="form-label">Level Requirement</label>
+                                <input type="number" class="form-control" id="levelRequirement" min="1">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="badgeId" class="form-label">Badge ID</label>
+                                <input type="number" class="form-control" id="badgeId">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="isSubArea">
+                                    <label class="form-check-label" for="isSubArea">
+                                        Is Sub Area
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="parentAreaId" class="form-label">Parent Area</label>
+                                <select class="form-select" id="parentAreaId">
+                                    <option value="">No Parent Area</option>
+                                    <!-- Options will be populated by JavaScript -->
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" onclick="saveArea()">Save Area</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/admin-data-overview.js') }}"></script>
+<script>
+// Area-specific configuration
+const areaOverview = new AdminDataOverview({
+    apiEndpoint: '/admin/api/areas',
+    entityName: 'area',
+    entityNamePlural: 'areas',
+    perPage: 7,
+    
+    // Table column configuration
+    tableColumns: [
+        { key: 'id', label: 'ID', sortable: true },
+        { key: 'name', label: 'Name', sortable: true },
+        { key: 'area_id', label: 'Area ID', sortable: true },
+        { key: 'level_requirement', label: 'Level Req.', sortable: true },
+        { 
+            key: 'is_sub_area', 
+            label: 'Type', 
+            render: (value) => value ? '<span class="badge bg-info">Sub Area</span>' : '<span class="badge bg-primary">Main Area</span>' 
+        },
+        { key: 'parent_area_name', label: 'Parent Area', render: (value) => value || '-' },
+        { key: 'sub_areas_count', label: 'Sub Areas', sortable: true },
+        { key: 'fishes_count', label: 'Fish Count', sortable: true },
+        { key: 'special_locations_count', label: 'Special Locations', sortable: true }
+    ],
+    
+    // Action buttons for each row
+    rowActions: [
+        {
+            label: 'Edit',
+            icon: 'fas fa-edit',
+            class: 'btn-blue btn-sm',
+            action: (item) => editArea(item)
+        },
+        {
+            label: 'Delete',
+            icon: 'fas fa-trash',
+            class: 'btn-red btn-sm',
+            action: (item) => deleteArea(item)
+        }
+    ]
+});
+
+// Initialize
+document.addEventListener('DOMContentLoaded', function() {
+    areaOverview.init();
+});
+
+// Area-specific functions
+function showCreateModal() {
+    document.getElementById('areaModalTitle').textContent = 'Add New Area';
+    document.getElementById('areaForm').reset();
+    new bootstrap.Modal(document.getElementById('areaModal')).show();
+}
+
+function editArea(area) {
+    document.getElementById('areaModalTitle').textContent = 'Edit Area';
+    document.getElementById('areaName').value = area.name;
+    document.getElementById('areaId').value = area.area_id;
+    document.getElementById('levelRequirement').value = area.level_requirement || '';
+    document.getElementById('badgeId').value = area.badge_id || '';
+    document.getElementById('isSubArea').checked = area.is_sub_area;
+    new bootstrap.Modal(document.getElementById('areaModal')).show();
+}
+
+function deleteArea(area) {
+    if (confirm(`Are you sure you want to delete "${area.name}"?`)) {
+        // Delete API call will be implemented here
+        console.log('Delete area:', area);
+    }
+}
+
+function saveArea() {
+    // Save API call will be implemented here
+    console.log('Save area');
+}
+</script>
+{% endblock %}

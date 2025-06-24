@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash, session
 from forms import LoginForm, RegisterForm
-from services import AuthService, PlayerService
+from services import AuthService, PlayerService, RoleService
 from models import db
 from utils.role_decorators import require_admin, require_moderator, require_developer, require_player
 
@@ -8,6 +8,7 @@ main_bp = Blueprint('main', __name__)
 
 auth_service = AuthService(db)
 player_service = PlayerService(db)
+role_service = RoleService(db)
 
 @main_bp.route('/')
 def index():
@@ -23,14 +24,17 @@ def login():
         username = form.username.data
         password = form.password.data
         remember = form.remember_me.data
-        
-        # Authenticate user using service
+          # Authenticate user using service
         result = auth_service.authenticate_user(username, password)
         
         if result.success:
             account = result.data
             session['user_id'] = account.id
             session['username'] = account.username
+            
+            # Get user roles and add to session
+            user_roles = role_service.get_user_roles(account.id).data
+            session['user_roles'] = [role for role in user_roles] if user_roles else []
             
             if remember:
                 session.permanent = True
@@ -60,8 +64,7 @@ def login_2fa():
     if not totp_code:        
         flash('Please enter the verification code.', 'error')
         return render_template('2fa_login.html')
-    
-    # Verify 2FA code for already authenticated account
+      # Verify 2FA code for already authenticated account
     result = auth_service.two_factor_service.verify_2fa_login(session['temp_account_id'], totp_code)
     
     if result.success:
@@ -69,6 +72,10 @@ def login_2fa():
         session['user_id'] = account.id
         session['username'] = account.username
         session.pop('temp_account_id', None)
+        
+        # Get user roles and add to session
+        user_roles = role_service.get_user_roles(account.id).data
+        session['user_roles'] = [role for role in user_roles] if user_roles else []
         
         if remember:
             session.permanent = True
@@ -103,7 +110,6 @@ def register():
     return render_template('register.html', form=form)
 
 @main_bp.route('/dashboard')
-@require_admin()
 def dashboard():
     """Dashboard page - requires login"""
     if 'user_id' not in session:

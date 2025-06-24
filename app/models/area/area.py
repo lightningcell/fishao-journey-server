@@ -35,3 +35,6 @@ class Area(BaseEntity):
 
     # One-to-Many: Area -> Trade
     trades = db.relationship('Trade', back_populates='area', lazy='dynamic')
+
+    def __repr__(self):
+        return f'<Area {self.id}: {self.name}>'

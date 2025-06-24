@@ -43,7 +43,32 @@
                         <i class="fas fa-shopping-cart me-1"></i>
                         Shop
                     </a>
+                </li>                <!-- Admin Panel Dropdown (Only for Admins) -->
+                {% if session.get('user_id') and session.get('user_roles') and 'Admin' in session.get('user_roles', []) %}
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="adminDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-cog me-1"></i>
+                        Admin Panel
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="adminDropdown">
+                        <li><h6 class="dropdown-header">Data Management</h6></li>
+                        <li><a class="dropdown-item" href="/admin/areas">
+                            <i class="fas fa-map me-2"></i>Areas
+                        </a></li>
+                        <li><a class="dropdown-item" href="/admin/fish">
+                            <i class="fas fa-fish me-2"></i>Fish
+                        </a></li>
+                        <li><a class="dropdown-item" href="/admin/decorations">
+                            <i class="fas fa-palette me-2"></i>Decorations
+                        </a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="/admin/dashboard">
+                            <i class="fas fa-tachometer-alt me-2"></i>Admin Dashboard
+                        </a></li>
+                    </ul>
                 </li>
+                {% endif %}
+                
                 <li class="nav-item">
                     <a class="nav-link" href="/logout">
                         <i class="fas fa-sign-out-alt me-1"></i>

@@ -1,0 +1,41 @@
+{% extends "admin/base.html" %}
+
+{% block title %}Fish Management{% endblock %}
+
+{% block breadcrumb %}
+<li class="breadcrumb-item active">Fish</li>
+{% endblock %}
+
+{% block page_title %}Fish Management{% endblock %}
+
+{% block page_actions %}
+<button class="btn btn-primary" onclick="showCreateModal()">
+    <i class="fas fa-plus me-2"></i>Add New Fish
+</button>
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="text-center py-5">
+                    <i class="fas fa-fish text-muted" style="font-size: 4rem;"></i>
+                    <h4 class="mt-3 text-muted">Fish Management</h4>
+                    <p class="text-muted">Fish management functionality will be implemented here.</p>
+                    <p class="text-muted">This page will use the same modular data overview component as Areas.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+// Fish-specific functionality will be added here
+function showCreateModal() {
+    AdminPanel.showToast('Fish management coming soon!', 'info');
+}
+</script>
+{% endblock %}

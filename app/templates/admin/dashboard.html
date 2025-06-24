@@ -1,0 +1,160 @@
+{% extends "admin/base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block breadcrumb %}
+<li class="breadcrumb-item active">Dashboard</li>
+{% endblock %}
+
+{% block page_title %}Admin Dashboard{% endblock %}
+
+{% block content %}
+<div class="row">
+    <!-- Quick Stats -->
+    <div class="col-md-3">
+        <div class="card admin-stat-card">
+            <div class="card-body">
+                <div class="d-flex align-items-center">
+                    <div class="stat-icon bg-primary">
+                        <i class="fas fa-map"></i>
+                    </div>
+                    <div class="ms-3">
+                        <h6 class="card-title mb-0">Total Areas</h6>
+                        <h4 class="mb-0" id="total-areas">-</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-3">
+        <div class="card admin-stat-card">
+            <div class="card-body">
+                <div class="d-flex align-items-center">
+                    <div class="stat-icon bg-success">
+                        <i class="fas fa-fish"></i>
+                    </div>
+                    <div class="ms-3">
+                        <h6 class="card-title mb-0">Total Fish</h6>
+                        <h4 class="mb-0" id="total-fish">-</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-3">
+        <div class="card admin-stat-card">
+            <div class="card-body">
+                <div class="d-flex align-items-center">
+                    <div class="stat-icon bg-info">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <div class="ms-3">
+                        <h6 class="card-title mb-0">Decorations</h6>
+                        <h4 class="mb-0" id="total-decorations">-</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-3">
+        <div class="card admin-stat-card">
+            <div class="card-body">
+                <div class="d-flex align-items-center">
+                    <div class="stat-icon bg-warning">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="ms-3">
+                        <h6 class="card-title mb-0">Total Players</h6>
+                        <h4 class="mb-0" id="total-players">-</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <!-- Quick Actions -->
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">
+                    <i class="fas fa-bolt me-2"></i>Quick Actions
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="d-grid gap-2">
+                    <a href="/admin/areas" class="btn btn-outline-primary">
+                        <i class="fas fa-map me-2"></i>Manage Areas
+                    </a>
+                    <a href="/admin/fish" class="btn btn-outline-success">
+                        <i class="fas fa-fish me-2"></i>Manage Fish
+                    </a>
+                    <a href="/admin/decorations" class="btn btn-outline-info">
+                        <i class="fas fa-palette me-2"></i>Manage Decorations
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Recent Activity -->
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">
+                    <i class="fas fa-clock me-2"></i>Recent Activity
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="activity-feed">
+                    <div class="activity-item">
+                        <div class="activity-icon bg-primary">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                        <div class="activity-content">
+                            <p class="mb-1">New area added: <strong>Mystic Lake</strong></p>
+                            <small class="text-muted">2 hours ago</small>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon bg-success">
+                            <i class="fas fa-edit"></i>
+                        </div>
+                        <div class="activity-content">
+                            <p class="mb-1">Updated fish: <strong>Golden Trout</strong></p>
+                            <small class="text-muted">5 hours ago</small>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon bg-info">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="activity-content">
+                            <p class="mb-1">New decoration added: <strong>Crystal Fountain</strong></p>
+                            <small class="text-muted">1 day ago</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+// Dashboard stats yükleme
+document.addEventListener('DOMContentLoaded', function() {
+    // Burada gerçek API çağrıları yapılacak
+    // Şimdilik placeholder değerler
+    document.getElementById('total-areas').textContent = '15';
+    document.getElementById('total-fish').textContent = '42';
+    document.getElementById('total-decorations').textContent = '28';
+    document.getElementById('total-players').textContent = '156';
+});
+</script>
+{% endblock %}
