@@ -288,6 +288,26 @@
     border-radius: 0 0 var(--fishao-border-radius) var(--fishao-border-radius);
 }
 
+/* Star Rating Display */
+.star-rating {
+    color: #ffd700;
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+}
+
+.star-rating .fas.fa-star {
+    margin-right: 1px;
+}
+
+/* Data Table Special Formatting */
+.admin-data-table .text-warning {
+    color: var(--fishao-orange) !important;
+}
+
+.admin-data-table .badge {
+    font-family: var(--fishao-font-family);
+    font-weight: 500;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .admin-container {

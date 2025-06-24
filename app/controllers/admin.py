@@ -6,6 +6,7 @@ Yönetici işlemleri için controller sınıfı
 from flask import Blueprint, render_template, request, jsonify, session, flash, redirect, url_for
 from utils.role_decorators import require_admin
 from models.area.area import Area
+from models.fishing.fish import Fish
 from models import db
 import math
 
@@ -92,6 +93,76 @@ def api_areas():
 def fish():
     """Fish overview sayfası"""
     return render_template('admin/fish.html')
+
+@admin_bp.route('/api/fish')
+@require_admin()
+def api_fish():
+    """Fish listesi için API endpoint"""
+    try:
+        page = request.args.get('page', 1, type=int)
+        per_page = 7  # Her sayfada 7 veri
+        search = request.args.get('search', '').strip()
+        
+        # Base query
+        query = Fish.query
+        
+        # Search filter
+        if search:
+            query = query.filter(
+                Fish.name.ilike(f'%{search}%')
+            )
+        
+        # Pagination
+        pagination_result = query.order_by(Fish.id.asc()).paginate(
+            page=page,
+            per_page=per_page,
+            error_out=False
+        )
+        
+        # Serialize fish
+        fish_data = []
+        for fish in pagination_result.items:
+            fish_data.append({
+                'id': fish.id,
+                'name': fish.name,
+                'star_rate': fish.star_rate,
+                'rarity_factor': fish.rarity_factor,
+                'min_length': fish.min_length,
+                'average_length': fish.average_length,
+                'max_length': fish.max_length,
+                'price': fish.price,
+                'club_points': fish.club_points,
+                'fishcoins_to_unlock': fish.fishcoins_to_unlock,
+                'breed_duration_hours': fish.breed_duration_hours,
+                'breed_cost': fish.breed_cost,
+                'breed_success_rate': fish.breed_success_rate,
+                'areas_count': len(fish.areas),
+                'special_locations_count': len(fish.special_locations),
+                'bait_categories_count': len(fish.bait_categories)
+            })
+        
+        return jsonify({
+            'success': True,
+            'data': {
+                'items': fish_data,
+                'pagination': {
+                    'page': pagination_result.page,
+                    'per_page': pagination_result.per_page,
+                    'total': pagination_result.total,
+                    'pages': pagination_result.pages,
+                    'has_prev': pagination_result.has_prev,
+                    'has_next': pagination_result.has_next,
+                    'prev_num': pagination_result.prev_num,
+                    'next_num': pagination_result.next_num
+                }
+            }
+        })
+        
+    except Exception as e:
+        return jsonify({
+            'success': False,
+            'message': f'Hata oluştu: {str(e)}'
+        }), 500
 
 @admin_bp.route('/decorations')
 @require_admin()

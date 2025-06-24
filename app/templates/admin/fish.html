@@ -15,16 +15,192 @@
 {% endblock %}
 
 {% block content %}
-<div class="row">
-    <div class="col-12">
-        <div class="card">
-            <div class="card-body">
-                <div class="text-center py-5">
-                    <i class="fas fa-fish text-muted" style="font-size: 4rem;"></i>
-                    <h4 class="mt-3 text-muted">Fish Management</h4>
-                    <p class="text-muted">Fish management functionality will be implemented here.</p>
-                    <p class="text-muted">This page will use the same modular data overview component as Areas.</p>
+<!-- Data Overview Component -->
+<div class="data-overview-container">
+    <!-- Filters & Search -->
+    <div class="card mb-4">
+        <div class="card-body">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <div class="input-group">
+                        <span class="input-group-text">
+                            <i class="fas fa-search"></i>
+                        </span>
+                        <input type="text" class="form-control" id="searchInput" placeholder="Search fish...">
+                    </div>
                 </div>
+                <div class="col-md-6 text-end">
+                    <div class="data-info">
+                        <span class="badge bg-primary" id="totalItemsInfo">Loading...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Data Table -->
+    <div class="card">
+        <div class="card-body">
+            <!-- Loading Spinner -->
+            <div id="loadingSpinner" class="text-center py-5">
+                <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <p class="mt-2 text-muted">Loading fish...</p>
+            </div>
+            
+            <!-- Data Table -->
+            <div id="dataTableContainer" style="display: none;">
+                <div class="table-responsive">
+                    <table class="table table-hover admin-data-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Star Rate</th>
+                                <th>Rarity</th>
+                                <th>Length Range</th>
+                                <th>Price</th>
+                                <th>Club Points</th>
+                                <th>Unlock Cost</th>
+                                <th>Areas</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="dataTableBody">
+                            <!-- Data will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- Pagination -->
+                <nav aria-label="Page navigation" class="mt-4">
+                    <ul class="pagination justify-content-center" id="paginationContainer">
+                        <!-- Pagination will be populated by JavaScript -->
+                    </ul>
+                </nav>
+            </div>
+            
+            <!-- No Data State -->
+            <div id="noDataContainer" class="text-center py-5" style="display: none;">
+                <i class="fas fa-fish text-muted" style="font-size: 4rem;"></i>
+                <h5 class="mt-3 text-muted">No fish found</h5>
+                <p class="text-muted">Try adjusting your search criteria or add a new fish.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Create/Edit Modal -->
+<div class="modal fade" id="fishModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="fishModalTitle">Add New Fish</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form id="fishForm">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="fishName" class="form-label">Fish Name</label>
+                                <input type="text" class="form-control" id="fishName" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="starRate" class="form-label">Star Rate</label>
+                                <select class="form-select" id="starRate" required>
+                                    <option value="">Select star rate</option>
+                                    <option value="1">1 Star</option>
+                                    <option value="2">2 Stars</option>
+                                    <option value="3">3 Stars</option>
+                                    <option value="4">4 Stars</option>
+                                    <option value="5">5 Stars</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label for="minLength" class="form-label">Min Length (cm)</label>
+                                <input type="number" class="form-control" id="minLength" min="1">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label for="averageLength" class="form-label">Average Length (cm)</label>
+                                <input type="number" class="form-control" id="averageLength" min="1">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label for="maxLength" class="form-label">Max Length (cm)</label>
+                                <input type="number" class="form-control" id="maxLength" min="1">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label for="rarityFactor" class="form-label">Rarity Factor</label>
+                                <input type="number" class="form-control" id="rarityFactor" step="0.01" min="0" max="1">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label for="price" class="form-label">Price</label>
+                                <input type="number" class="form-control" id="price" min="0">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label for="clubPoints" class="form-label">Club Points</label>
+                                <input type="number" class="form-control" id="clubPoints" min="0">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label for="fishcoinsToUnlock" class="form-label">Fishcoins to Unlock</label>
+                                <input type="number" class="form-control" id="fishcoinsToUnlock" min="0">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label for="breedDurationHours" class="form-label">Breed Duration (hours)</label>
+                                <input type="number" class="form-control" id="breedDurationHours" min="0">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label for="breedCost" class="form-label">Breed Cost</label>
+                                <input type="number" class="form-control" id="breedCost" min="0">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="breedSuccessRate" class="form-label">Breed Success Rate (%)</label>
+                                <input type="number" class="form-control" id="breedSuccessRate" step="0.01" min="0" max="100">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="hueShiftOfShiny" class="form-label">Hue Shift of Shiny</label>
+                                <input type="number" class="form-control" id="hueShiftOfShiny" min="0" max="360">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" onclick="saveFish()">Save Fish</button>
             </div>
         </div>
     </div>
@@ -32,10 +208,124 @@
 {% endblock %}
 
 {% block scripts %}
+<script src="{{ url_for('static', filename='js/admin-data-overview.js') }}"></script>
 <script>
-// Fish-specific functionality will be added here
+// Fish-specific configuration
+const fishOverview = new AdminDataOverview({
+    apiEndpoint: '/admin/api/fish',
+    entityName: 'fish',
+    entityNamePlural: 'fish',
+    perPage: 7,
+    
+    // Table column configuration
+    tableColumns: [
+        { key: 'id', label: 'ID', sortable: true },
+        { key: 'name', label: 'Name', sortable: true },
+        { 
+            key: 'star_rate', 
+            label: 'Star Rate', 
+            sortable: true,
+            render: (value) => {
+                if (!value) return '-';
+                let stars = '';
+                for (let i = 0; i < value; i++) {
+                    stars += '<i class="fas fa-star text-warning"></i>';
+                }
+                return stars;
+            }
+        },
+        { 
+            key: 'rarity_factor', 
+            label: 'Rarity', 
+            sortable: true,
+            render: (value) => value ? `${(value * 100).toFixed(1)}%` : '-'
+        },
+        { 
+            key: 'length_range', 
+            label: 'Length Range', 
+            render: (value, item) => {
+                if (!item.min_length && !item.max_length) return '-';
+                return `${item.min_length || 0}-${item.max_length || 0} cm`;
+            }
+        },
+        { 
+            key: 'price', 
+            label: 'Price', 
+            sortable: true,
+            render: (value) => value ? `${value.toLocaleString()} 💰` : '-'
+        },
+        { 
+            key: 'club_points', 
+            label: 'Club Points', 
+            sortable: true,
+            render: (value) => value ? `${value.toLocaleString()} 🏆` : '-'
+        },
+        { 
+            key: 'fishcoins_to_unlock', 
+            label: 'Unlock Cost', 
+            sortable: true,
+            render: (value) => value ? `${value.toLocaleString()} 🪙` : 'Free'
+        },
+        { key: 'areas_count', label: 'Areas', sortable: true }
+    ],
+    
+    // Action buttons for each row
+    rowActions: [
+        {
+            label: 'Edit',
+            icon: 'fas fa-edit',
+            class: 'btn-blue btn-sm',
+            action: (item) => editFish(item)
+        },
+        {
+            label: 'Delete',
+            icon: 'fas fa-trash',
+            class: 'btn-red btn-sm',
+            action: (item) => deleteFish(item)
+        }
+    ]
+});
+
+// Initialize
+document.addEventListener('DOMContentLoaded', function() {
+    fishOverview.init();
+});
+
+// Fish-specific functions
 function showCreateModal() {
-    AdminPanel.showToast('Fish management coming soon!', 'info');
+    document.getElementById('fishModalTitle').textContent = 'Add New Fish';
+    document.getElementById('fishForm').reset();
+    new bootstrap.Modal(document.getElementById('fishModal')).show();
+}
+
+function editFish(fish) {
+    document.getElementById('fishModalTitle').textContent = 'Edit Fish';
+    document.getElementById('fishName').value = fish.name;
+    document.getElementById('starRate').value = fish.star_rate || '';
+    document.getElementById('minLength').value = fish.min_length || '';
+    document.getElementById('averageLength').value = fish.average_length || '';
+    document.getElementById('maxLength').value = fish.max_length || '';
+    document.getElementById('rarityFactor').value = fish.rarity_factor || '';
+    document.getElementById('price').value = fish.price || '';
+    document.getElementById('clubPoints').value = fish.club_points || '';
+    document.getElementById('fishcoinsToUnlock').value = fish.fishcoins_to_unlock || '';
+    document.getElementById('breedDurationHours').value = fish.breed_duration_hours || '';
+    document.getElementById('breedCost').value = fish.breed_cost || '';
+    document.getElementById('breedSuccessRate').value = fish.breed_success_rate || '';
+    document.getElementById('hueShiftOfShiny').value = fish.hue_shift_of_shiny || '';
+    new bootstrap.Modal(document.getElementById('fishModal')).show();
+}
+
+function deleteFish(fish) {
+    if (confirm(`Are you sure you want to delete "${fish.name}"?`)) {
+        // Delete API call will be implemented here
+        console.log('Delete fish:', fish);
+    }
+}
+
+function saveFish() {
+    // Save API call will be implemented here
+    console.log('Save fish');
 }
 </script>
 {% endblock %}

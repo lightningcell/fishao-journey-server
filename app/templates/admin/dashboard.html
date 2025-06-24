@@ -149,12 +149,37 @@
 <script>
 // Dashboard stats yükleme
 document.addEventListener('DOMContentLoaded', function() {
-    // Burada gerçek API çağrıları yapılacak
-    // Şimdilik placeholder değerler
-    document.getElementById('total-areas').textContent = '15';
-    document.getElementById('total-fish').textContent = '42';
-    document.getElementById('total-decorations').textContent = '28';
-    document.getElementById('total-players').textContent = '156';
+    loadDashboardStats();
 });
+
+async function loadDashboardStats() {
+    try {
+        // Areas count
+        const areasResponse = await fetch('/admin/api/areas?per_page=1');
+        const areasData = await areasResponse.json();
+        if (areasData.success) {
+            document.getElementById('total-areas').textContent = areasData.data.pagination.total;
+        }
+
+        // Fish count
+        const fishResponse = await fetch('/admin/api/fish?per_page=1');
+        const fishData = await fishResponse.json();
+        if (fishData.success) {
+            document.getElementById('total-fish').textContent = fishData.data.pagination.total;
+        }
+
+        // Placeholder for decorations and players
+        document.getElementById('total-decorations').textContent = '28';
+        document.getElementById('total-players').textContent = '156';
+        
+    } catch (error) {
+        console.error('Error loading dashboard stats:', error);
+        // Fallback values
+        document.getElementById('total-areas').textContent = '-';
+        document.getElementById('total-fish').textContent = '-';
+        document.getElementById('total-decorations').textContent = '-';
+        document.getElementById('total-players').textContent = '-';
+    }
+}
 </script>
 {% endblock %}
